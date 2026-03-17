@@ -50,11 +50,14 @@ Specialization: Information Security
 
 ## 🔐 Security Research
 
-### 🔹 Security Research Portfolio  
-https://github.com/tharunsridhar/security-research-portfolio  
+### 🔹 [Security (Learning & Exploration)] (https://github.com/tharunsridhar/security-research-portfolio)
 
-- Research and case studies on Zero Trust Architecture (ZTA) and Adaptive Trust Architecture (ATA)  
-- Focus on secure system design, identity validation, and access control  
+
+- Studied real-world vulnerabilities including RCE, IDOR, and large-scale data breaches
+
+- Analyzed system failures and attack patterns in modern backend architectures
+
+- Understanding of secure design principles and common backend security risks
 
 ---
 
@@ -96,8 +99,7 @@ n8n
 - Artificial Intelligence — SmartBridge (Google for Developers)  
 - AI Fluency: Framework & Foundations — Anthropic  
 - Claude Code in Action — Anthropic  
-- Introduction to Model Context Protocol — Anthropic  
-- Model Context Protocol: Advanced Topics — Anthropic  
+- Introduction to Model Context Protocol & Advanced Topics — Anthropic  
 
 ---
 
