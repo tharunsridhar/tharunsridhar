@@ -50,7 +50,7 @@ Specialization: Information Security
 
 ## 🔐 Security Research
 
-### 🔹 [Security (Learning & Exploration)] (https://github.com/tharunsridhar/security-research-portfolio)
+### 🔹 [Security (Learning & Exploration)](https://github.com/tharunsridhar/security-research-portfolio)
 
 
 - Studied real-world vulnerabilities including RCE, IDOR, and large-scale data breaches
