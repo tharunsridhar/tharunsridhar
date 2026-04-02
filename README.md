@@ -99,7 +99,7 @@ n8n
 
 - Artificial Intelligence — SmartBridge (Google for Developers)
 - AI Fluency: Framework & Foundations — Anthropic
-- Introduction to Model Context Protocol — Anthropic
+- Introduction to Model Context Protocol & Advanced Model Context Protocol — Anthropic
 
 ---
 
