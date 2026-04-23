@@ -4,6 +4,7 @@ Backend Engineer building scalable systems and integrating AI/ML models into pro
  B.Tech Computer Science Engineering with specialization in Information Security 
  VIT Vellore, graduating May 2026.
 
+AI | ML | Backend developer
 ---
 
 ##  About Me
