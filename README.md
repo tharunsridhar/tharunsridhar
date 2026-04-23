@@ -1,7 +1,7 @@
 # Hi, I'm Tharun Sridhar Natarajan
 Backend Engineer building scalable systems and integrating AI/ML models into production-grade applications, with a focus on security.
 
-🎓 B.Tech Computer Science (Information Security) — VIT Vellore, graduating May 2026.
+🎓 B.Tech Computer Science Engineering with specialization in Information Security — VIT Vellore, graduating May 2026.
 
 ---
 
