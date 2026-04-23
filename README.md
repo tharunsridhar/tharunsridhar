@@ -1,11 +1,12 @@
 # Hi, I'm Tharun Sridhar Natarajan
 Backend Engineer building scalable systems and integrating AI/ML models into production-grade applications, with a focus on security.
 
-🎓 B.Tech Computer Science Engineering with specialization in Information Security — VIT Vellore, graduating May 2026.
+ B.Tech Computer Science Engineering with specialization in Information Security 
+ VIT Vellore, graduating May 2026.
 
 ---
 
-## 💫 About Me
+##  About Me
 
 - Backend-focused developer with strong applied machine learning experience
 - Building real-world systems combining APIs, automation, and AI
@@ -13,7 +14,7 @@ Backend Engineer building scalable systems and integrating AI/ML models into pro
 
 ---
 
-## ⚙️ What I Build
+## What I Build
 
 - Scalable REST APIs using FastAPI, Flask, Node.js, and Spring Boot
 - AI-powered systems (LLMs, automation pipelines, ML models)
@@ -22,9 +23,9 @@ Backend Engineer building scalable systems and integrating AI/ML models into pro
 
 ---
 
-## 🚀 Featured Projects
+## Featured Projects
 
-### 🔹 NeuroScan AI — Brain Tumor MRI Analysis System
+###  NeuroScan AI — Brain Tumor MRI Analysis System
 - 3-model deep learning ensemble (EfficientNetV2-S, MobileNetV3, ConvNeXt-Tiny) for tumor classification
 - EfficientNetB4 Attention U-Net segmentation with Dice ~0.88
 - Novel Dynamic Risk Index (DRI) with closed-loop lesion-aware fusion
@@ -33,7 +34,7 @@ Backend Engineer building scalable systems and integrating AI/ML models into pro
 
 ---
 
-### 🔹 AI Voice Agent Configuration Automation
+###  AI Voice Agent Configuration Automation
 - Converts call transcripts → structured voice-agent configs (JSON)
 - Extracts intents, entities, and conversation flows automatically
 - Designed versioned system (v1/v2) with changelog generation
@@ -41,7 +42,7 @@ Backend Engineer building scalable systems and integrating AI/ML models into pro
 
 ---
 
-### 🔹 Malware Classification using Deep Learning
+###  Malware Classification using Deep Learning
 - Converted binaries → grayscale images for pattern extraction
 - Trained EfficientNetV2 on 15K+ samples across 31 malware families
 - Achieved ~95% accuracy with strong macro F1-score
@@ -49,21 +50,21 @@ Backend Engineer building scalable systems and integrating AI/ML models into pro
 
 ---
 
-### 🔹 Smart Task Planner API
+###  Smart Task Planner API
 - LLM-powered API that generates structured task breakdowns from high-level goals
 - Produces dependencies, subtasks, and timelines automatically
 - Focus: LLM integration + backend API design
 
 ---
 
-## 🔐 Security (Learning & Exploration)
+##  Security (Learning & Exploration)
 - Studied real-world vulnerabilities including RCE, IDOR, and large-scale data breaches
 - Analyzed system failures and attack patterns in modern backend architectures
 - Understanding of secure design principles and common backend security risks
 
 ---
 
-## 🧠 How I Work
+##  How I Work
 
 - Prefer simple, scalable architectures over unnecessary complexity
 - Focus on production-ready systems, not tutorial-level projects
@@ -71,7 +72,7 @@ Backend Engineer building scalable systems and integrating AI/ML models into pro
 
 ---
 
-## 💻 Tech Stack
+##  Tech Stack
 
 ### Backend
 FastAPI, Flask, Node.js, Express, Spring Boot
@@ -96,7 +97,7 @@ n8n
 
 ---
 
-## 📜 Certifications
+##  Certifications
 
 - Artificial Intelligence — SmartBridge (Google for Developers)
 - AI Fluency: Framework & Foundations — Anthropic
@@ -104,7 +105,7 @@ n8n
 
 ---
 
-## 🌐 Contact
+##  Contact
 
 📧 tharunsridhar@gmail.com
 🔗 [LinkedIn](https://www.linkedin.com/in/tharun-sridhar-5a978029b)
