@@ -17,7 +17,7 @@ Software Engineer | Backend Developer | AI/ML Application
 
 ## What I Build
 
-- Scalable REST APIs using FastAPI, Flask, Node.js, and Spring Boot
+- Scalable REST APIs using FastAPI, Express.js and Spring Boot
 - AI-powered systems (LLMs, automation pipelines, ML models)
 - Secure backend systems with authentication, authorization, and data protection
 - Cloud-native applications using AWS and Google Cloud
@@ -68,7 +68,7 @@ Software Engineer | Backend Developer | AI/ML Application
 ##  How I Work
 
 - Prefer simple, scalable architectures over unnecessary complexity
-- Focus on production-ready systems, not tutorial-level projects
+- 
 - Design systems with security, maintainability, and performance in mind
 
 ---
@@ -76,7 +76,7 @@ Software Engineer | Backend Developer | AI/ML Application
 ##  Tech Stack
 
 ### Backend
-FastAPI, Flask, Node.js, Express, Spring Boot
+FastAPI, Express, Spring Boot
 
 ### AI / ML
 TensorFlow, PyTorch, Scikit-learn, OpenCV, Pandas, NumPy
@@ -85,13 +85,13 @@ TensorFlow, PyTorch, Scikit-learn, OpenCV, Pandas, NumPy
 PostgreSQL, MySQL, MongoDB
 
 ### Cloud & DevOps
-AWS, Google Cloud Platform, Git
+AWS,  Git
 
 ### Frontend (Working Knowledge)
-React.js, HTML, CSS, HTMX
+React.js, HTML, CSS,
 
 ### Languages
-Python, Java, JavaScript, C++
+Python, Java, JavaScript
 
 ### Automation
 n8n
