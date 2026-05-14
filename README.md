@@ -63,13 +63,6 @@ Software Engineer | Backend Developer | AI/ML Application
 - Analyzed system failures and attack patterns in modern backend architectures
 - Understanding of secure design principles and common backend security risks
 
----
-
-##  How I Work
-
-- Prefer simple, scalable architectures over unnecessary complexity
-- 
-- Design systems with security, maintainability, and performance in mind
 
 ---
 
