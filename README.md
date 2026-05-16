@@ -1,5 +1,5 @@
 # Hi, I'm Tharun Sridhar Natarajan
-## Software Engineer | Backend Developer | AI/ML Application
+## AI Engineer | Backend Developer | ML Application
 Backend and Engineer building scalable systems and integrating ML models into production-grade applications.
 
  B.Tech Computer Science Engineering with specialization in Information Security 
