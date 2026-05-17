@@ -72,29 +72,29 @@ Software engineer with hands-on experience building backend systems and machine 
 
 ## Stack
 
-**Backend** — FastAPI · Flask · Spring Boot
+**Backend** : FastAPI · Flask · Spring Boot
 
-**ML / AI** — PyTorch · TensorFlow · Scikit-learn · OpenCV · Pandas · NumPy
+**ML / AI** : PyTorch · TensorFlow · Scikit-learn · OpenCV · Pandas · NumPy
 
-**LLMs** — Groq Llama-4 · MCP (Model Context Protocol)
+**LLMs** : Groq Llama-4 · MCP (Model Context Protocol)
 
-**Databases** — PostgreSQL · MySQL · MongoDB
+**Databases** : PostgreSQL · MySQL · MongoDB
 
-**Cloud** — AWS · Google Cloud · Git · GitHub
+**Cloud** : AWS · Google Cloud · Git · GitHub
 
-**Frontend** — React.js · HTML · CSS
+**Frontend** : React.js · HTML · CSS
 
-**Languages** — Python · Java · JavaScript · SQL
+**Languages** : Python · Java · JavaScript · SQL
 
-**Automation** — n8n
+**Automation** : n8n
 
 ---
 
 ## Certifications
 
-- Artificial Intelligence — SmartBridge (Google for Developers)
-- AI Fluency: Framework & Foundations — Anthropic
-- Introduction to MCP & Advanced MCP — Anthropic
+- Artificial Intelligence : SmartBridge (Google for Developers)
+- AI Fluency: Framework & Foundations : Anthropic
+- Introduction to MCP & Advanced MCP : Anthropic
 
 ---
 
