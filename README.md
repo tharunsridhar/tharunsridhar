@@ -53,7 +53,6 @@ Software engineer with hands-on experience building backend systems and machine 
 - Converted PE binaries to grayscale image tensors for visual pattern classification
 - Fine-tuned EfficientNetV2 on 15K+ samples across 31 malware families
 - ~95% test accuracy, macro F1 ~0.96
-
 ---
 
 ### Employee Task Management System
