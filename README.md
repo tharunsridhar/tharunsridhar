@@ -1,6 +1,6 @@
 # Hi, I'm Tharun Sridhar Natarajan
 
-## Fullstack Developer (focused on Backend) | AI Engineer 
+## `Fullstack Developer (focused on Backend)` | `AI Engineer` 
 
 ### `B.Tech in Computer Science VIT Vellore 26`
 
