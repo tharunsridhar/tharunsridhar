@@ -10,7 +10,7 @@ Software engineer with hands-on experience building backend systems and machine 
 
 ## About Me
 
-- I like building things that actually run — APIs, pipelines, ML systems
+- I like building things that actually run APIs, pipelines, ML systems
 - Comfortable going from model training to deployment and wiring it to a backend
 - Curious about secure system design and how things break in production
 
@@ -31,7 +31,7 @@ Software engineer with hands-on experience building backend systems and machine 
 `PyTorch` `FastAPI` `Groq Llama-4` `OpenCV` `GradCAM`
 
 - 4-model ensemble (EfficientNetV2-S, MobileNetV3, DenseNet-201, ConvNeXt-Tiny) for MRI classification
-- EfficientNetB4 Attention U-Net segmentation — Dice ~0.88
+- EfficientNetB4 Attention U-Net segmentation : Dice ~0.88
 - Dynamic Risk Index (DRI) with lesion-aware fusion for prediction reliability scoring
 - GradCAM explainability + Groq Llama-4 for radiology report generation + PDF export
 - FastAPI backend — endpoints for upload, inference, report generation, Google Drive storage
