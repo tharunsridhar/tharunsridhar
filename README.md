@@ -1,106 +1,105 @@
 # Hi, I'm Tharun Sridhar Natarajan
-## AI Engineer | Backend Developer | ML Application
-Backend and Engineer building scalable systems and integrating ML models into production-grade applications.
 
- B.Tech Computer Science Engineering with specialization in Information Security 
- VIT Vellore, graduating May 2026.
+Fullstack Developer (focused on Backend) | AI Engineer 
 
-
----
-
-##  About Me
-
-- Backend-focused developer with strong applied machine learning experience
-- Building real-world systems combining APIs, automation, and AI
-- Interested in scalable architectures, backend performance, and secure system design
+I build backend systems and ship ML models into working products.
+B.Tech Computer Science — Information Security specialization
+VIT Vellore, graduating May 2026.
 
 ---
 
-## What I Build
+## About Me
 
-- Scalable REST APIs using FastAPI, Express.js and Spring Boot
-- AI-powered systems (LLMs, automation pipelines, ML models)
-- Secure backend systems with authentication, authorization, and data protection
-- Cloud-native applications using AWS and Google Cloud
-
----
-
-## Featured Projects
-
-###  NeuroScan AI — Brain Tumor MRI Analysis System
-- 3-model deep learning ensemble (EfficientNetV2-S, MobileNetV3, ConvNeXt-Tiny) for tumor classification
-- EfficientNetB4 Attention U-Net segmentation with Dice ~0.88
-- Novel Dynamic Risk Index (DRI) with closed-loop lesion-aware fusion
-- Grad-CAM explainability + Groq Llama-4 radiology report generation + PDF export
-- Focus: applied ML + system design + AI pipelines
+- I like building things that actually run — APIs, pipelines, ML systems
+- Comfortable going from model training to deployment and wiring it to a backend
+- Curious about secure system design and how things break in production
 
 ---
 
-###  AI Voice Agent Configuration Automation
-- Converts call transcripts → structured voice-agent configs (JSON)
-- Extracts intents, entities, and conversation flows automatically
-- Designed versioned system (v1/v2) with changelog generation
-- Focus: AI pipelines + automation + system design
+## Worked On
+
+- REST APIs with FastAPI, Flask, and Spring Boot
+- Deep learning systems — training, ensembling, and serving models
+- LLM integrations and automation pipelines
+- Backend systems with clean structure and database design
 
 ---
 
-###  Malware Classification using Deep Learning
-- Converted binaries → grayscale images for pattern extraction
-- Trained EfficientNetV2 on 15K+ samples across 31 malware families
-- Achieved ~95% accuracy with strong macro F1-score
-- Focus: applied ML + data preprocessing + model optimization
+## Projects
+
+### NeuroScan AI — Brain Tumor MRI Analysis
+`PyTorch` `FastAPI` `Groq Llama-4` `OpenCV` `GradCAM`
+
+- 4-model ensemble (EfficientNetV2-S, MobileNetV3, DenseNet-201, ConvNeXt-Tiny) for MRI classification
+- EfficientNetB4 Attention U-Net segmentation — Dice ~0.88
+- Dynamic Risk Index (DRI) with lesion-aware fusion for prediction reliability scoring
+- GradCAM explainability + Groq Llama-4 for radiology report generation + PDF export
+- FastAPI backend — endpoints for upload, inference, report generation, Google Drive storage
 
 ---
 
-###  Smart Task Planner API
-- LLM-powered API that generates structured task breakdowns from high-level goals
-- Produces dependencies, subtasks, and timelines automatically
-- Focus: LLM integration + backend API design
+### Clara Pipeline — Voice Agent Automation
+`Python` `FastAPI` `n8n` `JSON`
+
+- Parses call transcripts and outputs structured voice-agent configs (JSON)
+- Extracts intents, entities, slots, and dialog flows from raw text
+- Versioned output system (v1/v2) with changelog generation
 
 ---
 
-##  Security (Learning & Exploration)
-- Studied real-world vulnerabilities including RCE, IDOR, and large-scale data breaches
-- Analyzed system failures and attack patterns in modern backend architectures
-- Understanding of secure design principles and common backend security risks
+### Static Malware Classification
+`TensorFlow` `EfficientNetV2` `Python` `NumPy`
 
-
----
-
-##  Tech Stack
-
-### Backend
-FastAPI, Express, Spring Boot
-
-### AI / ML
-TensorFlow, PyTorch, Scikit-learn, OpenCV, Pandas, NumPy
-
-### Databases
-PostgreSQL, MySQL, MongoDB
-
-### Cloud & DevOps
-AWS,  Git
-
-### Frontend (Working Knowledge)
-React.js, HTML, CSS,
-
-### Languages
-Python, Java, JavaScript
-
-### Automation
-n8n
+- Converted PE binaries to grayscale image tensors for visual pattern classification
+- Fine-tuned EfficientNetV2 on 15K+ samples across 31 malware families
+- ~95% test accuracy, macro F1 ~0.96
 
 ---
 
-##  Certifications
+### Employee Task Management System
+`Java` `Spring Boot` `MySQL` `REST APIs`
+
+- RESTful CRUD API for employees and tasks, backed by MySQL
+- Standard layered architecture — Controller, Service, Repository
+
+---
+
+## Security
+
+- Studied real-world vulnerabilities — RCE, IDOR, data breaches
+- Looking at how modern backend systems fail and how to design around it
+
+---
+
+## Stack
+
+**Backend** — FastAPI · Flask · Spring Boot
+
+**ML / AI** — PyTorch · TensorFlow · Scikit-learn · OpenCV · Pandas · NumPy
+
+**LLMs** — Groq Llama-4 · MCP (Model Context Protocol)
+
+**Databases** — PostgreSQL · MySQL · MongoDB
+
+**Cloud** — AWS · Google Cloud · Git · GitHub
+
+**Frontend** — React.js · HTML · CSS
+
+**Languages** — Python · Java · JavaScript · SQL
+
+**Automation** — n8n
+
+---
+
+## Certifications
 
 - Artificial Intelligence — SmartBridge (Google for Developers)
 - AI Fluency: Framework & Foundations — Anthropic
-- Introduction to Model Context Protocol & Advanced Model Context Protocol — Anthropic
+- Introduction to MCP & Advanced MCP — Anthropic
 
 ---
 
-##  Contact
+## Contact
 
 📧 tharunsridhar@gmail.com
 🔗 [LinkedIn](https://www.linkedin.com/in/tharun-sridhar-5a978029b)
