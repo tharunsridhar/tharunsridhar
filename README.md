@@ -8,7 +8,7 @@ Software engineer with hands-on experience building backend systems and machine 
 ---
 
 ## About Me
-### `B.Tech in CS VIT Vellore 26`
+### `B.Tech in CS` VITv 26`
 - I like building things that actually run APIs, pipelines, ML systems
 - Comfortable going from model training to deployment and wiring it to a backend
 - Curious about secure system design and how things break in production
