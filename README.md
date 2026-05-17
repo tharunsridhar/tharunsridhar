@@ -65,7 +65,7 @@ Software engineer with hands-on experience building backend systems and machine 
 
 ## Security
 
-- Studied real-world vulnerabilities — RCE, IDOR, data breaches
+- Studied real-world vulnerabilities : RCE, IDOR, data breaches
 - Looking at how modern backend systems fail and how to design around it
 
 ---
