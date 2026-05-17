@@ -1,8 +1,8 @@
 # Hi, I'm Tharun Sridhar Natarajan
 
-Fullstack Developer (focused on Backend) | AI Engineer 
+##Fullstack Developer (focused on Backend) | AI Engineer 
 
-## Bachelor of Technology in Computer Science with Information Security specialization VIT Vellore, graduating May 2026.
+### Bachelor of Technology in Computer Science with Information Security specialization VIT Vellore, graduating May 2026.
 
 Software engineer with hands-on experience building backend systems and machine learning applications end-to-end from REST API design and database integration to model training, ensemble design, and LLM-powered pipelines. Built real-world systems using Python, Java, FastAPI, Flask, Spring Boot, PyTorch, TensorFlow, and Groq LLM API, with applied work in computer vision, transfer learning, GradCAM explainability, and automated report generation. Comfortable across the stack backend architecture, AI integration, and frontend wiring.
 
