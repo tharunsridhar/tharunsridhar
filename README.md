@@ -1,4 +1,4 @@
-# Hi, I'm Tharun 
+# Hi, I'm Tharun Sridhar
 
 ## `Fullstack Developer` | `AI Engineer` 
 
