@@ -1,14 +1,19 @@
 # Hi, I'm Tharun Sridhar Natarajan
 
-## `Fullstack Developer` | `AI Engineer` 
+## `Fullstack Developer` | `AI Engineer`
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-F57C00?style=flat-square&logo=tensorflow&logoColor=white)
 
 Software engineer with hands-on experience building backend systems and machine learning applications end-to-end from REST API design and database integration to model training, ensemble design, and LLM-powered pipelines. Built real-world systems using Python, Java, FastAPI, Flask, Spring Boot, PyTorch, TensorFlow, and Groq LLM API, with applied work in computer vision, transfer learning, GradCAM explainability, and automated report generation. Comfortable across the stack backend architecture, AI integration, and frontend wiring.
 
 ---
 
 ## About Me
-### `B.Tech in CS` VITv 26`
+### `B.Tech in CS` · VIT '26
 - I like building things that actually run APIs, pipelines, ML systems
 - Comfortable going from model training to deployment and wiring it to a backend
 - Curious about secure system design and how things break in production
