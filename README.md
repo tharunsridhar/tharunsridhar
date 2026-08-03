@@ -8,7 +8,7 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-F57C00?style=flat-square&logo=tensorflow&logoColor=white)
 
-Software engineer with hands-on experience building backend systems and machine learning applications end-to-end from REST API design and database integration to model training, ensemble design, and LLM-powered pipelines. Built real-world systems using Python, Java, FastAPI, Flask, Spring Boot, PyTorch, TensorFlow, and Groq LLM API, with applied work in computer vision, transfer learning, GradCAM explainability, and automated report generation. Comfortable across the stack backend architecture, AI integration, and frontend wiring.
+Software engineer with hands-on experience building backend systems and machine learning applications end-to-end from REST API design and database integration to model training, ensemble design, and LLM-powered pipelines. Built real-world systems using Python, Java, FastAPI, Flask, PyTorch, TensorFlow, and Groq LLM API, with applied work in computer vision, transfer learning, GradCAM explainability, and automated report generation. Comfortable across the stack backend architecture, AI integration, and frontend wiring.
 
 ---
 
@@ -22,7 +22,7 @@ Software engineer with hands-on experience building backend systems and machine 
 
 ## Worked On
 
-- REST APIs with FastAPI, Flask, and Spring Boot
+- REST APIs with FastAPI and Flask
 - Deep learning systems — training, ensembling, and serving models
 - LLM integrations and automation pipelines
 - Backend systems with clean structure and database design
@@ -42,61 +42,55 @@ Software engineer with hands-on experience building backend systems and machine 
 
 ---
 
-### Clara Pipeline — Voice Agent Automation
-`Python` `FastAPI` `n8n` `JSON`
+### Inventra — Inventory Management System
+`FastAPI` `SQLAlchemy 2.0` `SQLite` `JWT` `Alembic`
 
-- Parses call transcripts and outputs structured voice-agent configs (JSON)
-- Extracts intents, entities, slots, and dialog flows from raw text
-- Versioned output system (v1/v2) with changelog generation
+- Single-warehouse inventory system: products, purchase/sales orders, returns, damage write-offs
+- Role-based access (Admin/Manager/Employee) with JWT login + revocable refresh tokens
+- Immutable stock transaction ledger — every stock change writes one auditable row, never edited/deleted
+- Atomic, idempotent order completion (receive/complete are safe to retry)
+- [GitHub](https://github.com/tharunsridhar/Inventra)
 
 ---
 
-### Static Malware Classification
+### PhotoShare API — Photo/Video Sharing Backend
+`FastAPI` `SQLAlchemy (Async)` `JWT` `ImageKit`
+
+- Async FastAPI backend for photo/video sharing with JWT auth (register/login/verify/reset)
+- Media upload and CDN delivery via ImageKit, shared feed with per-post ownership
+- Owner-only post deletion, single-origin deployment (API + frontend, no CORS)
+- [GitHub](https://github.com/tharunsridhar/photoshare-api)
+
+---
+
+### Malware Family Classification with Deep Learning
 `TensorFlow` `EfficientNetV2` `Python` `NumPy`
 
 - Converted PE binaries to grayscale image tensors for visual pattern classification
 - Fine-tuned EfficientNetV2 on 15K+ samples across 31 malware families
 - ~95% test accuracy, macro F1 ~0.96
----
-
-### Employee Task Management System
-`Java` `Spring Boot` `MySQL` `REST APIs`
-
-- RESTful CRUD API for employees and tasks, backed by MySQL
-- Standard layered architecture — Controller, Service, Repository
-
----
-
-## Security
-
-- Studied real-world vulnerabilities : RCE, IDOR, data breaches
-- Looking at how modern backend systems fail and how to design around it
 
 ---
 
 ## Stack
 
-**Backend** : FastAPI · Flask · Spring Boot
+**Languages** : Python · Java · SQL
 
-**ML / AI** : PyTorch · TensorFlow · Scikit-learn · OpenCV · Pandas · NumPy
+**Backend** : FastAPI · REST API Design · JWT Authentication · SQLAlchemy · Alembic · Microservices · Asynchronous Programming · Postman
 
-**LLMs** : Groq Llama-4 · MCP (Model Context Protocol)
+**AI / ML** : Machine Learning · Deep Learning · TensorFlow · EfficientNetV2 · LLM Integration · Feature Engineering · Model Evaluation · OpenCV · Pandas · NumPy
 
-**Databases** : PostgreSQL · MySQL · MongoDB
-
-**Cloud** : AWS · Google Cloud · Git · GitHub
+**Databases** : MySQL · SQLite · Relational Database Design
 
 **Frontend** : React.js · HTML · CSS
 
-**Languages** : Python · Java · JavaScript · SQL
-
-**Automation** : n8n
+**Cloud & DevOps** : AWS · Google Cloud Platform · Git · GitHub
 
 ---
 
 ## Certifications
 
-- Artificial Intelligence : SmartBridge (Google for Developers)
+- AWS Certified Solutions Architect – Associate (SAA-C03) Specialization : Packt (July 2026)
 - AI Fluency: Framework & Foundations : Anthropic
 - Introduction to MCP & Advanced MCP : Anthropic
 
