@@ -49,7 +49,6 @@ Software engineer with hands-on experience building backend systems and machine 
 - Role-based access (Admin/Manager/Employee) with JWT login + revocable refresh tokens
 - Immutable stock transaction ledger — every stock change writes one auditable row, never edited/deleted
 - Atomic, idempotent order completion (receive/complete are safe to retry)
-- [GitHub](https://github.com/tharunsridhar/Inventra)
 
 ---
 
@@ -59,7 +58,6 @@ Software engineer with hands-on experience building backend systems and machine 
 - Async FastAPI backend for photo/video sharing with JWT auth (register/login/verify/reset)
 - Media upload and CDN delivery via ImageKit, shared feed with per-post ownership
 - Owner-only post deletion, single-origin deployment (API + frontend, no CORS)
-- [GitHub](https://github.com/tharunsridhar/photoshare-api)
 
 ---
 
