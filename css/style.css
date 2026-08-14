@@ -339,8 +339,15 @@ svg { width: 1.1em; height: 1.1em; }
   50% { border-radius: 62% 38% 38% 62% / 58% 62% 38% 42%; }
 }
 
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 1.4rem;
+}
 .badge-float {
-  position: absolute;
+  display: inline-block;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -349,24 +356,12 @@ svg { width: 1.1em; height: 1.1em; }
   font-weight: 600;
   box-shadow: var(--shadow);
   animation: float 5s ease-in-out infinite;
+  white-space: nowrap;
 }
-.badge-1 { top: 6%; left: -6%; animation-delay: 0s; }
-.badge-2 { bottom: 8%; right: -8%; animation-delay: 1.5s; }
-.badge-3 {
-  top: 100%;
-  margin-top: 16px;
-  left: 50%;
-  animation-name: float-center;
-  animation-duration: 5s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-delay: 0.75s;
-}
-@keyframes float-center {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-10px); }
-}
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.badge-1 { animation-delay: 0s; }
+.badge-3 { animation-delay: 0.75s; }
+.badge-2 { animation-delay: 1.5s; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
 .scroll-cue {
   position: absolute;
