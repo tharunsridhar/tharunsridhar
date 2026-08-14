@@ -298,23 +298,30 @@ function renderAccomplishments() {
 renderAccomplishments();
 
 /* ============================================================
-   Certification data
+   Certification & badge data
    ============================================================ */
-const CERTS = [
+const CERTIFICATIONS = [
   { name: 'AWS Certified Solutions Architect – Associate (SAA-C03) Specialization', issuer: 'Packt', date: 'Jul 2026', icon: '☁️' },
-  { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', date: '2026', icon: '🤖' },
-  { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: '2026', icon: '🔗' },
-  { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: '2026', icon: '🔗' },
   { name: 'Develop Generative AI Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', icon: '✨' },
   { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'May–Jun 2025', icon: '🧠' }
 ];
 
-document.getElementById('certsGrid').innerHTML = CERTS.map(c => `
-  <div class="cert-card">
-    <div class="cert-icon">${c.icon}</div>
-    <div class="cert-body">
-      <p class="cert-name">${c.name}</p>
-      <p class="cert-meta">${c.issuer} &middot; ${c.date}</p>
+const BADGES = [
+  { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', date: '2026', icon: '🤖' },
+  { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: '2026', icon: '🔗' },
+  { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: '2026', icon: '🔗' }
+];
+
+function renderCertCards(list, elId) {
+  document.getElementById(elId).innerHTML = list.map(c => `
+    <div class="cert-card">
+      <div class="cert-icon">${c.icon}</div>
+      <div class="cert-body">
+        <p class="cert-name">${c.name}</p>
+        <p class="cert-meta">${c.issuer} &middot; ${c.date}</p>
+      </div>
     </div>
-  </div>
-`).join('');
+  `).join('');
+}
+renderCertCards(CERTIFICATIONS, 'certsGrid');
+renderCertCards(BADGES, 'badgesGrid');

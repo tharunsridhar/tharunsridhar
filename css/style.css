@@ -646,11 +646,22 @@ svg { width: 1.1em; height: 1.1em; }
 .leetcode-stat-label { font-size: 0.72rem; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.03em; }
 
 /* ---------- Certifications ---------- */
+.cert-group-title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  margin: 0 0 1rem;
+}
+.cert-group-title:not(:first-of-type) { margin-top: 2.4rem; }
 .certs-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.2rem;
 }
+.certs-grid:last-of-type { margin-bottom: 0; }
 .cert-card {
   background: var(--surface);
   border: 1px solid var(--border);
