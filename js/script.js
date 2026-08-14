@@ -149,7 +149,10 @@ const PROJECTS = [
       'Validated with confusion matrices and per-class precision/recall, not just aggregate accuracy'
     ],
     tags: ['TensorFlow', 'EfficientNetV2', 'Transfer Learning', 'NumPy'],
-    links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/malware-vision-ai', icon: 'github' }]
+    links: [
+      { label: 'GitHub', href: 'https://github.com/tharunsridhar/malware-vision-ai', icon: 'github' },
+      { label: 'Model on HF', href: 'https://huggingface.co/tharunsridhar/malware-detector', icon: 'external' }
+    ]
   },
   {
     title: 'PhotoShare API',
@@ -309,7 +312,8 @@ const CERTIFICATIONS = [
 const BADGES = [
   { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', date: '2026', icon: '🤖' },
   { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: '2026', icon: '🔗' },
-  { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: '2026', icon: '🔗' }
+  { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: '2026', icon: '🔗' },
+  { name: 'Claude Code in Action', issuer: 'Anthropic', date: '2026', icon: '⚡' }
 ];
 
 function renderCertCards(list, elId) {

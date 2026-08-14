@@ -66,7 +66,7 @@ Python backend developer, applied ML engineer, and AI engineer building systems 
 - ~95% test accuracy, macro F1 of 0.96, weighted F1 of 0.95
 - Validated with confusion matrices and per-class precision/recall, not just aggregate accuracy
 
-[GitHub](https://github.com/tharunsridhar/malware-vision-ai)
+[GitHub](https://github.com/tharunsridhar/malware-vision-ai) &middot; [Model on Hugging Face](https://huggingface.co/tharunsridhar/malware-detector)
 
 ---
 
@@ -82,21 +82,15 @@ Python backend developer, applied ML engineer, and AI engineer building systems 
 
 ---
 
-## Security Case Study Research
-
-Outside of shipping features, I read post-mortems of real breaches to understand how systems actually fail: a React Server Components RCE, the Star Health IDOR breach, and Zero Trust vs. Adaptive Trust in multi-cloud identity.
-
-[Full repo](https://github.com/tharunsridhar/security-research-portfolio)
-
----
-
 ## Skills
 
-**AI Engineering** *(still learning)* &middot; Generative AI &middot; Prompt Engineering &middot; LangChain &middot; RAG &middot; Groq LLM API &middot; Google Gemini API &middot; OpenAI API &middot; Flask &middot; Gradio &middot; Streamlit
+**AI Engineering** *(still learning)* &middot; Generative AI, Prompt Engineering, LangChain, RAG, LLM APIs (Groq / Gemini / OpenAI), Gradio, Streamlit
 
-**Applied ML Engineering** &middot; PyTorch &middot; TensorFlow &middot; Keras &middot; Computer Vision &middot; Image Classification &middot; Image Segmentation &middot; EfficientNetV2/B3/B4 &middot; MobileNetV3 &middot; ConvNeXt Tiny &middot; Attention U-Net &middot; DenseNet/ResNet/VGG &middot; GradCAM (XAI) &middot; Ensemble Learning &middot; Transfer Learning &middot; Model Fine-Tuning &middot; Data Augmentation &middot; Class Imbalance Handling &middot; OpenCV &middot; Scikit-learn &middot; Matplotlib &middot; Pandas/NumPy &middot; Faster-Whisper
+**Applied ML Engineering** &middot; PyTorch, TensorFlow, Computer Vision (classification & segmentation), Transfer Learning & Fine-Tuning, Model Ensembling, GradCAM (XAI), OpenCV, Scikit-learn
 
-**Backend Development** &middot; Python &middot; FastAPI &middot; REST API Design &middot; SQLAlchemy (Sync + Async) &middot; Alembic Migrations &middot; JWT Auth &middot; fastapi-users &middot; bcrypt &middot; Pydantic &middot; SQLite &middot; MySQL &middot; Role-Based Access Control &middot; Async Programming &middot; Custom Middleware &middot; Pytest &middot; ImageKit CDN &middot; Web Scraping (BeautifulSoup) &middot; PyPDF &middot; PDF Generation (fpdf2) &middot; Jinja2 &middot; uv &middot; Vanilla JS/HTML/CSS &middot; Postman &middot; Git & GitHub
+**Backend Development** &middot; Python, FastAPI, REST API Design, SQLAlchemy & Alembic, JWT Auth & RBAC, Async Programming, Pytest, Git & GitHub
+
+*Full breakdown with the complete tag list is on the [live portfolio site](https://tharunsridhar.github.io/tharunsridhar/).*
 
 ---
 
@@ -111,6 +105,7 @@ Outside of shipping features, I read post-mortems of real breaches to understand
 - AI Fluency: Framework & Foundations &middot; Anthropic
 - Introduction to Model Context Protocol &middot; Anthropic
 - Model Context Protocol: Advanced Topics &middot; Anthropic
+- Claude Code in Action &middot; Anthropic
 - Problem Solving, Java, Python, SQL (5-star) &middot; HackerRank
 
 ---
