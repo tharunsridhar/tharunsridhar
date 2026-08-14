@@ -304,16 +304,16 @@ renderAccomplishments();
    Certification & badge data
    ============================================================ */
 const CERTIFICATIONS = [
-  { name: 'AWS Certified Solutions Architect – Associate (SAA-C03) Specialization', issuer: 'Packt', date: 'Jul 2026', icon: '☁️' },
-  { name: 'Develop Generative AI Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', icon: '✨' },
-  { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'May–Jun 2025', icon: '🧠' }
+  { name: 'AWS Certified Solutions Architect – Associate (SAA-C03) Specialization', issuer: 'Packt', date: 'Jul 2026', icon: '☁️', link: 'https://coursera.org/verify/specialization/288QHZ5FL97M', linkLabel: 'Verify' },
+  { name: 'Develop Generative AI Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', icon: '✨', link: 'https://coursera.org/verify/0DCDBI140NPN', linkLabel: 'Verify' },
+  { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'May–Jun 2025', icon: '🧠', link: 'assets/certificates/smartbridge-ai-credit-course.pdf', linkLabel: 'View Certificate' }
 ];
 
 const BADGES = [
-  { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', date: '2026', icon: '🤖' },
-  { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: '2026', icon: '🔗' },
-  { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: '2026', icon: '🔗' },
-  { name: 'Claude Code in Action', issuer: 'Anthropic', date: '2026', icon: '⚡' }
+  { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', date: '2026', icon: '🤖', link: 'assets/certificates/anthropic-ai-fluency.pdf', linkLabel: 'View Certificate' },
+  { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: '2026', icon: '🔗', link: 'assets/certificates/anthropic-intro-mcp.pdf', linkLabel: 'View Certificate' },
+  { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: '2026', icon: '🔗', link: 'assets/certificates/anthropic-mcp-advanced.pdf', linkLabel: 'View Certificate' },
+  { name: 'Claude Code in Action', issuer: 'Anthropic', date: '2026', icon: '⚡', link: 'assets/certificates/anthropic-claude-code-in-action.pdf', linkLabel: 'View Certificate' }
 ];
 
 function renderCertCards(list, elId) {
@@ -323,6 +323,7 @@ function renderCertCards(list, elId) {
       <div class="cert-body">
         <p class="cert-name">${c.name}</p>
         <p class="cert-meta">${c.issuer} &middot; ${c.date}</p>
+        ${c.link ? `<a class="cert-link" href="${c.link}" target="_blank" rel="noopener">${c.linkLabel} &rarr;</a>` : ''}
       </div>
     </div>
   `).join('');

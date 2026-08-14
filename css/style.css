@@ -701,6 +701,14 @@ svg { width: 1.1em; height: 1.1em; }
 .cert-body { min-width: 0; }
 .cert-name { font-weight: 700; font-size: 0.95rem; margin: 0 0 0.2rem; }
 .cert-meta { color: var(--text-faint); font-size: 0.78rem; font-family: var(--font-mono); }
+.cert-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.cert-link:hover { text-decoration: underline; }
 
 /* ---------- Contact ---------- */
 .contact-section { text-align: center; }
