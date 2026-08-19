@@ -8,7 +8,11 @@
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-F57C00?style=flat-square&logo=tensorflow&logoColor=white)
 ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
 
-Python backend developer, applied ML engineer, and AI engineer building systems end-to-end: REST API design, database integration, model training, ensemble design, and LLM-powered pipelines. Applied work in computer vision, transfer learning, GradCAM explainability, automated report generation, and Generative AI / RAG (currently expanding into LangChain and agentic patterns).
+Python backend developer, applied ML engineer, and AI engineer building systems end-to-end.
+
+- REST API design, database integration, model training, ensemble design, and LLM-powered pipelines
+- Applied work in computer vision, transfer learning, GradCAM explainability, and automated report generation
+- Generative AI / RAG, currently expanding into LangChain and agentic patterns
 
 ---
 
