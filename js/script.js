@@ -114,6 +114,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const PROJECTS = [
   {
     title: 'NeuroScan AI',
+    category: 'Applied ML',
     subtitle: 'Brain Tumor MRI Analysis, Reliability Gating & Reporting',
     desc: [
       '4-model classification ensemble (EfficientNetV2-S, MobileNetV3, ConvNeXt Tiny) fused with an adaptive, lesion-aware weighting layer',
@@ -129,6 +130,7 @@ const PROJECTS = [
   },
   {
     title: 'Inventra',
+    category: 'Backend',
     subtitle: 'Role-Based Inventory Management System',
     desc: [
       'Admin / Manager / Employee access control with JWT access + revocable, database-stored refresh tokens',
@@ -140,7 +142,21 @@ const PROJECTS = [
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/Inventra', icon: 'github' }]
   },
   {
+    title: 'Multilingual RAG Document Intelligence',
+    category: 'AI Engineering',
+    subtitle: 'RAG Chat with Citations, Vector Search & Per-User Isolation',
+    desc: [
+      'FastAPI + PostgreSQL + ChromaDB backend: PyMuPDF extraction with Tesseract OCR fallback, paragraph-aware chunking, local BGE-M3 embeddings',
+      'Gemini-grounded, citation-linked answers scoped to one document or a user’s full corpus, with multilingual support',
+      'Content-hash deduplication reuses existing vectors on re-upload; retry-with-backoff and quota-aware handling for the free-tier rate limit',
+      'Per-user data isolation end to end: Argon2 password hashing, JWT-derived identity, server-side ownership checks on every document and vector query'
+    ],
+    tags: ['FastAPI', 'ChromaDB', 'Gemini', 'BGE-M3', 'PostgreSQL'],
+    links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/rag-document-intelligence', icon: 'github' }]
+  },
+  {
     title: 'Malware Vision AI',
+    category: 'Applied ML',
     subtitle: 'Multi-Class Malware Family Classification',
     desc: [
       'Converted 13,747 PE executable samples into grayscale image tensors, with no malware execution required',
@@ -156,6 +172,7 @@ const PROJECTS = [
   },
   {
     title: 'PhotoShare API',
+    category: 'Backend',
     subtitle: 'Photo & Video Sharing Backend',
     desc: [
       'Async FastAPI backend with JWT auth via fastapi-users: register, login, email verification, forgot/reset-password',
@@ -165,12 +182,44 @@ const PROJECTS = [
     ],
     tags: ['FastAPI', 'Async SQLAlchemy', 'JWT', 'ImageKit'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/photoshare-api', icon: 'github' }]
+  },
+  {
+    title: 'EchoBrief',
+    category: 'AI Engineering',
+    subtitle: 'AI Audio Transcription & Summarization Platform',
+    desc: [
+      'FastAPI backend transcribes uploaded MP3/M4A audio locally with Faster-Whisper',
+      'Sends the raw transcript to Gemini for grammar cleanup and a concise professional summary',
+      'Speech-to-text and LLM summarization split into independent, independently testable service modules',
+      'Drag-and-drop vanilla-JS frontend with upload progress tracking and downloadable transcript/summary files'
+    ],
+    tags: ['FastAPI', 'Faster-Whisper', 'Gemini', 'Vanilla JS'],
+    links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/echobrief-ai-audio-summarizer', icon: 'github' }]
+  },
+  {
+    title: 'Clara AI',
+    category: 'AI Engineering',
+    subtitle: 'Voice Agent Configuration Pipeline',
+    desc: [
+      'Python pipeline turning raw call transcripts into production-ready voice-agent configurations',
+      'Gemini 2.0 Flash extracts business hours, services, and escalation rules into strict, schema-validated JSON',
+      'Parser recovers valid JSON from direct, markdown-fenced, or text-buried LLM output',
+      'Versioning layer merges an initial extraction with a later onboarding update and generates a field-level changelog'
+    ],
+    tags: ['Python', 'Gemini 2.0 Flash'],
+    links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/clara-ai-pipeline', icon: 'github' }]
   }
 ];
 
 const ICONS = {
   github: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.58.23 2.75.11 3.04.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.08.78 2.17v3.22c0 .3.21.66.79.55A10.52 10.52 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg>',
   external: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>'
+};
+
+const CATEGORY_CLASS = {
+  'AI Engineering': 'cat-ai',
+  'Applied ML': 'cat-ml',
+  'Backend': 'cat-backend'
 };
 
 function renderProjects() {
@@ -181,7 +230,7 @@ function renderProjects() {
         <div>
           <h3 class="project-title">${p.title}</h3>
         </div>
-        <span class="project-featured">Featured</span>
+        <span class="project-featured ${CATEGORY_CLASS[p.category] || ''}">${p.category}</span>
       </div>
       <p class="project-desc" style="font-weight:600;color:var(--text-muted);margin-bottom:0.6rem;">${p.subtitle}</p>
       <div class="project-desc">
@@ -304,16 +353,18 @@ renderAccomplishments();
    Certification & badge data
    ============================================================ */
 const CERTIFICATIONS = [
-  { name: 'AWS Certified Solutions Architect – Associate (SAA-C03) Specialization', issuer: 'Packt', date: 'Jul 2026', icon: '☁️', link: 'https://coursera.org/verify/specialization/288QHZ5FL97M', linkLabel: 'Verify' },
+  { name: 'AWS Certified Solutions Architect – Associate (SAA-C03) Specialization', issuer: 'Packt · Coursera', date: 'Jul 2026', icon: '☁️', link: 'https://coursera.org/verify/specialization/288QHZ5FL97M', linkLabel: 'Verify' },
   { name: 'Develop Generative AI Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', icon: '✨', link: 'https://coursera.org/verify/0DCDBI140NPN', linkLabel: 'Verify' },
-  { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'May–Jun 2025', icon: '🧠', link: 'assets/certificates/smartbridge-ai-credit-course.pdf', linkLabel: 'View Certificate' }
+  { name: 'Build RAG Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', icon: '💬', link: 'https://coursera.org/verify/QU4BKSV10SL7', linkLabel: 'Verify' },
+  { name: 'Vector Databases for RAG: An Introduction', issuer: 'IBM · Coursera', date: 'Aug 2026', icon: '🔎', link: 'https://coursera.org/verify/9BVDOTL3HGGD', linkLabel: 'Verify' },
+  { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'Jul 2025', icon: '🧠', link: 'assets/certificates/smartbridge-ai-credit-course.pdf', linkLabel: 'View Certificate' }
 ];
 
 const BADGES = [
   { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', date: '2026', icon: '🤖', link: 'assets/certificates/anthropic-ai-fluency.pdf', linkLabel: 'View Certificate' },
-  { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: '2026', icon: '🔗', link: 'assets/certificates/anthropic-intro-mcp.pdf', linkLabel: 'View Certificate' },
-  { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: '2026', icon: '🔗', link: 'assets/certificates/anthropic-mcp-advanced.pdf', linkLabel: 'View Certificate' },
-  { name: 'Claude Code in Action', issuer: 'Anthropic', date: '2026', icon: '⚡', link: 'assets/certificates/anthropic-claude-code-in-action.pdf', linkLabel: 'View Certificate' }
+  { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: 'Feb 2026', icon: '🔗', link: 'https://verify.skilljar.com/c/8v2nanvk5wsh', linkLabel: 'Verify' },
+  { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: 'Feb 2026', icon: '🔗', link: 'https://verify.skilljar.com/c/4xy6huookznu', linkLabel: 'Verify' },
+  { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Feb 2026', icon: '⚡', link: 'https://verify.skilljar.com/c/4ae9pz865x6p', linkLabel: 'Verify' }
 ];
 
 function renderCertCards(list, elId) {
