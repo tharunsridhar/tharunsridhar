@@ -368,6 +368,8 @@ svg { width: 1.1em; height: 1.1em; }
 .badge-1 { animation-delay: 0s; }
 .badge-3 { animation-delay: 0.75s; }
 .badge-2 { animation-delay: 1.5s; }
+.badge-4 { animation-delay: 2.25s; cursor: pointer; }
+.badge-4:hover { border-color: var(--accent); color: var(--accent); }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
 .scroll-cue {

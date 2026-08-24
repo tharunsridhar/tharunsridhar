@@ -197,6 +197,19 @@ const PROJECTS = [
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/echobrief-ai-audio-summarizer', icon: 'github' }]
   },
   {
+    title: 'Finvoro',
+    category: 'Backend',
+    subtitle: 'Personal Finance Management API',
+    desc: [
+      'Django REST Framework backend for multi-account tracking, categorized transactions, monthly budgets, and spending reports',
+      'JWT auth (djangorestframework-simplejwt) with per-user data ownership enforced end-to-end on every endpoint',
+      'Versioned API under /api/v1/, live-computed account balances and budget spent/remaining figures, no stale duplicated values',
+      'pytest + pytest-django coverage suite; interactive Swagger/ReDoc docs via drf-spectacular'
+    ],
+    tags: ['Django', 'DRF', 'PostgreSQL', 'JWT', 'pytest'],
+    links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/finvoro-finance', icon: 'github' }]
+  },
+  {
     title: 'Clara AI',
     category: 'AI Engineering',
     subtitle: 'Voice Agent Configuration Pipeline',
