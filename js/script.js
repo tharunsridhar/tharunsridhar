@@ -142,17 +142,17 @@ const PROJECTS = [
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/Inventra', icon: 'github' }]
   },
   {
-    title: 'Multilingual RAG Document Intelligence',
+    title: 'Corrective RAG',
     category: 'AI Engineering',
-    subtitle: 'RAG Chat with Citations, Vector Search & Per-User Isolation',
+    subtitle: 'Self-Evaluating Local RAG Pipeline, Benchmarked with RAGAS',
     desc: [
-      'FastAPI + PostgreSQL + ChromaDB backend: PyMuPDF extraction with Tesseract OCR fallback, paragraph-aware chunking, local BGE-M3 embeddings',
-      'Gemini-grounded, citation-linked answers scoped to one document or a user’s full corpus, with multilingual support',
-      'Content-hash deduplication reuses existing vectors on re-upload; retry-with-backoff and quota-aware handling for the free-tier rate limit',
-      'Per-user data isolation end to end: Argon2 password hashing, JWT-derived identity, server-side ownership checks on every document and vector query'
+      'Grades its own retrieval relevance, rewrites the query and re-retrieves on weak results, then falls back to live DuckDuckGo web search when local evidence still isn’t enough',
+      'Claim-level verification stage extracts atomic claims from the generated answer and checks each against a deduplicated, citation-tagged evidence set, correcting and re-verifying anything unsupported',
+      'Runs fully local by default on Ollama (Llama 3.2 3B) with Chroma + sentence-transformers, with Groq/OpenRouter as opt-in cloud fallbacks',
+      'RAGAS-based evaluation harness benchmarks the corrective pipeline against a plain baseline RAG system on faithfulness, context precision/recall, and answer relevancy'
     ],
-    tags: ['FastAPI', 'ChromaDB', 'Gemini', 'BGE-M3', 'PostgreSQL'],
-    links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/rag-document-intelligence', icon: 'github' }]
+    tags: ['FastAPI', 'Ollama', 'ChromaDB', 'RAGAS', 'DuckDuckGo'],
+    links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/Corrective-RAG', icon: 'github' }]
   },
   {
     title: 'Malware Vision AI',
