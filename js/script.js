@@ -155,22 +155,6 @@ const PROJECTS = [
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/Corrective-RAG', icon: 'github' }]
   },
   {
-    title: 'Malware Vision AI',
-    category: 'Applied ML',
-    subtitle: 'Multi-Class Malware Family Classification',
-    desc: [
-      'Converted 13,747 PE executable samples into grayscale image tensors, with no malware execution required',
-      'Fine-tuned EfficientNetV2-S across 31 malware families with class-balanced training',
-      '~95% test accuracy, macro F1 of 0.96, weighted F1 of 0.95',
-      'Validated with confusion matrices and per-class precision/recall, not just aggregate accuracy'
-    ],
-    tags: ['TensorFlow', 'EfficientNetV2', 'Transfer Learning', 'NumPy'],
-    links: [
-      { label: 'GitHub', href: 'https://github.com/tharunsridhar/malware-vision-ai', icon: 'github' },
-      { label: 'Model on HF', href: 'https://huggingface.co/tharunsridhar/malware-detector', icon: 'external' }
-    ]
-  },
-  {
     title: 'PhotoShare API',
     category: 'Backend',
     subtitle: 'Photo & Video Sharing Backend',
@@ -326,6 +310,41 @@ const HACKERRANK_CERTS = [
   'Python (Basic)', 'Problem Solving (Basic)', 'Problem Solving (Intermediate)', 'R (Basic)'
 ];
 
+const LEETCODE_STATS = { totalSolved: 162, totalProblems: 4047, updated: 'Sep 11, 2026' };
+
+// Ring geometry (r, stroke-dasharray/-dashoffset, rotation per difficulty arc) copied directly
+// off leetcode.com/u/Tharunsridhar's own solved-problems chart, so this mirrors it exactly.
+const LEETCODE_RING_ARCS = [
+  { name: 'Easy', count: '30/963', color: 'rgb(28,186,186)', track: 'rgba(28,186,186,0.2)', trackDash: '44.288 219.712', fillDash: '1.37969 262.62', rotate: '225deg' },
+  { name: 'Med.', count: '104/2111', color: 'rgb(255,183,0)', track: 'rgba(255,183,0,0.2)', trackDash: '97.0841 166.916', fillDash: '4.78292 259.217', rotate: '293.49274deg' },
+  { name: 'Hard', count: '28/973', color: 'rgb(246,55,55)', track: 'rgba(246,55,55,0.2)', trackDash: '44.7479 219.252', fillDash: '1.28771 262.712', rotate: '433.98013deg' }
+];
+
+function renderLeetcodeRing(stats, arcs) {
+  const arcSvg = arcs.map(a => `
+    <g style="--rot:${a.rotate}">
+      <circle cx="50" cy="50" r="42" fill="none" stroke="${a.track}" stroke-width="3" stroke-linecap="round" stroke-dasharray="${a.trackDash}" stroke-dashoffset="66"/>
+      <circle cx="50" cy="50" r="42" fill="none" stroke="${a.color}" stroke-width="3" stroke-linecap="round" stroke-dasharray="${a.fillDash}" stroke-dashoffset="66"/>
+    </g>`).join('');
+
+  return `
+    <div class="leetcode-ring">
+      <svg viewBox="0 0 100 100" width="160" height="160" aria-hidden="true">${arcSvg}</svg>
+      <div class="leetcode-ring-label">
+        <div class="leetcode-ring-num">${stats.totalSolved}<span class="leetcode-ring-total">/${stats.totalProblems}</span></div>
+        <div class="leetcode-ring-solved">&#10003; Solved</div>
+      </div>
+      <div class="leetcode-ring-updated">Updated ${stats.updated}</div>
+    </div>
+    <div class="leetcode-diffbox-col">
+      ${arcs.map(a => `
+        <div class="leetcode-diffbox">
+          <span class="leetcode-diffbox-label" style="color:${a.color}">${a.name}</span>
+          <span class="leetcode-diffbox-count">${a.count}</span>
+        </div>`).join('')}
+    </div>`;
+}
+
 function renderAccomplishments() {
   const grid = document.getElementById('accomplishGrid');
   grid.innerHTML = `
@@ -346,16 +365,10 @@ function renderAccomplishments() {
         <h3>LeetCode</h3>
         <a class="accomplish-link" href="https://leetcode.com/u/Tharunsridhar/" target="_blank" rel="noopener">View profile &rarr;</a>
       </div>
-      <p class="accomplish-body">
-        Actively practicing structured problem sets, from the full Blind 75 to an extended
-        NeetCode 150 tracker spanning 20+ core patterns: two pointers, sliding window, heaps,
-        tries, Union-Find, Dijkstra, segment trees, and more.
-      </p>
       <div class="leetcode-stats">
-        <div class="leetcode-stat"><span class="leetcode-stat-num">150</span><span class="leetcode-stat-label">NeetCode 150 Tracked</span></div>
-        <div class="leetcode-stat"><span class="leetcode-stat-num">20+</span><span class="leetcode-stat-label">Patterns Covered</span></div>
+        ${renderLeetcodeRing(LEETCODE_STATS, LEETCODE_RING_ARCS)}
       </div>
-      <a class="btn btn-ghost btn-sm" href="https://leetcode.com/u/Tharunsridhar/" target="_blank" rel="noopener">Profile &amp; submissions</a>
+      <a class="btn btn-ghost btn-sm" href="https://leetcode.com/u/Tharunsridhar/" target="_blank" rel="noopener">Profile</a>
     </div>
   `;
   window.dispatchEvent(new Event('content-injected'));

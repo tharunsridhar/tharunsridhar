@@ -78,9 +78,7 @@ Python backend developer and AI engineer building systems end-to-end.
 
 **Backend Development** &middot; Python, FastAPI, REST API Design, SQLAlchemy & Alembic, JWT Auth & RBAC, Async Programming, Pytest, Git & GitHub
 
-**Applied ML Engineering** &middot; PyTorch, TensorFlow, Computer Vision (classification & segmentation), Transfer Learning & Fine-Tuning, Model Ensembling, GradCAM (XAI), OpenCV, Scikit-learn
-
-**AI Engineering** *(still learning)* &middot; Generative AI, Prompt Engineering, LangChain, RAG, LLM APIs (Groq / Gemini / OpenAI), Gradio, Streamlit
+**AI Engineering** *(still learning)* &middot; Generative AI, Prompt Engineering, LangChain, RAG, LLM APIs (Groq / Gemini / OpenAI), Gradio, Streamlit, PyTorch, TensorFlow, GradCAM (XAI), OpenCV, Scikit-learn
 
 *Full breakdown with the complete tag list is on the [live portfolio site](https://tharunsridhar.github.io/tharunsridhar/).*
 
@@ -88,7 +86,7 @@ Python backend developer and AI engineer building systems end-to-end.
 
 ## Certifications
 
-- AWS Certified Solutions Architect &ndash; Associate (SAA-C03) Specialization &middot; Packt (Jul 2026)
+- AWS Solutions Architect Associate (SAA-C03) &ndash; Exam Prep Course &middot; Packt (Coursera) (Jul 2026)
 - Develop Generative AI Applications: Get Started &middot; IBM &middot; Coursera (Aug 2026)
 - Artificial Intelligence (Credit Course) &middot; SmartBridge &times; Google for Developers (May&ndash;Jun 2025)
 
