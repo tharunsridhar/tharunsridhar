@@ -107,5 +107,5 @@ Python backend developer and AI engineer building systems end-to-end.
 📧 [tharunsridhar@gmail.com](mailto:tharunsridhar@gmail.com)
 🔗 [LinkedIn](https://www.linkedin.com/in/tharun-sridhar-5a978029b)
 🔗 [HackerRank](https://www.hackerrank.com/profile/tharunsridhar)
-🔗 [LeetCode](https://leetcode.com/u/tharun_sridhar/)
+🔗 [LeetCode](https://leetcode.com/u/Tharunsridhar/)
 🔗 [Hugging Face](https://huggingface.co/tharunsridhar)

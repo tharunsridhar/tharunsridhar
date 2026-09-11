@@ -344,18 +344,18 @@ function renderAccomplishments() {
     <div class="accomplish-card leetcode-card reveal">
       <div class="accomplish-head">
         <h3>LeetCode</h3>
-        <a class="accomplish-link" href="https://leetcode.com/u/tharun_sridhar/" target="_blank" rel="noopener">View profile &rarr;</a>
+        <a class="accomplish-link" href="https://leetcode.com/u/Tharunsridhar/" target="_blank" rel="noopener">View profile &rarr;</a>
       </div>
       <p class="accomplish-body">
         Actively practicing structured problem sets, from the full Blind 75 to an extended
-        NeetCode-150-style tracker spanning 45+ patterns: two pointers, sliding window, heaps,
+        NeetCode 150 tracker spanning 20+ core patterns: two pointers, sliding window, heaps,
         tries, Union-Find, Dijkstra, segment trees, and more.
       </p>
       <div class="leetcode-stats">
-        <div class="leetcode-stat"><span class="leetcode-stat-num">75</span><span class="leetcode-stat-label">Blind 75 Tracked</span></div>
-        <div class="leetcode-stat"><span class="leetcode-stat-num">45+</span><span class="leetcode-stat-label">Patterns Covered</span></div>
+        <div class="leetcode-stat"><span class="leetcode-stat-num">150</span><span class="leetcode-stat-label">NeetCode 150 Tracked</span></div>
+        <div class="leetcode-stat"><span class="leetcode-stat-num">20+</span><span class="leetcode-stat-label">Patterns Covered</span></div>
       </div>
-      <a class="btn btn-ghost btn-sm" href="https://leetcode.com/u/tharun_sridhar/" target="_blank" rel="noopener">Profile &amp; submissions</a>
+      <a class="btn btn-ghost btn-sm" href="https://leetcode.com/u/Tharunsridhar/" target="_blank" rel="noopener">Profile &amp; submissions</a>
     </div>
   `;
   window.dispatchEvent(new Event('content-injected'));
@@ -370,6 +370,9 @@ const CERTIFICATIONS = [
   { name: 'Develop Generative AI Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', icon: '✨', link: 'https://coursera.org/verify/0DCDBI140NPN', linkLabel: 'Verify' },
   { name: 'Build RAG Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', icon: '💬', link: 'https://coursera.org/verify/QU4BKSV10SL7', linkLabel: 'Verify' },
   { name: 'Vector Databases for RAG: An Introduction', issuer: 'IBM · Coursera', date: 'Aug 2026', icon: '🔎', link: 'https://coursera.org/verify/9BVDOTL3HGGD', linkLabel: 'Verify' },
+  { name: 'Advanced RAG with Vector Databases and Retrievers', issuer: 'IBM · Coursera', date: 'Sep 2026', icon: '🧩', link: '', linkLabel: 'Verify' },
+  { name: 'Build Multimodal Generative AI Applications', issuer: 'IBM · Coursera', date: 'Sep 2026', icon: '🖼️', link: '', linkLabel: 'Verify' },
+  { name: 'Fundamentals of Building AI Agents', issuer: 'IBM · Coursera', date: 'Sep 2026', icon: '🕹️', link: '', linkLabel: 'Verify' },
   { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'Jul 2025', icon: '🧠', link: 'assets/certificates/smartbridge-ai-credit-course.pdf', linkLabel: 'View Certificate' }
 ];
 
