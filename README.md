@@ -1,6 +1,6 @@
 # Hi, I'm Tharun Sridhar Natarajan
 
-## `Python Backend Dev` | `Applied ML Engineer` | `AI Engineer`
+## `Python Backend Dev` | `AI Engineer`
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
@@ -8,7 +8,7 @@
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-F57C00?style=flat-square&logo=tensorflow&logoColor=white)
 ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
 
-Python backend developer, applied ML engineer, and AI engineer building systems end-to-end.
+Python backend developer and AI engineer building systems end-to-end.
 
 - REST API design, database integration, model training, ensemble design, and LLM-powered pipelines
 - Applied work in computer vision, transfer learning, GradCAM explainability, and automated report generation
@@ -38,18 +38,6 @@ Python backend developer, applied ML engineer, and AI engineer building systems 
 
 ## Flagship Projects
 
-### NeuroScan AI &middot; Brain Tumor MRI Analysis
-`PyTorch` `TensorFlow` `FastAPI` `Groq LLM` `OpenCV` `GradCAM`
-
-- 4-model classification ensemble (EfficientNetV2-S, MobileNetV3, ConvNeXt Tiny) fused with an adaptive, lesion-aware weighting layer
-- EfficientNetB4 Attention U-Net segmentation reaching a Dice score of ~0.88
-- Diagnostic Reliability Index cross-validates Grad-CAM attention against the segmentation mask, gating predictions into Accepted / Caution / Specialist-Review tiers
-- Groq LLM radiology report generation and PDF export via FastAPI, backed by 4 pytest suites
-
-[GitHub](https://github.com/tharunsridhar/NeuroScan-AI) &middot; [Model on Hugging Face](https://huggingface.co/tharunsridhar/brain_tumor_net-ensemble)
-
----
-
 ### Inventra &middot; Role-Based Inventory Management System
 `FastAPI` `SQLAlchemy 2.0` `Alembic` `JWT` `SQLite`
 
@@ -59,18 +47,6 @@ Python backend developer, applied ML engineer, and AI engineer building systems 
 - Atomic, idempotent purchase-receiving and sales-completion flows, safe to retry without side effects
 
 [GitHub](https://github.com/tharunsridhar/Inventra)
-
----
-
-### Malware Vision AI &middot; Multi-Class Malware Family Classification
-`TensorFlow` `EfficientNetV2` `Transfer Learning` `NumPy`
-
-- Converted 13,747 PE executable samples into grayscale image tensors, with no malware execution required
-- Fine-tuned EfficientNetV2-S across 31 malware families with class-balanced training
-- ~95% test accuracy, macro F1 of 0.96, weighted F1 of 0.95
-- Validated with confusion matrices and per-class precision/recall, not just aggregate accuracy
-
-[GitHub](https://github.com/tharunsridhar/malware-vision-ai) &middot; [Model on Hugging Face](https://huggingface.co/tharunsridhar/malware-detector)
 
 ---
 
@@ -86,13 +62,25 @@ Python backend developer, applied ML engineer, and AI engineer building systems 
 
 ---
 
+### NeuroScan AI &middot; Brain Tumor MRI Analysis
+`PyTorch` `TensorFlow` `FastAPI` `Groq LLM` `OpenCV` `GradCAM`
+
+- 4-model classification ensemble (EfficientNetV2-S, MobileNetV3, ConvNeXt Tiny) fused with an adaptive, lesion-aware weighting layer
+- EfficientNetB4 Attention U-Net segmentation reaching a Dice score of ~0.88
+- Diagnostic Reliability Index cross-validates Grad-CAM attention against the segmentation mask, gating predictions into Accepted / Caution / Specialist-Review tiers
+- Groq LLM radiology report generation and PDF export via FastAPI, backed by 4 pytest suites
+
+[GitHub](https://github.com/tharunsridhar/NeuroScan-AI) &middot; [Model on Hugging Face](https://huggingface.co/tharunsridhar/brain_tumor_net-ensemble)
+
+---
+
 ## Skills
 
-**AI Engineering** *(still learning)* &middot; Generative AI, Prompt Engineering, LangChain, RAG, LLM APIs (Groq / Gemini / OpenAI), Gradio, Streamlit
+**Backend Development** &middot; Python, FastAPI, REST API Design, SQLAlchemy & Alembic, JWT Auth & RBAC, Async Programming, Pytest, Git & GitHub
 
 **Applied ML Engineering** &middot; PyTorch, TensorFlow, Computer Vision (classification & segmentation), Transfer Learning & Fine-Tuning, Model Ensembling, GradCAM (XAI), OpenCV, Scikit-learn
 
-**Backend Development** &middot; Python, FastAPI, REST API Design, SQLAlchemy & Alembic, JWT Auth & RBAC, Async Programming, Pytest, Git & GitHub
+**AI Engineering** *(still learning)* &middot; Generative AI, Prompt Engineering, LangChain, RAG, LLM APIs (Groq / Gemini / OpenAI), Gradio, Streamlit
 
 *Full breakdown with the complete tag list is on the [live portfolio site](https://tharunsridhar.github.io/tharunsridhar/).*
 
