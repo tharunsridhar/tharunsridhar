@@ -704,11 +704,26 @@ svg { width: 1.1em; height: 1.1em; }
 .cert-mini-status { color: var(--accent); font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; }
 
 .leetcode-card { display: flex; flex-direction: column; height: 100%; }
-.leetcode-card .accomplish-body { flex-grow: 1; color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.4rem; }
-.leetcode-stats { display: flex; gap: 1.4rem; margin-bottom: 1.4rem; }
-.leetcode-stat { display: flex; flex-direction: column; }
-.leetcode-stat-num { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--accent-2); }
-.leetcode-stat-label { font-size: 0.72rem; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.03em; }
+.leetcode-stats { display: flex; align-items: stretch; gap: 0.8rem; flex-grow: 1; margin-bottom: 1.4rem; }
+.leetcode-ring { position: relative; flex-shrink: 0; width: 160px; height: 160px; }
+.leetcode-ring svg { width: 100%; height: 100%; }
+.leetcode-ring svg g { transform-box: fill-box; transform-origin: center; transform: rotate(var(--rot)); }
+.leetcode-ring-label {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.2rem; text-align: center;
+}
+.leetcode-ring-num { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; color: var(--text); line-height: 1.1; }
+.leetcode-ring-total { font-family: var(--font-sans); font-size: 1rem; font-weight: 500; color: var(--text-faint); }
+.leetcode-ring-solved { font-size: 0.78rem; color: var(--text-muted); }
+.leetcode-ring-updated { position: absolute; left: 50%; bottom: 6%; transform: translateX(-50%); font-size: 0.68rem; color: var(--text-faint); white-space: nowrap; }
+.leetcode-diffbox-col { display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+.leetcode-diffbox {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.15rem;
+  flex: 1; border-radius: var(--radius-sm); background: var(--surface-2);
+}
+.leetcode-diffbox-label { font-size: 0.74rem; font-weight: 600; }
+.leetcode-diffbox-count { font-size: 0.74rem; font-weight: 500; color: var(--text-muted); }
 
 /* ---------- Certifications ---------- */
 .cert-group-title {
