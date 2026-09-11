@@ -39,12 +39,12 @@ Python backend developer and AI engineer building systems end-to-end.
 ## Flagship Projects
 
 ### Inventra &middot; Role-Based Inventory Management System
-`FastAPI` `SQLAlchemy 2.0` `Alembic` `JWT` `SQLite`
+`Django` `DRF` `PostgreSQL` `Redis` `Celery`
 
-- Admin / Manager / Employee access control with JWT access and revocable, database-stored refresh tokens
-- Full REST surface: 51 endpoints across 13 routers (auth, products, purchases, sales, returns, damage, reports, notifications)
-- Every stock-affecting action writes exactly one immutable inventory transaction row, with no update or delete path
-- Atomic, idempotent purchase-receiving and sales-completion flows, safe to retry without side effects
+- Load tested with Locust: without row-level locking, 40 concurrent users silently lost 16 units of stock with zero HTTP errors; with locking, zero discrepancy
+- Admin / Manager / Employee RBAC with JWT access and database-blacklisted refresh tokens, rate limited per scope
+- Redis-cached reports with version-counter invalidation, cache hits collapse 9 queries down to 1 (proven via query-count assertions, not just timing)
+- Celery background jobs and Beat schedule for async invoices, low-stock alerts, and nightly ledger reconciliation
 
 [GitHub](https://github.com/tharunsridhar/Inventra)
 

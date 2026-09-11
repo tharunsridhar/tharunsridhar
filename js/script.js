@@ -133,12 +133,12 @@ const PROJECTS = [
     category: 'Backend',
     subtitle: 'Role-Based Inventory Management System',
     desc: [
-      'Admin / Manager / Employee access control with JWT access + revocable, database-stored refresh tokens',
-      'Full REST surface: 51 endpoints across 13 routers (auth, products, purchases, sales, returns, damage, reports, notifications)',
-      'Every stock-affecting action writes exactly one immutable inventory transaction row, with no update or delete path',
-      'Atomic, idempotent purchase-receiving and sales-completion flows, safe to retry without side effects'
+      'Load tested with Locust: without row-level locking, 40 concurrent users silently lost 16 units of stock with zero HTTP errors; with locking, zero discrepancy',
+      'Admin / Manager / Employee RBAC with JWT access + database-blacklisted refresh tokens, rate limited per scope',
+      'Redis-cached reports with version-counter invalidation, cache hits collapse 9 queries down to 1 (proven via query-count assertions, not just timing)',
+      'Celery background jobs and Beat schedule for async invoices, low-stock alerts, and nightly ledger reconciliation'
     ],
-    tags: ['FastAPI', 'SQLAlchemy 2.0', 'Alembic', 'JWT', 'SQLite'],
+    tags: ['Django', 'DRF', 'PostgreSQL', 'Redis', 'Celery'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/Inventra', icon: 'github' }]
   },
   {
@@ -153,22 +153,6 @@ const PROJECTS = [
     ],
     tags: ['FastAPI', 'Ollama', 'ChromaDB', 'RAGAS', 'DuckDuckGo'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/Corrective-RAG', icon: 'github' }]
-  },
-  {
-    title: 'Malware Vision AI',
-    category: 'Applied ML',
-    subtitle: 'Multi-Class Malware Family Classification',
-    desc: [
-      'Converted 13,747 PE executable samples into grayscale image tensors, with no malware execution required',
-      'Fine-tuned EfficientNetV2-S across 31 malware families with class-balanced training',
-      '~95% test accuracy, macro F1 of 0.96, weighted F1 of 0.95',
-      'Validated with confusion matrices and per-class precision/recall, not just aggregate accuracy'
-    ],
-    tags: ['TensorFlow', 'EfficientNetV2', 'Transfer Learning', 'NumPy'],
-    links: [
-      { label: 'GitHub', href: 'https://github.com/tharunsridhar/malware-vision-ai', icon: 'github' },
-      { label: 'Model on HF', href: 'https://huggingface.co/tharunsridhar/malware-detector', icon: 'external' }
-    ]
   },
   {
     title: 'PhotoShare API',
@@ -221,6 +205,22 @@ const PROJECTS = [
     ],
     tags: ['Python', 'Gemini 2.0 Flash'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/clara-ai-pipeline', icon: 'github' }]
+  },
+  {
+    title: 'Malware Vision AI',
+    category: 'Applied ML',
+    subtitle: 'Multi-Class Malware Family Classification',
+    desc: [
+      'Converted 13,747 PE executable samples into grayscale image tensors, with no malware execution required',
+      'Fine-tuned EfficientNetV2-S across 31 malware families with class-balanced training',
+      'Evaluated with confusion matrices and per-class precision/recall alongside aggregate accuracy, not accuracy alone',
+      'Macro F1 of 0.96 and weighted F1 of 0.95 across all 31 families'
+    ],
+    tags: ['TensorFlow', 'EfficientNetV2', 'Transfer Learning', 'NumPy'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/tharunsridhar/malware-vision-ai', icon: 'github' },
+      { label: 'Model on HF', href: 'https://huggingface.co/tharunsridhar/malware-detector', icon: 'external' }
+    ]
   }
 ];
 
