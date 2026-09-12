@@ -41,10 +41,10 @@ Python backend developer and AI engineer building systems end-to-end.
 ### Inventra &middot; Role-Based Inventory Management System
 `Django` `DRF` `PostgreSQL` `Redis` `Celery` `JWT`
 
-- Admin / Manager / Employee RBAC with JWT access and DB-blacklisted refresh tokens; append-only stock ledger enforced twice (no write route registered, and Django Admin permissions hard-disabled)
-- Load-tested the row-level locking guarantee: unlocked concurrent sales silently lost 16 of 78 units sold with zero HTTP errors; `select_for_update()` closes the race to 0 lost updates
-- Redis-cached reports and dashboards (up to 9 queries collapsed to 1 on a cache hit) plus Celery background jobs for async invoices, low-stock alerts, and nightly ledger reconciliation
-- Structured JSON logging traces one request id from the web process into any Celery task it dispatches; deployed on AWS behind an Application Load Balancer
+- Load tested with Locust: without row-level locking, 40 concurrent users silently lost 16 units of stock with zero HTTP errors; `select_for_update()` closes the race to zero discrepancy
+- Admin / Manager / Employee RBAC with JWT access and DB-blacklisted refresh tokens, rate limited per scope; append-only stock ledger enforced twice (no write route registered, and Django Admin permissions hard-disabled)
+- Redis-cached reports with version-counter invalidation, cache hits collapse 9 queries down to 1 (proven via query-count assertions, not just timing)
+- Celery background jobs and Beat schedule for async invoices, low-stock alerts, and nightly ledger reconciliation; deployed on AWS behind an Application Load Balancer
 
 [GitHub](https://github.com/tharunsridhar/Inventra) &middot; [Live Demo](http://inventra-alb-164557112.ap-south-1.elb.amazonaws.com/app)
 

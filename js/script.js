@@ -133,10 +133,10 @@ const PROJECTS = [
     category: 'Backend',
     subtitle: 'Role-Based Inventory Management System',
     desc: [
-      'Admin / Manager / Employee RBAC with JWT access + DB-blacklisted refresh tokens; append-only stock ledger enforced twice (no write route registered, and Django Admin permissions hard-disabled)',
-      'Load-tested the row-level locking guarantee: unlocked concurrent sales silently lost 16 of 78 units sold with zero HTTP errors; select_for_update() closes the race to 0 lost updates',
-      'Redis-cached reports and dashboards (up to 9 queries collapsed to 1 on a cache hit) plus Celery background jobs for async invoices, low-stock alerts, and nightly ledger reconciliation',
-      'Structured JSON logging traces one request id from the web process into any Celery task it dispatches; deployed on AWS behind an Application Load Balancer'
+      'Load tested with Locust: without row-level locking, 40 concurrent users silently lost 16 units of stock with zero HTTP errors; select_for_update() closes the race to zero discrepancy',
+      'Admin / Manager / Employee RBAC with JWT access + DB-blacklisted refresh tokens, rate limited per scope; append-only stock ledger enforced twice (no write route registered, and Django Admin permissions hard-disabled)',
+      'Redis-cached reports with version-counter invalidation, cache hits collapse 9 queries down to 1 (proven via query-count assertions, not just timing)',
+      'Celery background jobs and Beat schedule for async invoices, low-stock alerts, and nightly ledger reconciliation; deployed on AWS behind an Application Load Balancer'
     ],
     tags: ['Django', 'DRF', 'PostgreSQL', 'Redis', 'Celery', 'JWT'],
     links: [
@@ -208,6 +208,22 @@ const PROJECTS = [
     ],
     tags: ['Python', 'Gemini 2.0 Flash'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/clara-ai-pipeline', icon: 'github' }]
+  },
+  {
+    title: 'Malware Vision AI',
+    category: 'Applied ML',
+    subtitle: 'Multi-Class Malware Family Classification',
+    desc: [
+      'Converted 13,747 PE executable samples into grayscale image tensors, with no malware execution required',
+      'Fine-tuned EfficientNetV2-S across 31 malware families with class-balanced training',
+      'Evaluated with confusion matrices and per-class precision/recall alongside aggregate accuracy, not accuracy alone',
+      'Macro F1 of 0.96 and weighted F1 of 0.95 across all 31 families'
+    ],
+    tags: ['TensorFlow', 'EfficientNetV2', 'Transfer Learning', 'NumPy'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/tharunsridhar/malware-vision-ai', icon: 'github' },
+      { label: 'Model on HF', href: 'https://huggingface.co/tharunsridhar/malware-detector', icon: 'external' }
+    ]
   }
 ];
 
