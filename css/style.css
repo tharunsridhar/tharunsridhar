@@ -587,6 +587,7 @@ svg { width: 1.1em; height: 1.1em; }
 .project-card.hidden { display: none; }
 
 .project-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.9rem; }
+.project-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: flex-end; }
 .project-featured {
   font-family: var(--font-mono);
   font-size: 0.68rem;

@@ -113,22 +113,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
    ============================================================ */
 const PROJECTS = [
   {
-    title: 'NeuroScan AI',
-    category: 'Applied ML',
-    subtitle: 'Brain Tumor MRI Analysis, Reliability Gating & Reporting',
-    desc: [
-      '4-model classification ensemble (EfficientNetV2-S, MobileNetV3, ConvNeXt Tiny) fused with an adaptive, lesion-aware weighting layer',
-      'EfficientNetB4 Attention U-Net segmentation reaching a Dice score of ~0.88',
-      'Diagnostic Reliability Index cross-validates Grad-CAM attention against the segmentation mask, gating predictions into Accepted / Caution / Specialist-Review tiers',
-      'Groq LLM radiology report generation + PDF export via FastAPI, backed by 4 pytest suites'
-    ],
-    tags: ['PyTorch/TensorFlow', 'FastAPI', 'Groq LLM', 'OpenCV', 'GradCAM'],
-    links: [
-      { label: 'GitHub', href: 'https://github.com/tharunsridhar/NeuroScan-AI', icon: 'github' },
-      { label: 'Model on HF', href: 'https://huggingface.co/tharunsridhar/brain_tumor_net-ensemble', icon: 'external' }
-    ]
-  },
-  {
     title: 'Inventra',
     category: 'Backend',
     subtitle: 'Role-Based Inventory Management System',
@@ -210,8 +194,24 @@ const PROJECTS = [
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/clara-ai-pipeline', icon: 'github' }]
   },
   {
+    title: 'NeuroScan AI',
+    category: ['Applied ML Engineering', 'AI Engineering'],
+    subtitle: 'Brain Tumor MRI Analysis, Reliability Gating & Reporting',
+    desc: [
+      '4-model classification ensemble (EfficientNetV2-S, MobileNetV3, ConvNeXt Tiny) fused with an adaptive, lesion-aware weighting layer',
+      'EfficientNetB4 Attention U-Net segmentation reaching a Dice score of ~0.88',
+      'Diagnostic Reliability Index cross-validates Grad-CAM attention against the segmentation mask, gating predictions into Accepted / Caution / Specialist-Review tiers',
+      'Groq LLM radiology report generation + PDF export via FastAPI, backed by 4 pytest suites'
+    ],
+    tags: ['PyTorch/TensorFlow', 'FastAPI', 'Groq LLM', 'OpenCV', 'GradCAM'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/tharunsridhar/NeuroScan-AI', icon: 'github' },
+      { label: 'Model on HF', href: 'https://huggingface.co/tharunsridhar/brain_tumor_net-ensemble', icon: 'external' }
+    ]
+  },
+  {
     title: 'Malware Vision AI',
-    category: 'Applied ML',
+    category: 'ML Engineer',
     subtitle: 'Multi-Class Malware Family Classification',
     desc: [
       'Converted 13,747 PE executable samples into grayscale image tensors, with no malware execution required',
@@ -234,7 +234,8 @@ const ICONS = {
 
 const CATEGORY_CLASS = {
   'AI Engineering': 'cat-ai',
-  'Applied ML': 'cat-ml',
+  'Applied ML Engineering': 'cat-ml',
+  'ML Engineer': 'cat-ml',
   'Backend': 'cat-backend'
 };
 
@@ -246,7 +247,7 @@ function renderProjects() {
         <div>
           <h3 class="project-title">${p.title}</h3>
         </div>
-        <span class="project-featured ${CATEGORY_CLASS[p.category] || ''}">${p.category}</span>
+        <div class="project-badges">${(Array.isArray(p.category) ? p.category : [p.category]).map(c => `<span class="project-featured ${CATEGORY_CLASS[c] || ''}">${c}</span>`).join('')}</div>
       </div>
       <p class="project-desc" style="font-weight:600;color:var(--text-muted);margin-bottom:0.6rem;">${p.subtitle}</p>
       <div class="project-desc">
