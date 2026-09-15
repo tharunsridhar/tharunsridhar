@@ -195,7 +195,7 @@ const PROJECTS = [
   },
   {
     title: 'NeuroScan AI',
-    category: ['Applied ML Engineering', 'AI Engineering'],
+    category: ['AI Engineering'],
     subtitle: 'Brain Tumor MRI Analysis, Reliability Gating & Reporting',
     desc: [
       '4-model classification ensemble (EfficientNetV2-S, MobileNetV3, ConvNeXt Tiny) fused with an adaptive, lesion-aware weighting layer',
@@ -211,7 +211,7 @@ const PROJECTS = [
   },
   {
     title: 'Malware Vision AI',
-    category: 'ML Engineer',
+    category: 'Computer Vision',
     subtitle: 'Multi-Class Malware Family Classification',
     desc: [
       'Converted 13,747 PE executable samples into grayscale image tensors, with no malware execution required',
@@ -234,8 +234,7 @@ const ICONS = {
 
 const CATEGORY_CLASS = {
   'AI Engineering': 'cat-ai',
-  'Applied ML Engineering': 'cat-ml',
-  'ML Engineer': 'cat-ml',
+  'Computer Vision': 'cat-ml',
   'Backend': 'cat-backend'
 };
 
