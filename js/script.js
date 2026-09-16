@@ -329,14 +329,14 @@ const HACKERRANK_CERTS = [
   'Python (Basic)', 'Problem Solving (Basic)', 'Problem Solving (Intermediate)', 'R (Basic)'
 ];
 
-const LEETCODE_STATS = { totalSolved: 162, totalProblems: 4047, updated: 'Sep 11, 2026' };
+const LEETCODE_STATS = { totalSolved: 185, totalProblems: 4055, updated: 'Sep 16, 2026' };
 
 // Ring geometry (r, stroke-dasharray/-dashoffset, rotation per difficulty arc) copied directly
 // off leetcode.com/u/Tharunsridhar's own solved-problems chart, so this mirrors it exactly.
 const LEETCODE_RING_ARCS = [
-  { name: 'Easy', count: '30/963', color: 'rgb(28,186,186)', track: 'rgba(28,186,186,0.2)', trackDash: '44.288 219.712', fillDash: '1.37969 262.62', rotate: '225deg' },
-  { name: 'Med.', count: '104/2111', color: 'rgb(255,183,0)', track: 'rgba(255,183,0,0.2)', trackDash: '97.0841 166.916', fillDash: '4.78292 259.217', rotate: '293.49274deg' },
-  { name: 'Hard', count: '28/973', color: 'rgb(246,55,55)', track: 'rgba(246,55,55,0.2)', trackDash: '44.7479 219.252', fillDash: '1.28771 262.712', rotate: '433.98013deg' }
+  { name: 'Easy', count: '51/965', color: 'rgb(28,186,186)', track: 'rgba(28,186,186,0.2)', trackDash: '44.2924 219.708', fillDash: '2.34084 261.659', rotate: '225deg' },
+  { name: 'Med.', count: '104/2115', color: 'rgb(255,183,0)', track: 'rgba(255,183,0,0.2)', trackDash: '97.0762 166.924', fillDash: '4.77348 259.227', rotate: '293.49877deg' },
+  { name: 'Hard', count: '30/975', color: 'rgb(246,55,55)', track: 'rgba(246,55,55,0.2)', trackDash: '44.7514 219.249', fillDash: '1.37697 262.623', rotate: '433.97534deg' }
 ];
 
 function renderLeetcodeRing(stats, arcs) {
