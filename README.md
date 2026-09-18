@@ -86,7 +86,7 @@ Python backend developer and AI engineer building systems end-to-end.
 
 ## Certifications
 
-- AWS Solutions Architect Associate (SAA-C03) &ndash; Exam Prep Course &middot; Packt (Coursera) (Jul 2026)
+- AWS Solutions Architect Associate (SAA-C03) &ndash; Exam Prep Course &middot; Packt (Jul 2026)
 - Develop Generative AI Applications: Get Started &middot; IBM &middot; Coursera (Aug 2026)
 - Artificial Intelligence (Credit Course) &middot; SmartBridge &times; Google for Developers (May&ndash;Jun 2025)
 
