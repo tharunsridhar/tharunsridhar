@@ -18,7 +18,7 @@ Python backend developer and AI engineer building systems end-to-end.
 
 ## About Me
 
-### `B.Tech, Computer Science` (Information Security Specialization) &middot; VIT, Vellore &middot; 2022&ndash;2026
+### `B.Tech, Computer Science`  &middot; VIT, Vellore &middot; 2022&ndash;2026
 
 - Bengaluru, India
 - I like building things that actually run: APIs, pipelines, and full machine learning systems, not just notebooks
