@@ -325,43 +325,18 @@ const HACKERRANK_BADGES = [
   { name: 'SQL', stars: 5 }
 ];
 const HACKERRANK_CERTS = [
-  'SQL (Basic)', 'SQL (Intermediate)', 'SQL (Advanced)',
-  'Python (Basic)', 'Problem Solving (Basic)', 'Problem Solving (Intermediate)', 'R (Basic)'
+  'SQL: Basic, Intermediate, Advanced',
+  'Problem Solving: Basic, Intermediate',
+  'Python (Basic)', 'R (Basic)',
+  'Rest API (Intermediate)', 'Software Engineer'
 ];
 
-const LEETCODE_STATS = { totalSolved: 201, totalProblems: 4059, updated: 'Sep 20, 2026' };
+const LEETCODE_STATS = { totalSolved: '250+' };
 
-// Ring geometry (r, stroke-dasharray/-dashoffset, rotation per difficulty arc) copied directly
-// off leetcode.com/u/Tharunsridhar's own solved-problems chart, so this mirrors it exactly.
-const LEETCODE_RING_ARCS = [
-  { name: 'Easy', count: '58/966', color: 'rgb(28,186,186)', track: 'rgba(28,186,186,0.2)', trackDash: '44.32645 219.56734', fillDash: '2.66142 261.23236', rotate: '225deg' },
-  { name: 'Med.', count: '111/2117', color: 'rgb(255,183,0)', track: 'rgba(255,183,0,0.2)', trackDash: '97.14191 166.75187', fillDash: '5.09341 258.80037', rotate: '293.46948deg' },
-  { name: 'Hard', count: '32/976', color: 'rgb(246,55,55)', track: 'rgba(246,55,55,0.2)', trackDash: '44.78531 219.10847', fillDash: '1.46837 262.42541', rotate: '433.98905deg' }
-];
-
-function renderLeetcodeRing(stats, arcs) {
-  const arcSvg = arcs.map(a => `
-    <g style="--rot:${a.rotate}">
-      <circle cx="50" cy="50" r="42" fill="none" stroke="${a.track}" stroke-width="3" stroke-linecap="round" stroke-dasharray="${a.trackDash}" stroke-dashoffset="66"/>
-      <circle cx="50" cy="50" r="42" fill="none" stroke="${a.color}" stroke-width="3" stroke-linecap="round" stroke-dasharray="${a.fillDash}" stroke-dashoffset="66"/>
-    </g>`).join('');
-
+function renderLeetcodeStats(stats) {
   return `
-    <div class="leetcode-ring">
-      <svg viewBox="0 0 100 100" width="160" height="160" aria-hidden="true">${arcSvg}</svg>
-      <div class="leetcode-ring-label">
-        <div class="leetcode-ring-num">${stats.totalSolved}<span class="leetcode-ring-total">/${stats.totalProblems}</span></div>
-        <div class="leetcode-ring-solved">&#10003; Solved</div>
-      </div>
-      <div class="leetcode-ring-updated">Updated ${stats.updated}</div>
-    </div>
-    <div class="leetcode-diffbox-col">
-      ${arcs.map(a => `
-        <div class="leetcode-diffbox">
-          <span class="leetcode-diffbox-label" style="color:${a.color}">${a.name}</span>
-          <span class="leetcode-diffbox-count">${a.count}</span>
-        </div>`).join('')}
-    </div>`;
+    <div class="leetcode-solved-num">${stats.totalSolved}</div>
+    <div class="leetcode-solved-label">Problems Solved</div>`;
 }
 
 function renderAccomplishments() {
@@ -385,7 +360,7 @@ function renderAccomplishments() {
         <a class="accomplish-link" href="https://leetcode.com/u/Tharunsridhar/" target="_blank" rel="noopener">View profile &rarr;</a>
       </div>
       <div class="leetcode-stats">
-        ${renderLeetcodeRing(LEETCODE_STATS, LEETCODE_RING_ARCS)}
+        ${renderLeetcodeStats(LEETCODE_STATS)}
       </div>
       <a class="btn btn-ghost btn-sm" href="https://leetcode.com/u/Tharunsridhar/" target="_blank" rel="noopener">Profile</a>
     </div>
@@ -397,35 +372,148 @@ renderAccomplishments();
 /* ============================================================
    Certification & badge data
    ============================================================ */
-const CERTIFICATIONS = [
-  { name: 'AWS Certified Solutions Architect – Associate (SAA-C03) Specialization', issuer: 'Packt · Coursera', date: 'Jul 2026', icon: '☁️', link: 'https://coursera.org/verify/specialization/288QHZ5FL97M', linkLabel: 'Verify' },
-  { name: 'Develop Generative AI Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', icon: '✨', link: 'https://coursera.org/verify/0DCDBI140NPN', linkLabel: 'Verify' },
-  { name: 'Build RAG Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', icon: '💬', link: 'https://coursera.org/verify/QU4BKSV10SL7', linkLabel: 'Verify' },
-  { name: 'Vector Databases for RAG: An Introduction', issuer: 'IBM · Coursera', date: 'Aug 2026', icon: '🔎', link: 'https://coursera.org/verify/9BVDOTL3HGGD', linkLabel: 'Verify' },
-  { name: 'Advanced RAG with Vector Databases and Retrievers', issuer: 'IBM · Coursera', date: 'Sep 2026', icon: '🧩', link: '', linkLabel: 'Verify' },
-  { name: 'Build Multimodal Generative AI Applications', issuer: 'IBM · Coursera', date: 'Sep 2026', icon: '🖼️', link: '', linkLabel: 'Verify' },
-  { name: 'Fundamentals of Building AI Agents', issuer: 'IBM · Coursera', date: 'Sep 2026', icon: '🕹️', link: '', linkLabel: 'Verify' },
-  { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'Jul 2025', icon: '🧠', link: 'assets/certificates/smartbridge-ai-credit-course.pdf', linkLabel: 'View Certificate' }
+const CERT_GROUPS = [
+  {
+    title: 'AWS Certified Solutions Architect – Associate (SAA-C03) Specialization',
+    icon: '☁️',
+    collapsible: true,
+    issuer: 'Packt · Coursera',
+    dateRange: 'Jul 2026',
+    mainItem: { shortName: 'AWS Certified Solutions Architect – Associate (SAA-C03)', date: 'Jul 11, 2026', link: 'https://coursera.org/verify/specialization/288QHZ5FL97M' },
+    items: [
+      { name: 'AWS Foundations and Core Services', issuer: 'Packt · Coursera', date: 'Jul 5, 2026', link: 'https://coursera.org/verify/9A483W5VDOI8' },
+      { name: 'AWS Networking, Compute & IAM Architecture', issuer: 'Packt · Coursera', date: 'Jul 7, 2026', link: 'https://coursera.org/verify/81RY6JCL6ZYV' },
+      { name: 'Advanced AWS Deployment, Databases & Optimization', issuer: 'Packt · Coursera', date: 'Jul 11, 2026', link: 'https://coursera.org/verify/LWE7O3C75LUZ' }
+    ]
+  },
+  {
+    title: 'IBM RAG and Agentic AI',
+    icon: '✨',
+    collapsible: true,
+    issuer: 'IBM · Coursera',
+    dateRange: 'Aug 2026 – Sep 2026',
+    items: [
+      { name: 'Develop Generative AI Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'https://coursera.org/verify/0DCDBI140NPN' },
+      { name: 'Build RAG Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'https://coursera.org/verify/QU4BKSV10SL7' },
+      { name: 'Vector Databases for RAG: An Introduction', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'https://coursera.org/verify/9BVDOTL3HGGD' },
+      { name: 'Advanced RAG with Vector Databases and Retrievers', issuer: 'IBM · Coursera', date: 'Aug 26, 2026', link: 'https://coursera.org/verify/1L7EGAQ94135' },
+      { name: 'Build Multimodal Generative AI Applications', issuer: 'IBM · Coursera', date: 'Sep 1, 2026', link: 'https://coursera.org/verify/L36TT3J2RALB' },
+      { name: 'Fundamentals of Building AI Agents', issuer: 'IBM · Coursera', date: 'Sep 9, 2026', link: 'https://coursera.org/verify/HEI8XXD4VSOI' },
+      { name: 'Agentic AI with LangChain and LangGraph', issuer: 'IBM · Coursera', date: 'Sep 16, 2026', link: 'https://coursera.org/verify/XH8A43HDLU8L' },
+      { name: 'Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI', issuer: 'IBM · Coursera', date: 'Sep 18, 2026', link: 'https://coursera.org/verify/LXH49VX9HKP3' }
+    ]
+  },
+  {
+    title: 'AI Engineering',
+    icon: '🧠',
+    collapsible: true,
+    issuer: 'SmartBridge × Google for Developers',
+    dateRange: 'Jul 2025',
+    items: [
+      { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'Jul 16, 2025', link: 'assets/certificates/smartbridge-ai-credit-course.pdf' },
+      { name: 'Certificate of Merit — 100/100', issuer: 'SmartBridge × Google for Developers', date: 'Jul 16, 2025', link: 'assets/certificates/smartbridge-ai-merit.pdf' },
+      { name: 'Project Completion: Dog Breed Identification using Transfer Learning', issuer: 'SmartBridge', date: 'Jul 14, 2025', link: 'assets/certificates/smartbridge-ai-project-completion.pdf' }
+    ]
+  },
+  {
+    title: 'Anthropic Badges',
+    display: 'badges',
+    items: [
+      { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', date: '2026', icon: '🤖', link: 'assets/certificates/anthropic-ai-fluency.pdf' },
+      { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: 'Feb 2026', icon: '🔗', link: 'https://verify.skilljar.com/c/8v2nanvk5wsh' },
+      { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: 'Feb 2026', icon: '🔗', link: 'https://verify.skilljar.com/c/4xy6huookznu' },
+      { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Feb 2026', icon: '⚡', link: 'https://verify.skilljar.com/c/4ae9pz865x6p' }
+    ]
+  }
 ];
 
-const BADGES = [
-  { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', date: '2026', icon: '🤖', link: 'assets/certificates/anthropic-ai-fluency.pdf', linkLabel: 'View Certificate' },
-  { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: 'Feb 2026', icon: '🔗', link: 'https://verify.skilljar.com/c/8v2nanvk5wsh', linkLabel: 'Verify' },
-  { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: 'Feb 2026', icon: '🔗', link: 'https://verify.skilljar.com/c/4xy6huookznu', linkLabel: 'Verify' },
-  { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Feb 2026', icon: '⚡', link: 'https://verify.skilljar.com/c/4ae9pz865x6p', linkLabel: 'Verify' }
-];
+function renderCertGroupItem(item) {
+  return `
+    <a class="cert-group-item" href="${item.link}" target="_blank" rel="noopener">
+      <span class="cert-group-item-name">${item.name}</span>
+      <span class="cert-group-item-date">${item.date}</span>
+    </a>`;
+}
 
-function renderCertCards(list, elId) {
-  document.getElementById(elId).innerHTML = list.map(c => `
-    <div class="cert-card">
-      <div class="cert-icon">${c.icon}</div>
-      <div class="cert-body">
-        <p class="cert-name">${c.name}</p>
-        <p class="cert-meta">${c.issuer} &middot; ${c.date}</p>
-        ${c.link ? `<a class="cert-link" href="${c.link}" target="_blank" rel="noopener">${c.linkLabel} &rarr;</a>` : ''}
-      </div>
-    </div>
+function renderBadgeTiles(list) {
+  return list.map(b => `
+    <a class="badge-tile" href="${b.link}" target="_blank" rel="noopener">
+      <span class="badge-tile-icon">${b.icon}</span>
+      <span class="badge-tile-name">${b.name}</span>
+      <span class="badge-tile-issuer">${b.issuer} &middot; ${b.date}</span>
+    </a>
   `).join('');
 }
-renderCertCards(CERTIFICATIONS, 'certsGrid');
-renderCertCards(BADGES, 'badgesGrid');
+
+function groupMetaParts(g) {
+  return [g.issuer, g.dateRange].filter(Boolean).join(' &middot; ');
+}
+
+function renderCertGroupBlock(g, i) {
+  if (g.collapsible) {
+    const meta = groupMetaParts(g);
+    return `
+      <button type="button" class="cert-group-card cert-group-trigger" data-group-index="${i}">
+        <span class="cert-group-icon">${g.icon}</span>
+        <span class="cert-group-info">
+          <span class="cert-group-name">${g.title}</span>
+          ${meta ? `<span class="cert-group-count">${meta}</span>` : ''}
+        </span>
+        <span class="cert-group-arrow">&rarr;</span>
+      </button>`;
+  }
+  if (g.display === 'badges') {
+    return `
+      <h3 class="cert-group-title">${g.title}</h3>
+      <div class="badge-tile-grid">${renderBadgeTiles(g.items)}</div>`;
+  }
+}
+
+function renderCertGroups() {
+  document.getElementById('certGroups').innerHTML = CERT_GROUPS.map((g, i) => `
+    <div class="cert-group-block reveal">${renderCertGroupBlock(g, i)}</div>
+  `).join('');
+  document.querySelectorAll('[data-group-index]').forEach(btn => {
+    btn.addEventListener('click', () => openCertModal(Number(btn.dataset.groupIndex)));
+  });
+  window.dispatchEvent(new Event('content-injected'));
+}
+renderCertGroups();
+
+/* ---------------- Certification group modal ---------------- */
+const certModal = document.getElementById('certModal');
+
+function openCertModal(i) {
+  const g = CERT_GROUPS[i];
+  certModal.innerHTML = `
+    <div class="cert-modal-backdrop"></div>
+    <div class="cert-modal-panel" role="dialog" aria-modal="true" aria-label="${g.title}">
+      <button type="button" class="cert-modal-close" aria-label="Close">&times;</button>
+      <div class="cert-modal-head">
+        <span class="cert-group-icon">${g.icon}</span>
+        <div>
+          <h3 class="cert-modal-title">${g.title}</h3>
+          <p class="cert-group-count">
+            ${g.mainItem ? `<a class="cert-modal-mainlink" href="${g.mainItem.link}" target="_blank" rel="noopener">${g.mainItem.shortName} &#8599;</a> &middot; ` : ''}${groupMetaParts(g)}
+          </p>
+        </div>
+      </div>
+      <div class="cert-group-list">
+        ${g.items.map(renderCertGroupItem).join('')}
+      </div>
+    </div>`;
+  certModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  certModal.querySelector('.cert-modal-backdrop').addEventListener('click', closeCertModal);
+  certModal.querySelector('.cert-modal-close').addEventListener('click', closeCertModal);
+}
+
+function closeCertModal() {
+  certModal.classList.remove('open');
+  document.body.style.overflow = '';
+  certModal.innerHTML = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && certModal.classList.contains('open')) closeCertModal();
+});

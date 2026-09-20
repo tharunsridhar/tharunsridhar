@@ -11,8 +11,8 @@
   --text: #12131c;
   --text-muted: #55586b;
   --text-faint: #8688a0;
-  --accent: #0f8f82;
-  --accent-2: #6d5ce8;
+  --accent: #0ea5e9;
+  --accent-2: #2563eb;
   --accent-contrast: #ffffff;
   --shadow: 0 20px 40px -20px rgba(20, 20, 40, 0.18);
   --radius-lg: 22px;
@@ -34,8 +34,8 @@
     --text: #eef0fb;
     --text-muted: #a6a9bf;
     --text-faint: #6d7089;
-    --accent: #2dd4c4;
-    --accent-2: #8b7bff;
+    --accent: #38bdf8;
+    --accent-2: #60a5fa;
     --accent-contrast: #06110f;
     --shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.6);
     color-scheme: dark;
@@ -51,8 +51,8 @@
   --text: #eef0fb;
   --text-muted: #a6a9bf;
   --text-faint: #6d7089;
-  --accent: #2dd4c4;
-  --accent-2: #8b7bff;
+  --accent: #38bdf8;
+  --accent-2: #60a5fa;
   --accent-contrast: #06110f;
   --shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.6);
   color-scheme: dark;
@@ -705,28 +705,20 @@ svg { width: 1.1em; height: 1.1em; }
 .cert-mini-status { color: var(--accent); font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; }
 
 .leetcode-card { display: flex; flex-direction: column; height: 100%; }
-.leetcode-stats { display: flex; align-items: stretch; gap: 0.8rem; flex-grow: 1; margin-bottom: 1.4rem; }
-.leetcode-ring { position: relative; flex-shrink: 0; width: 160px; height: 160px; }
-.leetcode-ring svg { width: 100%; height: 100%; }
-.leetcode-ring svg g { transform-box: fill-box; transform-origin: center; transform: rotate(var(--rot)); }
-.leetcode-ring-label {
-  position: absolute; inset: 0;
+.leetcode-stats {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 0.2rem; text-align: center;
+  text-align: center; flex-grow: 1; gap: 0.4rem; padding: 1.6rem 0; margin-bottom: 1.4rem;
+  border-radius: var(--radius-lg); background: var(--surface-2);
 }
-.leetcode-ring-num { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; color: var(--text); line-height: 1.1; }
-.leetcode-ring-total { font-family: var(--font-sans); font-size: 1rem; font-weight: 500; color: var(--text-faint); }
-.leetcode-ring-solved { font-size: 0.78rem; color: var(--text-muted); }
-.leetcode-ring-updated { position: absolute; left: 50%; bottom: 6%; transform: translateX(-50%); font-size: 0.68rem; color: var(--text-faint); white-space: nowrap; }
-.leetcode-diffbox-col { display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
-.leetcode-diffbox {
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.15rem;
-  flex: 1; border-radius: var(--radius-sm); background: var(--surface-2);
+.leetcode-solved-num {
+  font-family: var(--font-display); font-size: 3.2rem; font-weight: 700; line-height: 1;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.leetcode-diffbox-label { font-size: 0.74rem; font-weight: 600; }
-.leetcode-diffbox-count { font-size: 0.74rem; font-weight: 500; color: var(--text-muted); }
+.leetcode-solved-label { font-size: 0.95rem; font-weight: 600; color: var(--text); }
 
 /* ---------- Certifications ---------- */
+.cert-group-block + .cert-group-block { margin-top: 2.4rem; }
 .cert-group-title {
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -736,7 +728,6 @@ svg { width: 1.1em; height: 1.1em; }
   color: var(--text-faint);
   margin: 0 0 1rem;
 }
-.cert-group-title:not(:first-of-type) { margin-top: 2.4rem; }
 .certs-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -774,6 +765,139 @@ svg { width: 1.1em; height: 1.1em; }
   color: var(--accent);
 }
 .cert-link:hover { text-decoration: underline; }
+
+.cert-group-card {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+}
+.cert-group-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.cert-group-trigger {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.3rem 1.5rem;
+}
+.cert-group-icon {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent-2) 16%, transparent);
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+}
+.cert-group-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.2rem; }
+.cert-group-name { font-weight: 700; font-size: 0.95rem; }
+.cert-group-count { color: var(--text-faint); font-size: 0.78rem; font-family: var(--font-mono); }
+.cert-modal-mainlink { color: var(--accent); font-weight: 600; }
+.cert-modal-mainlink:hover { text-decoration: underline; }
+.cert-group-arrow { color: var(--text-faint); font-size: 1rem; transition: transform 0.2s ease, color 0.2s ease; }
+.cert-group-card:hover .cert-group-arrow { transform: translateX(4px); color: var(--accent); }
+.cert-group-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.cert-group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid transparent;
+  font-size: 0.85rem;
+  transition: border-color 0.2s ease;
+}
+.cert-group-item:hover { border-color: var(--accent); }
+.cert-group-item-name { font-weight: 600; }
+.cert-group-item-date { color: var(--text-faint); font-size: 0.74rem; font-family: var(--font-mono); white-space: nowrap; }
+
+/* ---------- Badge tiles ---------- */
+.badge-tile-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.badge-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+  padding: 1.6rem 1rem 1.3rem;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.badge-tile:hover { transform: translateY(-4px); border-color: var(--accent); }
+.badge-tile-icon {
+  width: 64px; height: 64px;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, transparent), color-mix(in srgb, var(--accent-2) 22%, transparent));
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.badge-tile-name { font-weight: 700; font-size: 0.85rem; line-height: 1.35; }
+.badge-tile-issuer { color: var(--text-faint); font-size: 0.7rem; font-family: var(--font-mono); }
+
+/* ---------- Certification group modal ---------- */
+.cert-modal { display: none; }
+.cert-modal.open { display: block; }
+.cert-modal-backdrop {
+  position: fixed; inset: 0;
+  background: color-mix(in srgb, black 65%, transparent);
+  backdrop-filter: blur(3px);
+  z-index: 200;
+}
+.cert-modal-panel {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(560px, calc(100vw - 2.4rem));
+  max-height: min(680px, calc(100vh - 4rem));
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 1.8rem;
+  z-index: 201;
+}
+.cert-modal-close {
+  position: absolute;
+  top: 1rem; right: 1.1rem;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.cert-modal-close:hover { border-color: var(--accent); color: var(--accent); }
+.cert-modal-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem; padding-right: 2rem; }
+.cert-modal-title { font-family: var(--font-display); font-size: 1.15rem; margin: 0 0 0.2rem; }
 
 /* ---------- Contact ---------- */
 .contact-section { text-align: center; }
@@ -866,6 +990,7 @@ svg { width: 1.1em; height: 1.1em; }
   .research-grid { grid-template-columns: 1fr; }
   .accomplish-grid { grid-template-columns: 1fr; }
   .certs-grid { grid-template-columns: 1fr; }
+  .badge-tile-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; }
   .section { padding: 4.5rem 0; }
   .nav-links { gap: 1rem; }
