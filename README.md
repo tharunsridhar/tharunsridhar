@@ -18,7 +18,7 @@ Python backend developer and AI engineer building systems end-to-end.
 
 ## About Me
 
-### `B.Tech, Computer Science` (Information Security Specialization) &middot; VIT, Vellore &middot; 2022&ndash;2026
+### `B.Tech, Computer Science`  &middot; VIT, Vellore &middot; 2022&ndash;2026
 
 - Bengaluru, India
 - I like building things that actually run: APIs, pipelines, and full machine learning systems, not just notebooks
@@ -86,7 +86,7 @@ Python backend developer and AI engineer building systems end-to-end.
 
 ## Certifications
 
-- AWS Solutions Architect Associate (SAA-C03) &ndash; Exam Prep Course &middot; Packt (Coursera) (Jul 2026)
+- AWS Solutions Architect Associate (SAA-C03) &ndash; Packt (Jul 2026)
 - Develop Generative AI Applications: Get Started &middot; IBM &middot; Coursera (Aug 2026)
 - Artificial Intelligence (Credit Course) &middot; SmartBridge &times; Google for Developers (May&ndash;Jun 2025)
 
