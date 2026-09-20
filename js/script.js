@@ -379,11 +379,11 @@ const CERT_GROUPS = [
     collapsible: true,
     issuer: 'Packt · Coursera',
     dateRange: 'Jul 2026',
-    mainItem: { shortName: 'AWS Certified Solutions Architect – Associate (SAA-C03)', date: 'Jul 11, 2026', link: 'https://coursera.org/verify/specialization/288QHZ5FL97M' },
+    mainItem: { shortName: 'AWS Certified Solutions Architect – Associate (SAA-C03)', date: 'Jul 2026', link: 'https://coursera.org/verify/specialization/288QHZ5FL97M' },
     items: [
-      { name: 'AWS Foundations and Core Services', issuer: 'Packt · Coursera', date: 'Jul 5, 2026', link: 'https://coursera.org/verify/9A483W5VDOI8' },
-      { name: 'AWS Networking, Compute & IAM Architecture', issuer: 'Packt · Coursera', date: 'Jul 7, 2026', link: 'https://coursera.org/verify/81RY6JCL6ZYV' },
-      { name: 'Advanced AWS Deployment, Databases & Optimization', issuer: 'Packt · Coursera', date: 'Jul 11, 2026', link: 'https://coursera.org/verify/LWE7O3C75LUZ' }
+      { name: 'AWS Foundations and Core Services', issuer: 'Packt · Coursera', date: 'Jul 2026', link: 'https://coursera.org/verify/9A483W5VDOI8' },
+      { name: 'AWS Networking, Compute & IAM Architecture', issuer: 'Packt · Coursera', date: 'Jul 2026', link: 'https://coursera.org/verify/81RY6JCL6ZYV' },
+      { name: 'Advanced AWS Deployment, Databases & Optimization', issuer: 'Packt · Coursera', date: 'Jul 2026', link: 'https://coursera.org/verify/LWE7O3C75LUZ' }
     ]
   },
   {
@@ -396,11 +396,11 @@ const CERT_GROUPS = [
       { name: 'Develop Generative AI Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'https://coursera.org/verify/0DCDBI140NPN' },
       { name: 'Build RAG Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'https://coursera.org/verify/QU4BKSV10SL7' },
       { name: 'Vector Databases for RAG: An Introduction', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'https://coursera.org/verify/9BVDOTL3HGGD' },
-      { name: 'Advanced RAG with Vector Databases and Retrievers', issuer: 'IBM · Coursera', date: 'Aug 26, 2026', link: 'https://coursera.org/verify/1L7EGAQ94135' },
-      { name: 'Build Multimodal Generative AI Applications', issuer: 'IBM · Coursera', date: 'Sep 1, 2026', link: 'https://coursera.org/verify/L36TT3J2RALB' },
-      { name: 'Fundamentals of Building AI Agents', issuer: 'IBM · Coursera', date: 'Sep 9, 2026', link: 'https://coursera.org/verify/HEI8XXD4VSOI' },
-      { name: 'Agentic AI with LangChain and LangGraph', issuer: 'IBM · Coursera', date: 'Sep 16, 2026', link: 'https://coursera.org/verify/XH8A43HDLU8L' },
-      { name: 'Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI', issuer: 'IBM · Coursera', date: 'Sep 18, 2026', link: 'https://coursera.org/verify/LXH49VX9HKP3' }
+      { name: 'Advanced RAG with Vector Databases and Retrievers', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'https://coursera.org/verify/1L7EGAQ94135' },
+      { name: 'Build Multimodal Generative AI Applications', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/L36TT3J2RALB' },
+      { name: 'Fundamentals of Building AI Agents', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/HEI8XXD4VSOI' },
+      { name: 'Agentic AI with LangChain and LangGraph', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/XH8A43HDLU8L' },
+      { name: 'Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/LXH49VX9HKP3' }
     ]
   },
   {
@@ -410,9 +410,9 @@ const CERT_GROUPS = [
     issuer: 'SmartBridge × Google for Developers',
     dateRange: 'Jul 2025',
     items: [
-      { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'Jul 16, 2025', link: 'assets/certificates/smartbridge-ai-credit-course.pdf' },
-      { name: 'Certificate of Merit — 100/100', issuer: 'SmartBridge × Google for Developers', date: 'Jul 16, 2025', link: 'assets/certificates/smartbridge-ai-merit.pdf' },
-      { name: 'Project Completion: Dog Breed Identification using Transfer Learning', issuer: 'SmartBridge', date: 'Jul 14, 2025', link: 'assets/certificates/smartbridge-ai-project-completion.pdf' }
+      { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'Jul 2025', link: 'assets/certificates/smartbridge-ai-credit-course.pdf' },
+      { name: 'Certificate of Merit — 100/100', issuer: 'SmartBridge × Google for Developers', date: 'Jul 2025', link: 'assets/certificates/smartbridge-ai-merit.pdf' },
+      { name: 'Project Completion: Dog Breed Identification using Transfer Learning', issuer: 'SmartBridge', date: 'Jul 2025', link: 'assets/certificates/smartbridge-ai-project-completion.pdf' }
     ]
   },
   {
