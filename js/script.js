@@ -115,6 +115,7 @@ const PROJECTS = [
   {
     title: 'Inventra',
     category: 'Backend',
+    role: 'Backend Dev',
     subtitle: 'Role-Based Inventory Management System',
     desc: [
       'Load tested with Locust: without row-level locking, 40 concurrent users silently lost 16 units of stock with zero HTTP errors; select_for_update() closes the race to zero discrepancy',
@@ -122,7 +123,7 @@ const PROJECTS = [
       'Redis-cached reports with version-counter invalidation, cache hits collapse 9 queries down to 1 (proven via query-count assertions, not just timing)',
       'Celery background jobs and Beat schedule for async invoices, low-stock alerts, and nightly ledger reconciliation; deployed on AWS behind an Application Load Balancer'
     ],
-    tags: ['Django', 'DRF', 'PostgreSQL', 'Redis', 'Celery', 'JWT'],
+    tags: ['Python Backend', 'Django', 'DRF', 'PostgreSQL', 'Redis', 'Celery', 'JWT'],
     links: [
       { label: 'GitHub', href: 'https://github.com/tharunsridhar/Inventra', icon: 'github' },
       { label: 'Live Demo', href: 'http://inventra-alb-164557112.ap-south-1.elb.amazonaws.com/app', icon: 'external' }
@@ -131,6 +132,7 @@ const PROJECTS = [
   {
     title: 'Corrective RAG',
     category: 'AI Engineering',
+    role: 'AI Dev',
     subtitle: 'Self-Evaluating Local RAG Pipeline, Benchmarked with RAGAS',
     desc: [
       'Grades its own retrieval relevance, rewrites the query and re-retrieves on weak results, then falls back to live DuckDuckGo web search when local evidence still isn’t enough',
@@ -138,12 +140,13 @@ const PROJECTS = [
       'Runs fully local by default on Ollama (Llama 3.2 3B) with Chroma + sentence-transformers, with Groq/OpenRouter as opt-in cloud fallbacks',
       'RAGAS-based evaluation harness benchmarks the corrective pipeline against a plain baseline RAG system on faithfulness, context precision/recall, and answer relevancy'
     ],
-    tags: ['FastAPI', 'Ollama', 'ChromaDB', 'RAGAS', 'DuckDuckGo'],
+    tags: ['AI Dev', 'FastAPI', 'Ollama', 'ChromaDB', 'RAGAS', 'DuckDuckGo'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/Corrective-RAG', icon: 'github' }]
   },
   {
     title: 'PhotoShare API',
     category: 'Backend',
+    role: ['Team Member', 'Backend Dev'],
     subtitle: 'Photo & Video Sharing Backend',
     desc: [
       'Async FastAPI backend with JWT auth via fastapi-users: register, login, email verification, forgot/reset-password',
@@ -151,12 +154,13 @@ const PROJECTS = [
       'Ownership-based authorization returns 403 on delete attempts by non-owners',
       'REST API and static frontend served from a single FastAPI process, with zero CORS overhead'
     ],
-    tags: ['FastAPI', 'Async SQLAlchemy', 'JWT', 'ImageKit'],
+    tags: ['Python Backend', 'FastAPI', 'Async SQLAlchemy', 'JWT', 'ImageKit'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/photoshare-api', icon: 'github' }]
   },
   {
     title: 'Finvoro',
     category: 'Backend',
+    role: 'Backend Dev',
     subtitle: 'Personal Finance Management API',
     desc: [
       'Django REST Framework backend for multi-account tracking, categorized transactions, monthly budgets, and spending reports',
@@ -164,12 +168,13 @@ const PROJECTS = [
       'Versioned API under /api/v1/, live-computed account balances and budget spent/remaining figures, no stale duplicated values',
       'pytest + pytest-django coverage suite; interactive Swagger/ReDoc docs via drf-spectacular'
     ],
-    tags: ['Django', 'DRF', 'PostgreSQL', 'JWT', 'pytest'],
+    tags: ['Python Backend', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'pytest'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/finvoro-finance', icon: 'github' }]
   },
   {
     title: 'MCP Agent Toolkit',
     category: 'AI Engineering',
+    role: 'AI Dev',
     subtitle: 'Model Context Protocol Server & Agent, Built from Scratch',
     desc: [
       'Real FastMCP server exposing Tools, Resources, and a Prompt as its own separate process; the agent reaches every one of them only through an MCP ClientSession over stdio, never by importing a Python function directly',
@@ -177,24 +182,26 @@ const PROJECTS = [
       'Swapping in a real third-party MCP server (filesystem, GitHub, Slack) only means changing the StdioServerParameters, and nothing about the agent loop changes, proving the protocol boundary actually holds',
       'Test suite spins up the real MCP server subprocess and drives it through the full protocol (discovery, tool calls, resource reads, prompt templates) with no API key or network needed'
     ],
-    tags: ['MCP', 'FastMCP', 'Groq', 'FastAPI', 'Pytest'],
+    tags: ['AI Dev', 'MCP', 'FastMCP', 'Groq', 'FastAPI', 'Pytest'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/mcp-agent-toolkit', icon: 'github' }]
   },
   {
     title: 'Framework Showdown',
     category: 'AI Engineering',
+    role: ['Team Member', 'AI Dev'],
     subtitle: 'The Same Two-Agent Workflow, Built on Three Different Frameworks',
     desc: [
       'The same researcher-writer two-agent workflow implemented three separate times: CrewAI (sequential Process with task context-passing), AutoGen (RoundRobinGroupChat until a TERMINATE signal), and BeeAI (a single ReAct agent deciding for itself whether to call a tool)',
       'CrewAI and BeeAI pin incompatible pydantic versions and won’t share a virtualenv, so the FastAPI app runs AutoGen in-process and shells out to two separate Python 3.11 venvs as subprocesses for the other two, each returning one line of JSON on stdout',
       'Tests validate request handling, venv wiring, and that a missing interpreter fails with a clear 500 error message instead of a silent crash, with no Groq calls needed to run them'
     ],
-    tags: ['CrewAI', 'AutoGen', 'BeeAI', 'FastAPI', 'Pytest'],
+    tags: ['AI Dev', 'CrewAI', 'AutoGen', 'BeeAI', 'FastAPI', 'Pytest'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/agent-framework-showdown', icon: 'github' }]
   },
   {
     title: 'Task Manager Agent',
     category: 'AI Engineering',
+    role: ['Team Lead', 'AI Dev'],
     subtitle: 'LangGraph Tool-Calling Agent with Human-in-the-Loop Safety',
     desc: [
       'LangGraph agent adds, lists, updates, completes, and deletes tasks, and pauses mid-run for human confirmation before any delete via interrupt() / Command(resume=...)',
@@ -202,20 +209,21 @@ const PROJECTS = [
       'Test suite swaps in a scripted FakeModel to exercise the real graph, real tools, and real interrupt/resume flow with no API key or network call',
       'FastAPI backend with a raw request/response inspector in the UI, showing exactly what the agent sent and received on each turn'
     ],
-    tags: ['LangGraph', 'FastAPI', 'SQLite', 'Groq', 'Pytest'],
+    tags: ['AI Dev', 'LangGraph', 'FastAPI', 'SQLite', 'Groq', 'Pytest'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/langgraph-task-manager-agent', icon: 'github' }]
   },
   {
     title: 'NeuroScan AI',
     category: ['Backend'],
-    subtitle: 'Brain Tumor MRI Analysis Platform (Team Project, Backend Lead)',
+    role: ['Team Lead', 'Backend Dev'],
+    subtitle: 'Brain Tumor MRI Analysis Platform',
     desc: [
       'Led the team; personally built the FastAPI serving layer wiring the classification ensemble, segmentation model, and reliability gating into a single production API',
       'Groq LLM radiology report generation and PDF export served through the same FastAPI backend, backed by 4 pytest suites',
       'Diagnostic Reliability Index cross-validates Grad-CAM attention against the segmentation mask server-side, gating predictions into Accepted / Caution / Specialist-Review tiers before they reach the API response',
       'Also trained the underlying models: a 4-model classification ensemble (EfficientNetV2-S, MobileNetV3, ConvNeXt Tiny) and an EfficientNetB4 Attention U-Net segmentation model reaching a Dice score of ~0.88'
     ],
-    tags: ['FastAPI', 'Groq LLM', 'PyTorch/TensorFlow', 'OpenCV', 'GradCAM'],
+    tags: ['Python Backend', 'FastAPI', 'Groq LLM', 'PyTorch/TensorFlow', 'OpenCV', 'GradCAM'],
     links: [
       { label: 'GitHub', href: 'https://github.com/tharunsridhar/NeuroScan-AI', icon: 'github' },
       { label: 'Model on HF', href: 'https://huggingface.co/tharunsridhar/brain_tumor_net-ensemble', icon: 'external' }
@@ -228,10 +236,15 @@ const ICONS = {
   external: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>'
 };
 
-const CATEGORY_CLASS = {
-  'AI Engineering': 'cat-ai',
-  'Backend': 'cat-backend'
-};
+const ROLE_FULL_NAME = { 'Backend Dev': 'Backend Engineer', 'AI Dev': 'AI Developer', 'Team Lead': 'Team Lead' };
+
+function teamRoleLine(p) {
+  if (!p.role) return '';
+  const roles = Array.isArray(p.role) ? p.role : [p.role];
+  const isTeam = roles.includes('Team Lead') || roles.includes('Team Member');
+  const named = roles.filter(r => r !== 'Team Member').map(r => ROLE_FULL_NAME[r] || r);
+  return `${isTeam ? 'Team' : 'Solo'} Project &mdash; ${named.join(', ')}`;
+}
 
 function renderProjects() {
   const grid = document.getElementById('projectsGrid');
@@ -240,8 +253,8 @@ function renderProjects() {
       <div class="project-top">
         <div>
           <h3 class="project-title">${p.title}</h3>
+          ${teamRoleLine(p) ? `<p class="project-role-line">${teamRoleLine(p)}</p>` : ''}
         </div>
-        <div class="project-badges">${(Array.isArray(p.category) ? p.category : [p.category]).map(c => `<span class="project-featured ${CATEGORY_CLASS[c] || ''}">${c}</span>`).join('')}</div>
       </div>
       <p class="project-desc" style="font-weight:600;color:var(--text-muted);margin-bottom:0.6rem;">${p.subtitle}</p>
       <div class="project-desc">
