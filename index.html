@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2322d3ee%22>T</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -22,7 +22,6 @@
       <a href="#about" class="nav-link">About</a>
       <a href="#skills" class="nav-link">Skills</a>
       <a href="#projects" class="nav-link">Projects</a>
-      <a href="#research" class="nav-link">Research</a>
       <a href="#accomplishments" class="nav-link">Accomplishments</a>
       <a href="#certifications" class="nav-link">Certifications</a>
       <a href="#contact" class="nav-link">Contact</a>
@@ -110,19 +109,23 @@
         <div class="about-text reveal">
           <p>
             I&rsquo;m a Computer Science undergraduate at <strong>Vellore Institute of Technology</strong>
-            (B.Tech &rsquo;26) who likes building things that actually run: APIs, pipelines, and full
-            machine learning systems, not just notebooks. I&rsquo;m comfortable going from model training and
-            evaluation all the way through to deployment and wiring the result into a real backend.
+            (B.Tech &rsquo;26) who likes building things that actually run: REST APIs, backend systems, and
+            LLM-powered pipelines, not just notebooks. I&rsquo;m comfortable going from designing the data model
+            and auth layer through to deployment, and wiring a retrieval or agent pipeline into a real backend.
           </p>
           <p>
-            My work spans deep learning ensembles for medical imaging, LLM-integrated
-            pipelines for report generation and voice-agent configuration, and production-shaped FastAPI backends
-            with proper authentication, role-based access, and auditable data models. I&rsquo;m also curious
-            about secure system design: how systems fail in production, and how authorization and
-            architecture choices prevent that.
+            My work spans production-shaped FastAPI and Django backends with proper authentication, role-based
+            access, and auditable data models, and RAG/agentic AI systems: retrieval pipelines, tool-calling
+            agents, and protocol-level integrations like MCP. I&rsquo;m also curious about secure system design:
+            how systems fail in production, and how authorization and architecture choices prevent that.
+          </p>
+          <p>
+            Outside of shipping features, I read post-mortems of real breaches (RCE, IDOR, cloud identity
+            failures) to understand how systems actually fail, it directly shapes how I design authorization,
+            data access, and system boundaries.
           </p>
           <div class="about-facts">
-            <div class="fact"><span class="fact-label">Education</span><span class="fact-value">B.Tech, Computer Science (Information Security Specialization)<br>VIT, Vellore &middot; 2022&ndash;2026 &middot; CGPA 8.0</span></div>
+            <div class="fact"><span class="fact-label">Education</span><span class="fact-value">B.Tech in Computer Science<br>Specialization in Information Security<br>VIT, Vellore &middot; 2022&ndash;2026 &middot; CGPA 8.0</span></div>
             <div class="fact"><span class="fact-label">Extracurricular Activities</span><span class="fact-value">VIT TAM Club &amp; AI/ML Club, Member (2024&ndash;2025)<br>VIT Cycling Club, Core Member (2025&ndash;2026)</span></div>
             <div class="fact"><span class="fact-label">Based in</span><span class="fact-value">Bengaluru, India</span></div>
             <div class="fact"><span class="fact-label">Status</span><span class="fact-value">Open to Software Engineering &amp; AI Engineer roles</span></div>
@@ -146,9 +149,8 @@
               <p class="out">backend-engineering/</p>
               <p class="out">ai-engineering/</p>
               <p><span class="prompt">$</span> git log --oneline -3</p>
-              <p class="out accent">2x team-lead &middot; 16 shipped repos</p>
+              <p class="out accent">2x team-lead</p>
               <p class="out accent">5&#9733; HackerRank &middot; 250+ LeetCode solved</p>
-              <p class="out accent">3x deep learning models on Hugging Face</p>
               <p><span class="prompt">$</span> <span class="cursor-blink">&#9608;</span></p>
             </div>
           </div>
@@ -162,44 +164,17 @@
     <div class="container">
       <p class="section-kicker reveal">02 &middot; Skills</p>
       <h2 class="section-title reveal">Technology I know</h2>
-      <p class="section-sub reveal">Every tag below is either shipped in a project on this page or actively in use in current learning.</p>
-      <div class="skills-grid skills-grid-2">
-
-        <div class="skill-card reveal">
-          <div class="skill-head">
-            <span class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
-            <h3>Backend Development</h3>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Python</span><span class="tag">FastAPI</span>
-            <span class="tag">REST API Design</span><span class="tag">SQLAlchemy (Sync + Async)</span><span class="tag">Alembic Migrations</span>
-            <span class="tag">JWT Auth</span><span class="tag">fastapi-users</span><span class="tag">bcrypt / Password Hashing</span>
-            <span class="tag">Pydantic</span><span class="tag">SQLite</span><span class="tag">MySQL</span>
-            <span class="tag">Role-Based Access Control</span><span class="tag">Async Programming</span><span class="tag">Custom Middleware</span>
-            <span class="tag">Pytest</span><span class="tag">ImageKit CDN</span><span class="tag">Web Scraping (BeautifulSoup)</span>
-            <span class="tag">PyPDF</span><span class="tag">PDF Generation (fpdf2)</span><span class="tag">Jinja2</span>
-            <span class="tag">uv</span><span class="tag">Postman</span>
-            <span class="tag">Git &amp; GitHub</span>
-          </div>
+      <p class="section-sub reveal">Pulled from every shipped repo, not just the flagship builds below.</p>
+      <div class="skill-card skill-card-full reveal">
+        <div class="skill-lines">
+          <p class="skill-line"><span class="skill-line-label">Languages</span><span class="skill-line-value">Python, SQL, Java</span></p>
+          <p class="skill-line"><span class="skill-line-label">CS Fundamentals</span><span class="skill-line-value">Data Structures &amp; Algorithms, OOP, DBMS, Operating Systems, Computer Networks</span></p>
+          <p class="skill-line"><span class="skill-line-label">Backend</span><span class="skill-line-value">Django, Django REST Framework, FastAPI, REST API Design, JWT Auth &amp; RBAC, SQLAlchemy, Alembic, Celery, django-filter</span></p>
+          <p class="skill-line"><span class="skill-line-label">AI Engineering</span><span class="skill-line-value">LangChain, LangGraph, CrewAI, AutoGen, BeeAI, RAG, RAGAS, Vector Databases (ChromaDB), sentence-transformers, Model Context Protocol (MCP), Prompt Engineering, LLM APIs (Groq, Gemini, OpenAI)</span></p>
+          <p class="skill-line"><span class="skill-line-label">Databases</span><span class="skill-line-value">PostgreSQL, MySQL, SQLite, Redis</span></p>
+          <p class="skill-line"><span class="skill-line-label">DevOps &amp; Cloud</span><span class="skill-line-value">Docker, GitHub Actions (CI/CD), AWS (EC2, ALB, VPC, IAM), Railway, Git, Linux</span></p>
+          <p class="skill-line"><span class="skill-line-label">Testing</span><span class="skill-line-value">pytest, pytest-django, Locust</span></p>
         </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-head">
-            <span class="skill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0Z"/></svg></span>
-            <h3>AI Engineering</h3>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Generative AI</span><span class="tag">Prompt Engineering</span><span class="tag">LangChain</span>
-            <span class="tag">RAG</span><span class="tag">Advanced RAG (Retrievers)</span><span class="tag">Vector Databases</span>
-            <span class="tag">AI Agents</span><span class="tag">Multimodal GenAI</span><span class="tag">Model Context Protocol (MCP)</span>
-            <span class="tag">Gradio</span><span class="tag">Streamlit</span>
-            <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Attention U-Net</span>
-            <span class="tag">GradCAM (XAI)</span>
-            <span class="tag">OpenCV</span><span class="tag">Scikit-learn</span><span class="tag">Pandas / NumPy</span>
-            <span class="tag">Faster-Whisper</span>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -209,7 +184,7 @@
     <div class="container">
       <p class="section-kicker reveal">03 &middot; Projects</p>
       <h2 class="section-title reveal">Things I&rsquo;ve built</h2>
-      <p class="section-sub reveal">Seven flagship systems, picked for depth over breadth. Each one taken from a working demo to something closer to production-shaped.</p>
+      <p class="section-sub reveal">Eight flagship systems, picked for depth over breadth. Each one taken from a working demo to something closer to production-shaped.</p>
 
       <div class="projects-grid" id="projectsGrid">
         <!-- Project cards are injected by js/script.js -->
@@ -217,30 +192,10 @@
     </div>
   </section>
 
-  <!-- ===== SECURITY RESEARCH ===== -->
-  <section class="section section-alt" id="research">
-    <div class="container">
-      <div class="section-header-row">
-        <div>
-          <p class="section-kicker reveal">04 &middot; Security Research</p>
-          <h2 class="section-title reveal" style="margin-bottom:0;">Security Case Study Research</h2>
-        </div>
-        <a href="https://github.com/tharunsridhar/security-research-portfolio" target="_blank" rel="noopener" class="corner-link reveal">View Repository &rarr;</a>
-      </div>
-      <p class="section-sub reveal">
-        Outside of shipping features, I read post-mortems of real breaches to understand how systems actually fail,
-        directly relevant to how I design authorization, data access, and system boundaries.
-      </p>
-      <div class="research-grid" id="researchGrid">
-        <!-- Research cards injected by js/script.js -->
-      </div>
-    </div>
-  </section>
-
   <!-- ===== ACCOMPLISHMENTS ===== -->
-  <section class="section" id="accomplishments">
+  <section class="section section-alt" id="accomplishments">
     <div class="container">
-      <p class="section-kicker reveal">05 &middot; Accomplishments</p>
+      <p class="section-kicker reveal">04 &middot; Accomplishments</p>
       <h2 class="section-title reveal">Achievements</h2>
       <div class="accomplish-grid" id="accomplishGrid">
         <!-- Accomplishment cards injected by js/script.js -->
@@ -249,9 +204,9 @@
   </section>
 
   <!-- ===== CERTIFICATIONS ===== -->
-  <section class="section section-alt" id="certifications">
+  <section class="section" id="certifications">
     <div class="container">
-      <p class="section-kicker reveal">06 &middot; Certifications &amp; Badges</p>
+      <p class="section-kicker reveal">05 &middot; Certifications &amp; Badges</p>
       <h2 class="section-title reveal">Learning, documented</h2>
 
       <div id="certGroups">
@@ -265,7 +220,7 @@
   <!-- ===== CONTACT ===== -->
   <section class="section contact-section" id="contact">
     <div class="container">
-      <p class="section-kicker reveal">07 &middot; Contact</p>
+      <p class="section-kicker reveal">06 &middot; Contact</p>
       <h2 class="section-title reveal">Let&rsquo;s build something</h2>
       <p class="contact-lead reveal">
         I&rsquo;m currently looking for Software Engineering and AI Engineer roles. If you have an opening,
@@ -331,6 +286,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=4"></script>
+<script src="js/script.js?v=6"></script>
 </body>
 </html>

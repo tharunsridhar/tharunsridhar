@@ -78,7 +78,7 @@ Python backend developer and AI engineer building systems end-to-end.
 
 **Backend Development** &middot; Python, FastAPI, REST API Design, SQLAlchemy & Alembic, JWT Auth & RBAC, Async Programming, Pytest, Git & GitHub
 
-**AI Engineering** *(still learning)* &middot; Generative AI, Prompt Engineering, LangChain, RAG, LLM APIs (Groq / Gemini / OpenAI), Gradio, Streamlit, PyTorch, TensorFlow, GradCAM (XAI), OpenCV, Scikit-learn
+**RAG & Agentic AI** &middot; Generative AI, Prompt Engineering, Tool Calling, RAG, Advanced RAG, Embeddings, Vector Databases (ChromaDB), LangChain, LangGraph, AI Agents, MCP, RAGAS, PyTorch, TensorFlow, GradCAM (XAI), OpenCV, Scikit-learn
 
 *Full breakdown with the complete tag list is on the [live portfolio site](https://tharunsridhar.github.io/tharunsridhar/).*
 
@@ -87,7 +87,16 @@ Python backend developer and AI engineer building systems end-to-end.
 ## Certifications
 
 - AWS Solutions Architect Associate (SAA-C03) &ndash; Packt (Jul 2026)
-- Develop Generative AI Applications: Get Started &middot; IBM &middot; Coursera (Aug 2026)
+- IBM RAG and Agentic AI &middot; IBM &middot; Coursera (Aug&ndash;Sep 2026), 9 courses:
+  - Develop Generative AI Applications: Get Started
+  - Build RAG Applications: Get Started
+  - Vector Databases for RAG: An Introduction
+  - Advanced RAG with Vector Databases and Retrievers
+  - Build Multimodal Generative AI Applications
+  - Fundamentals of Building AI Agents
+  - Agentic AI with LangChain and LangGraph
+  - Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI
+  - Build AI Agents using MCP
 - Artificial Intelligence (Credit Course) &middot; SmartBridge &times; Google for Developers (May&ndash;Jun 2025)
 
 ## Badges

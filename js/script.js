@@ -64,7 +64,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 /* ---------------- Typewriter ---------------- */
 (function typewriter() {
   const el = document.getElementById('typewriter');
-  const words = ['backend systems.', 'deep learning models.', 'LLM pipelines.', 'REST APIs.', 'things that ship.'];
+  const words = ['backend systems.', 'AI agents.', 'LLM pipelines.', 'REST APIs.', 'things that ship.'];
   let wordIndex = 0, charIndex = 0, deleting = false;
 
   function tick() {
@@ -155,19 +155,6 @@ const PROJECTS = [
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/photoshare-api', icon: 'github' }]
   },
   {
-    title: 'EchoBrief',
-    category: 'AI Engineering',
-    subtitle: 'AI Audio Transcription & Summarization Platform',
-    desc: [
-      'FastAPI backend transcribes uploaded MP3/M4A audio locally with Faster-Whisper',
-      'Sends the raw transcript to Gemini for grammar cleanup and a concise professional summary',
-      'Speech-to-text and LLM summarization split into independent, independently testable service modules',
-      'Drag-and-drop vanilla-JS frontend with upload progress tracking and downloadable transcript/summary files'
-    ],
-    tags: ['FastAPI', 'Faster-Whisper', 'Gemini', 'Vanilla JS'],
-    links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/echobrief-ai-audio-summarizer', icon: 'github' }]
-  },
-  {
     title: 'Finvoro',
     category: 'Backend',
     subtitle: 'Personal Finance Management API',
@@ -181,48 +168,57 @@ const PROJECTS = [
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/finvoro-finance', icon: 'github' }]
   },
   {
-    title: 'Clara AI',
+    title: 'MCP Agent Toolkit',
     category: 'AI Engineering',
-    subtitle: 'Voice Agent Configuration Pipeline',
+    subtitle: 'Model Context Protocol Server & Agent, Built from Scratch',
     desc: [
-      'Python pipeline turning raw call transcripts into production-ready voice-agent configurations',
-      'Gemini 2.0 Flash extracts business hours, services, and escalation rules into strict, schema-validated JSON',
-      'Parser recovers valid JSON from direct, markdown-fenced, or text-buried LLM output',
-      'Versioning layer merges an initial extraction with a later onboarding update and generates a field-level changelog'
+      'Real FastMCP server exposing Tools, Resources, and a Prompt as its own separate process; the agent reaches every one of them only through an MCP ClientSession over stdio, never by importing a Python function directly',
+      'Live "what the client discovered" panel and a per-turn call trace show the actual list_tools / list_resources / list_prompts results and call_tool arguments, not simulated for the UI',
+      'Swapping in a real third-party MCP server (filesystem, GitHub, Slack) only means changing the StdioServerParameters, and nothing about the agent loop changes, proving the protocol boundary actually holds',
+      'Test suite spins up the real MCP server subprocess and drives it through the full protocol (discovery, tool calls, resource reads, prompt templates) with no API key or network needed'
     ],
-    tags: ['Python', 'Gemini 2.0 Flash'],
-    links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/clara-ai-pipeline', icon: 'github' }]
+    tags: ['MCP', 'FastMCP', 'Groq', 'FastAPI', 'Pytest'],
+    links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/mcp-agent-toolkit', icon: 'github' }]
+  },
+  {
+    title: 'Framework Showdown',
+    category: 'AI Engineering',
+    subtitle: 'The Same Two-Agent Workflow, Built on Three Different Frameworks',
+    desc: [
+      'The same researcher-writer two-agent workflow implemented three separate times: CrewAI (sequential Process with task context-passing), AutoGen (RoundRobinGroupChat until a TERMINATE signal), and BeeAI (a single ReAct agent deciding for itself whether to call a tool)',
+      'CrewAI and BeeAI pin incompatible pydantic versions and won’t share a virtualenv, so the FastAPI app runs AutoGen in-process and shells out to two separate Python 3.11 venvs as subprocesses for the other two, each returning one line of JSON on stdout',
+      'Tests validate request handling, venv wiring, and that a missing interpreter fails with a clear 500 error message instead of a silent crash, with no Groq calls needed to run them'
+    ],
+    tags: ['CrewAI', 'AutoGen', 'BeeAI', 'FastAPI', 'Pytest'],
+    links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/agent-framework-showdown', icon: 'github' }]
+  },
+  {
+    title: 'Task Manager Agent',
+    category: 'AI Engineering',
+    subtitle: 'LangGraph Tool-Calling Agent with Human-in-the-Loop Safety',
+    desc: [
+      'LangGraph agent adds, lists, updates, completes, and deletes tasks, and pauses mid-run for human confirmation before any delete via interrupt() / Command(resume=...)',
+      'Conversation state persisted across requests with a SQLite checkpointer, so context survives a page refresh, not just an in-memory session',
+      'Test suite swaps in a scripted FakeModel to exercise the real graph, real tools, and real interrupt/resume flow with no API key or network call',
+      'FastAPI backend with a raw request/response inspector in the UI, showing exactly what the agent sent and received on each turn'
+    ],
+    tags: ['LangGraph', 'FastAPI', 'SQLite', 'Groq', 'Pytest'],
+    links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/langgraph-task-manager-agent', icon: 'github' }]
   },
   {
     title: 'NeuroScan AI',
-    category: ['AI Engineering'],
-    subtitle: 'Brain Tumor MRI Analysis, Reliability Gating & Reporting',
+    category: ['Backend'],
+    subtitle: 'Brain Tumor MRI Analysis Platform (Team Project, Backend Lead)',
     desc: [
-      '4-model classification ensemble (EfficientNetV2-S, MobileNetV3, ConvNeXt Tiny) fused with an adaptive, lesion-aware weighting layer',
-      'EfficientNetB4 Attention U-Net segmentation reaching a Dice score of ~0.88',
-      'Diagnostic Reliability Index cross-validates Grad-CAM attention against the segmentation mask, gating predictions into Accepted / Caution / Specialist-Review tiers',
-      'Groq LLM radiology report generation + PDF export via FastAPI, backed by 4 pytest suites'
+      'Led the team; personally built the FastAPI serving layer wiring the classification ensemble, segmentation model, and reliability gating into a single production API',
+      'Groq LLM radiology report generation and PDF export served through the same FastAPI backend, backed by 4 pytest suites',
+      'Diagnostic Reliability Index cross-validates Grad-CAM attention against the segmentation mask server-side, gating predictions into Accepted / Caution / Specialist-Review tiers before they reach the API response',
+      'Also trained the underlying models: a 4-model classification ensemble (EfficientNetV2-S, MobileNetV3, ConvNeXt Tiny) and an EfficientNetB4 Attention U-Net segmentation model reaching a Dice score of ~0.88'
     ],
-    tags: ['PyTorch/TensorFlow', 'FastAPI', 'Groq LLM', 'OpenCV', 'GradCAM'],
+    tags: ['FastAPI', 'Groq LLM', 'PyTorch/TensorFlow', 'OpenCV', 'GradCAM'],
     links: [
       { label: 'GitHub', href: 'https://github.com/tharunsridhar/NeuroScan-AI', icon: 'github' },
       { label: 'Model on HF', href: 'https://huggingface.co/tharunsridhar/brain_tumor_net-ensemble', icon: 'external' }
-    ]
-  },
-  {
-    title: 'Malware Vision AI',
-    category: 'Computer Vision',
-    subtitle: 'Multi-Class Malware Family Classification',
-    desc: [
-      'Converted 13,747 PE executable samples into grayscale image tensors, with no malware execution required',
-      'Fine-tuned EfficientNetV2-S across 31 malware families with class-balanced training',
-      'Evaluated with confusion matrices and per-class precision/recall alongside aggregate accuracy, not accuracy alone',
-      'Macro F1 of 0.96 and weighted F1 of 0.95 across all 31 families'
-    ],
-    tags: ['TensorFlow', 'EfficientNetV2', 'Transfer Learning', 'NumPy'],
-    links: [
-      { label: 'GitHub', href: 'https://github.com/tharunsridhar/malware-vision-ai', icon: 'github' },
-      { label: 'Model on HF', href: 'https://huggingface.co/tharunsridhar/malware-detector', icon: 'external' }
     ]
   }
 ];
@@ -234,7 +230,6 @@ const ICONS = {
 
 const CATEGORY_CLASS = {
   'AI Engineering': 'cat-ai',
-  'Computer Vision': 'cat-ml',
   'Backend': 'cat-backend'
 };
 
@@ -259,61 +254,6 @@ function renderProjects() {
     </article>`).join('');
 }
 renderProjects();
-
-/* ============================================================
-   Security case study research: personal interest area
-   ============================================================ */
-const RESEARCH = [
-  {
-    tag: 'RCE · Framework Security',
-    title: 'React2Shell: React Server Components RCE',
-    rows: [
-      ['What', 'A crafted Flight-protocol payload reached a server action endpoint and triggered insecure deserialization.'],
-      ['How', 'Deserialization flaw led to prototype pollution, then command execution via Function() and child_process.'],
-      ['Impact', 'Full server compromise: environment variables, database access, remote code execution.'],
-      ['Prevention', 'Strict deserialization validation, restricted server-action exposure, framework patching, runtime monitoring.']
-    ],
-    href: 'https://github.com/tharunsridhar/security-research-portfolio/blob/main/Remote_Code_Execution_CVE-2025-55182.pdf'
-  },
-  {
-    tag: 'IDOR · Broken Authorization',
-    title: 'Star Health Insurance Breach',
-    rows: [
-      ['What', 'Attackers with valid credentials accessed unrelated user records through the backend API.'],
-      ['How', 'Insecure Direct Object Reference (IDOR): missing object-level authorization allowed sequential ID enumeration.'],
-      ['Impact', 'Large-scale exposure of sensitive personal and medical data.'],
-      ['Prevention', 'Record-ownership verification, per-request authorization checks, anomalous-access monitoring.']
-    ],
-    href: 'https://github.com/tharunsridhar/security-research-portfolio/blob/main/star_health_data_breach.pdf'
-  },
-  {
-    tag: 'Cloud Identity',
-    title: 'Zero Trust &rarr; Adaptive Trust in Multi-Cloud',
-    rows: [
-      ['Studied', 'Identity-based security in distributed cloud systems and continuous verification models.'],
-      ['Insight', 'Valid credentials no longer equal trusted activity; identity is now the primary security boundary.'],
-      ['Model', 'Continuous behavioral evaluation replaces one-time login checks; anomalies trigger MFA and access throttling.']
-    ],
-    href: 'https://github.com/tharunsridhar/security-research-portfolio/blob/main/Zero_Trust_to_Adaptive_Trust_in_Multi-Cloud_Environments.pdf'
-  }
-];
-
-function renderResearch() {
-  const grid = document.getElementById('researchGrid');
-  grid.innerHTML = RESEARCH.map((r, i) => `
-    <article class="research-card reveal" style="animation-delay:${i * 0.08}s">
-      <span class="research-tag">${r.tag}</span>
-      <h3 class="research-title">${r.title}</h3>
-      ${r.rows.map(([label, text]) => `
-        <div class="research-row">
-          <span class="research-row-label">${label}</span>
-          <span class="research-row-text">${text}</span>
-        </div>`).join('')}
-      <a class="research-link" href="${r.href}" target="_blank" rel="noopener">Read the case study &rarr;</a>
-    </article>`).join('');
-  window.dispatchEvent(new Event('content-injected'));
-}
-renderResearch();
 
 /* ============================================================
    Accomplishments: HackerRank + LeetCode (verified profiles)
@@ -344,7 +284,7 @@ function renderAccomplishments() {
   grid.innerHTML = `
     <div class="accomplish-card reveal">
       <div class="accomplish-head">
-        <h3>HackerRank: Verified Skills</h3>
+        <h3><span class="accomplish-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C7.802 0 4.487.472 2.784 2.784.472 4.487 0 7.802 0 12c0 4.198.472 7.513 2.784 9.216C4.487 23.528 7.802 24 12 24c4.198 0 7.513-.472 9.216-2.784C23.528 19.513 24 16.198 24 12c0-4.198-.472-7.513-2.784-9.216C19.513.472 16.198 0 12 0ZM8.61 4.771c.12 0 .243.03.351.09.394.201.55.674.365 1.062-.008.014-.85 1.663-.85 5.929v.288h7.076v-.288c0-4.29-.834-5.907-.842-5.921a.783.783 0 0 1 .343-1.05.83.83 0 0 1 1.09.34c.045.075.995 1.898.995 6.63v9.398a.81.81 0 0 1-.815.802.81.81 0 0 1-.815-.802v-4.037H8.476v4.037a.81.81 0 0 1-.815.802.81.81 0 0 1-.815-.802v-9.398c0-4.732.95-6.555.995-6.629a.81.81 0 0 1 .77-.432Z"/></svg></span>HackerRank: Verified Skills</h3>
         <a class="accomplish-link" href="https://www.hackerrank.com/profile/tharunsridhar" target="_blank" rel="noopener">View profile &rarr;</a>
       </div>
       <div class="badge-chips">
@@ -356,7 +296,7 @@ function renderAccomplishments() {
     </div>
     <div class="accomplish-card leetcode-card reveal">
       <div class="accomplish-head">
-        <h3>LeetCode</h3>
+        <h3><span class="accomplish-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.539.54-1.414.003-1.955-.54-.542-1.413-.542-1.955-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207.48-.593.387-1.462-.207-1.941l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0Zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382Z"/></svg></span>LeetCode</h3>
         <a class="accomplish-link" href="https://leetcode.com/u/Tharunsridhar/" target="_blank" rel="noopener">View profile &rarr;</a>
       </div>
       <div class="leetcode-stats">
@@ -372,10 +312,13 @@ renderAccomplishments();
 /* ============================================================
    Certification & badge data
    ============================================================ */
+const CERT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>';
+const BADGE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-2.5 5 2.5-1.5-8.5"/></svg>';
+
 const CERT_GROUPS = [
   {
     title: 'AWS Certified Solutions Architect – Associate (SAA-C03) Specialization',
-    icon: '☁️',
+    icon: CERT_ICON,
     collapsible: true,
     issuer: 'Packt · Coursera',
     dateRange: 'Jul 2026',
@@ -388,7 +331,7 @@ const CERT_GROUPS = [
   },
   {
     title: 'IBM RAG and Agentic AI',
-    icon: '✨',
+    icon: CERT_ICON,
     collapsible: true,
     issuer: 'IBM · Coursera',
     dateRange: 'Aug 2026 – Sep 2026',
@@ -400,18 +343,19 @@ const CERT_GROUPS = [
       { name: 'Build Multimodal Generative AI Applications', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/L36TT3J2RALB' },
       { name: 'Fundamentals of Building AI Agents', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/HEI8XXD4VSOI' },
       { name: 'Agentic AI with LangChain and LangGraph', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/XH8A43HDLU8L' },
-      { name: 'Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/LXH49VX9HKP3' }
+      { name: 'Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/LXH49VX9HKP3' },
+      { name: 'Build AI Agents using MCP', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/JJCEDZ51YGXF' }
     ]
   },
   {
     title: 'AI Engineering',
-    icon: '🧠',
+    icon: CERT_ICON,
     collapsible: true,
     issuer: 'SmartBridge × Google for Developers',
     dateRange: 'Jul 2025',
     items: [
       { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'Jul 2025', link: 'assets/certificates/smartbridge-ai-credit-course.pdf' },
-      { name: 'Certificate of Merit — 100/100', issuer: 'SmartBridge × Google for Developers', date: 'Jul 2025', link: 'assets/certificates/smartbridge-ai-merit.pdf' },
+      { name: 'Certificate of Merit (100/100)', issuer: 'SmartBridge × Google for Developers', date: 'Jul 2025', link: 'assets/certificates/smartbridge-ai-merit.pdf' },
       { name: 'Project Completion: Dog Breed Identification using Transfer Learning', issuer: 'SmartBridge', date: 'Jul 2025', link: 'assets/certificates/smartbridge-ai-project-completion.pdf' }
     ]
   },
@@ -419,10 +363,10 @@ const CERT_GROUPS = [
     title: 'Anthropic Badges',
     display: 'badges',
     items: [
-      { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', date: '2026', icon: '🤖', link: 'assets/certificates/anthropic-ai-fluency.pdf' },
-      { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: 'Feb 2026', icon: '🔗', link: 'https://verify.skilljar.com/c/8v2nanvk5wsh' },
-      { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: 'Feb 2026', icon: '🔗', link: 'https://verify.skilljar.com/c/4xy6huookznu' },
-      { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Feb 2026', icon: '⚡', link: 'https://verify.skilljar.com/c/4ae9pz865x6p' }
+      { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', date: '2026', icon: BADGE_ICON, link: 'assets/certificates/anthropic-ai-fluency.pdf' },
+      { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: 'Feb 2026', icon: BADGE_ICON, link: 'https://verify.skilljar.com/c/8v2nanvk5wsh' },
+      { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: 'Feb 2026', icon: BADGE_ICON, link: 'https://verify.skilljar.com/c/4xy6huookznu' },
+      { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Feb 2026', icon: BADGE_ICON, link: 'https://verify.skilljar.com/c/4ae9pz865x6p' }
     ]
   }
 ];
