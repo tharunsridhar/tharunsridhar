@@ -760,40 +760,23 @@ svg { width: 1.1em; height: 1.1em; }
   transition: border-color 0.2s ease;
 }
 .cert-group-item:hover { border-color: var(--accent); }
+.cert-group-item-static { cursor: default; border-style: dashed; }
+.cert-group-item-static:hover { border-color: var(--border); }
 .cert-group-item-name { font-weight: 600; }
 .cert-group-item-date { color: var(--text-faint); font-size: 0.74rem; font-family: var(--font-mono); white-space: nowrap; }
-
-/* ---------- Badge tiles ---------- */
-.badge-tile-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-.badge-tile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.6rem;
-  padding: 1.6rem 1rem 1.3rem;
-  border-radius: var(--radius-lg);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  transition: transform 0.25s ease, border-color 0.25s ease;
-}
-.badge-tile:hover { transform: translateY(-4px); border-color: var(--accent); }
-.badge-tile-icon {
-  width: 64px; height: 64px;
-  display: grid;
-  place-items: center;
+.cert-group-item-status {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--accent);
-  border-radius: 50%;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, transparent), color-mix(in srgb, var(--accent-2) 22%, transparent));
-  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
 }
-.badge-tile-icon svg { width: 28px; height: 28px; }
-.badge-tile-name { font-weight: 700; font-size: 0.85rem; line-height: 1.35; }
-.badge-tile-issuer { color: var(--text-faint); font-size: 0.7rem; font-family: var(--font-mono); }
+.cert-group-item-status.in-progress { color: #f4b400; background: color-mix(in srgb, #f4b400 16%, transparent); }
 
 /* ---------- Certification group modal ---------- */
 .cert-modal { display: none; }
@@ -920,7 +903,6 @@ svg { width: 1.1em; height: 1.1em; }
   .projects-grid { grid-template-columns: 1fr; }
   .accomplish-grid { grid-template-columns: 1fr; }
   .certs-grid { grid-template-columns: 1fr; }
-  .badge-tile-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; }
   .section { padding: 4.5rem 0; }
   .nav-links { gap: 1rem; }
