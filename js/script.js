@@ -369,6 +369,8 @@ const CERT_GROUPS = [
       { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: 'Feb 2026', status: 'completed', link: 'https://verify.skilljar.com/c/8v2nanvk5wsh' },
       { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: 'Feb 2026', status: 'completed', link: 'https://verify.skilljar.com/c/4xy6huookznu' },
       { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Feb 2026', status: 'completed', link: 'https://verify.skilljar.com/c/4ae9pz865x6p' },
+      { name: 'Introduction to Agent Skills', issuer: 'Anthropic', date: null, status: 'completed', link: null },
+      { name: 'Introduction to Subagents', issuer: 'Anthropic', date: null, status: 'completed', link: null },
       { name: 'Building with the Claude API', issuer: 'Anthropic', date: null, status: 'in-progress', link: null }
     ]
   }
