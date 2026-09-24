@@ -323,6 +323,55 @@ function renderAccomplishments() {
 renderAccomplishments();
 
 /* ============================================================
+   Open source contributions: PRs merged into other people's repos
+   ============================================================ */
+const OSS_CONTRIBUTIONS = [
+  {
+    repo: 'drkrillo/good-first-issues',
+    url: 'https://github.com/drkrillo/good-first-issues',
+    desc: 'A GitHub Action + CLI that surfaces good-first-issue-labeled issues across repos to help new contributors find something to work on.',
+    prs: [
+      { title: 'Render labels as readable text instead of a Python list repr', number: 167, url: 'https://github.com/drkrillo/good-first-issues/pull/167' },
+      { title: 'Case-insensitive good-first-issue label drop', number: 170, url: 'https://github.com/drkrillo/good-first-issues/pull/170' }
+    ]
+  },
+  {
+    repo: 'Ayorinha/ayorai-vision-intelligence',
+    url: 'https://github.com/Ayorinha/ayorai-vision-intelligence',
+    desc: 'An AI agent security framework enforcing least-privilege MCP tool access and policy-based, tamper-evident execution tracing.',
+    prs: [
+      { title: 'Add MCP least-privilege regression tests', number: 23, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/23' },
+      { title: 'Add execution tracing example', number: 24, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/24' }
+    ]
+  }
+];
+
+function renderOssCard(c) {
+  return `
+    <div class="accomplish-card reveal">
+      <div class="accomplish-head">
+        <h3><span class="accomplish-icon">${ICONS.github}</span>${c.repo}</h3>
+        <a class="accomplish-link" href="${c.url}" target="_blank" rel="noopener">View repo &rarr;</a>
+      </div>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin:0 0 1.4rem;">${c.desc}</p>
+      <div class="cert-mini-list">
+        ${c.prs.map(p => `
+          <a class="cert-mini" href="${p.url}" target="_blank" rel="noopener">
+            <span class="cert-mini-name">${p.title} <span style="color:var(--text-faint);font-weight:400;">#${p.number}</span></span>
+            <span class="cert-mini-status">Merged</span>
+          </a>`).join('')}
+      </div>
+    </div>`;
+}
+
+function renderOssContributions() {
+  const grid = document.getElementById('ossGrid');
+  grid.innerHTML = OSS_CONTRIBUTIONS.map(renderOssCard).join('');
+  window.dispatchEvent(new Event('content-injected'));
+}
+renderOssContributions();
+
+/* ============================================================
    Certification, course, and credential data
    ============================================================ */
 const CERT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>';
