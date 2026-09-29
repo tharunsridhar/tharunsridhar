@@ -343,6 +343,14 @@ const OSS_CONTRIBUTIONS = [
       { title: 'Add MCP least-privilege regression tests', number: 23, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/23' },
       { title: 'Add execution tracing example', number: 24, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/24' }
     ]
+  },
+  {
+    repo: 'yunaremaia/gfi',
+    url: 'https://github.com/yunaremaia/gfi',
+    desc: 'A good-first-issues discovery tool for finding beginner-friendly issues across GitHub repos.',
+    prs: [
+      { title: 'Add LICENSE, Dockerfile, and raise test coverage 81% → 93%', number: 52, url: 'https://github.com/yunaremaia/gfi/pull/52' }
+    ]
   }
 ];
 
