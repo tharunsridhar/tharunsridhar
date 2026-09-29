@@ -87,16 +87,7 @@ Python backend developer and AI engineer building systems end-to-end.
 ## Certifications
 
 - AWS Solutions Architect Associate (SAA-C03) &ndash; Packt (Jul 2026)
-- IBM RAG and Agentic AI &middot; IBM &middot; Coursera (Aug&ndash;Sep 2026), 9 courses:
-  - Develop Generative AI Applications: Get Started
-  - Build RAG Applications: Get Started
-  - Vector Databases for RAG: An Introduction
-  - Advanced RAG with Vector Databases and Retrievers
-  - Build Multimodal Generative AI Applications
-  - Fundamentals of Building AI Agents
-  - Agentic AI with LangChain and LangGraph
-  - Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI
-  - Build AI Agents using MCP
+- IBM RAG and Agentic AI Professional Certificate &middot; IBM (Aug&ndash;Sep 2026)
 - Artificial Intelligence (Credit Course) &middot; SmartBridge &times; Google for Developers (May&ndash;Jun 2025)
 
 ## Badges

@@ -392,22 +392,12 @@ const CERT_GROUPS = [
     ]
   },
   {
-    title: 'IBM RAG and Agentic AI',
+    title: 'IBM RAG and Agentic AI Professional Certificate',
     icon: CERT_ICON,
     collapsible: true,
-    issuer: 'IBM · Coursera',
+    issuer: 'IBM',
     dateRange: 'Aug 2026 – Sep 2026',
-    items: [
-      { name: 'Develop Generative AI Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'https://coursera.org/verify/0DCDBI140NPN' },
-      { name: 'Build RAG Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'https://coursera.org/verify/QU4BKSV10SL7' },
-      { name: 'Vector Databases for RAG: An Introduction', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'https://coursera.org/verify/9BVDOTL3HGGD' },
-      { name: 'Advanced RAG with Vector Databases and Retrievers', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'https://coursera.org/verify/1L7EGAQ94135' },
-      { name: 'Build Multimodal Generative AI Applications', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/L36TT3J2RALB' },
-      { name: 'Fundamentals of Building AI Agents', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/HEI8XXD4VSOI' },
-      { name: 'Agentic AI with LangChain and LangGraph', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/XH8A43HDLU8L' },
-      { name: 'Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/LXH49VX9HKP3' },
-      { name: 'Build AI Agents using MCP', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'https://coursera.org/verify/JJCEDZ51YGXF' }
-    ]
+    items: []
   },
   {
     title: 'AI Engineering',
