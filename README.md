@@ -135,9 +135,9 @@ Python backend developer and AI engineer building systems end-to-end.
 
 ## Open Source Contributions
 
-- **[drkrillo/good-first-issues](https://github.com/drkrillo/good-first-issues)** &ndash; Render labels as readable text instead of a Python list repr ([#167](https://github.com/drkrillo/good-first-issues/pull/167)); case-insensitive good-first-issue label drop ([#170](https://github.com/drkrillo/good-first-issues/pull/170))
-- **[Ayorinha/ayorai-vision-intelligence](https://github.com/Ayorinha/ayorai-vision-intelligence)** &ndash; Add MCP least-privilege regression tests ([#23](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/23)); add execution tracing example ([#24](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/24))
-- **[yunaremaia/gfi](https://github.com/yunaremaia/gfi)** &ndash; Add LICENSE, Dockerfile, and raise test coverage 81%&rarr;93% ([#52](https://github.com/yunaremaia/gfi/pull/52))
+- **[drkrillo/good-first-issues](https://github.com/drkrillo/good-first-issues)** &ndash; CI smoke test for the action itself ([#172](https://github.com/drkrillo/good-first-issues/pull/172))
+- **[Ayorinha/ayorai-vision-intelligence](https://github.com/Ayorinha/ayorai-vision-intelligence)** &ndash; Restored corrupted CI workflow YAML ([#26](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/26))
+- **[yunaremaia/gfi](https://github.com/yunaremaia/gfi)** &ndash; LICENSE, Dockerfile & test coverage (81%&rarr;93%) ([#52](https://github.com/yunaremaia/gfi/pull/52))
 
 ---
 

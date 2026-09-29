@@ -331,8 +331,7 @@ const OSS_CONTRIBUTIONS = [
     url: 'https://github.com/drkrillo/good-first-issues',
     desc: 'A GitHub Action + CLI that surfaces good-first-issue-labeled issues across repos to help new contributors find something to work on.',
     prs: [
-      { title: 'Render labels as readable text instead of a Python list repr', number: 167, url: 'https://github.com/drkrillo/good-first-issues/pull/167' },
-      { title: 'Case-insensitive good-first-issue label drop', number: 170, url: 'https://github.com/drkrillo/good-first-issues/pull/170' }
+      { title: 'CI smoke test for the action itself', number: 172, url: 'https://github.com/drkrillo/good-first-issues/pull/172' }
     ]
   },
   {
@@ -340,8 +339,7 @@ const OSS_CONTRIBUTIONS = [
     url: 'https://github.com/Ayorinha/ayorai-vision-intelligence',
     desc: 'An AI agent security framework enforcing least-privilege MCP tool access and policy-based, tamper-evident execution tracing.',
     prs: [
-      { title: 'Add MCP least-privilege regression tests', number: 23, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/23' },
-      { title: 'Add execution tracing example', number: 24, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/24' }
+      { title: 'Restored corrupted CI workflow YAML', number: 26, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/26' }
     ]
   },
   {
@@ -349,7 +347,7 @@ const OSS_CONTRIBUTIONS = [
     url: 'https://github.com/yunaremaia/gfi',
     desc: 'A good-first-issues discovery tool for finding beginner-friendly issues across GitHub repos.',
     prs: [
-      { title: 'Add LICENSE, Dockerfile, and raise test coverage 81% → 93%', number: 52, url: 'https://github.com/yunaremaia/gfi/pull/52' }
+      { title: 'LICENSE, Dockerfile & test coverage (81%→93%)', number: 52, url: 'https://github.com/yunaremaia/gfi/pull/52' }
     ]
   }
 ];
