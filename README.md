@@ -4,15 +4,14 @@
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-F57C00?style=flat-square&logo=tensorflow&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white)
 ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
 
 Python backend developer and AI engineer building systems end-to-end.
 
-- REST API design, database integration, model training, ensemble design, and LLM-powered pipelines
-- Applied work in computer vision, transfer learning, GradCAM explainability, and automated report generation
-- Generative AI / RAG, currently expanding into LangChain and agentic patterns
+- REST API design, database integration, concurrency-safe backends, and role-based access control
+- Agentic AI / MCP / LangGraph, from protocol-level tool-calling to human-in-the-loop workflows
+- Test-driven: every flagship project below ships with a real test suite, not a demo script
 
 ---
 
@@ -21,7 +20,7 @@ Python backend developer and AI engineer building systems end-to-end.
 ### `B.Tech, Computer Science`  &middot; VIT, Vellore &middot; 2022&ndash;2026
 
 - Bengaluru, India
-- I like building things that actually run: APIs, pipelines, and full machine learning systems, not just notebooks
+- I like building things that actually run: APIs, agentic pipelines, and concurrency-safe backends, not just notebooks
 - Comfortable going from model training and evaluation through to deployment and wiring the result into a real backend
 - Curious about secure system design: how systems fail in production, and how authorization and architecture choices prevent that
 
@@ -29,9 +28,9 @@ Python backend developer and AI engineer building systems end-to-end.
 
 ## Worked On
 
-- REST APIs with FastAPI, JWT auth, and relational data modeling
-- Deep learning systems: training, ensembling, segmentation, and serving models
-- LLM integrations and automation pipelines (Groq, Gemini, OpenAI, and now LangChain/RAG)
+- REST APIs with FastAPI/Django, JWT auth, and relational data modeling
+- Concurrency-safe backends: row-level locking, cache invalidation, idempotent writes
+- Agentic AI systems: MCP servers/clients, LangGraph tool-calling agents, human-in-the-loop workflows
 - Backend systems with clean structure, auditable data, and role-based access
 
 ---
@@ -47,18 +46,6 @@ Python backend developer and AI engineer building systems end-to-end.
 - Celery background jobs and Beat schedule for async invoices, low-stock alerts, and nightly ledger reconciliation; deployed on AWS behind an Application Load Balancer
 
 [GitHub](https://github.com/tharunsridhar/Inventra) &middot; [Live Demo](http://inventra-alb-164557112.ap-south-1.elb.amazonaws.com/app)
-
----
-
-### Corrective RAG &middot; Self-Evaluating Local RAG Pipeline, Benchmarked with RAGAS
-`FastAPI` `Ollama` `ChromaDB` `RAGAS` `DuckDuckGo`
-
-- Grades its own retrieval relevance, rewrites the query and re-retrieves on weak results, then falls back to live DuckDuckGo web search when local evidence still isn't enough
-- Claim-level verification stage extracts atomic claims from the generated answer and checks each against a deduplicated, citation-tagged evidence set, correcting and re-verifying anything unsupported
-- Runs fully local by default on Ollama (Llama 3.2 3B) with Chroma + sentence-transformers, with Groq/OpenRouter as opt-in cloud fallbacks
-- RAGAS-based evaluation harness benchmarks the corrective pipeline against a plain baseline RAG system on faithfulness, context precision/recall, and answer relevancy
-
-[GitHub](https://github.com/tharunsridhar/Corrective-RAG)
 
 ---
 
@@ -98,17 +85,6 @@ Python backend developer and AI engineer building systems end-to-end.
 
 ---
 
-### Framework Showdown &middot; The Same Two-Agent Workflow, Built on Three Different Frameworks
-`CrewAI` `AutoGen` `BeeAI` `FastAPI` `Pytest`
-
-- The same researcher-writer two-agent workflow implemented three separate times: CrewAI (sequential Process with task context-passing), AutoGen (`RoundRobinGroupChat` until a TERMINATE signal), and BeeAI (a single ReAct agent deciding for itself whether to call a tool)
-- CrewAI and BeeAI pin incompatible pydantic versions and won't share a virtualenv, so the FastAPI app runs AutoGen in-process and shells out to two separate Python 3.11 venvs as subprocesses for the other two, each returning one line of JSON on stdout
-- Tests validate request handling, venv wiring, and that a missing interpreter fails with a clear 500 error message instead of a silent crash, with no Groq calls needed to run them
-
-[GitHub](https://github.com/tharunsridhar/agent-framework-showdown)
-
----
-
 ### Task Manager Agent &middot; LangGraph Tool-Calling Agent with Human-in-the-Loop Safety
 `LangGraph` `FastAPI` `SQLite` `Groq` `Pytest`
 
@@ -118,18 +94,6 @@ Python backend developer and AI engineer building systems end-to-end.
 - FastAPI backend with a raw request/response inspector in the UI, showing exactly what the agent sent and received on each turn
 
 [GitHub](https://github.com/tharunsridhar/langgraph-task-manager-agent)
-
----
-
-### NeuroScan AI &middot; Brain Tumor MRI Analysis
-`PyTorch` `TensorFlow` `FastAPI` `Groq LLM` `OpenCV` `GradCAM`
-
-- 4-model classification ensemble (EfficientNetV2-S, MobileNetV3, ConvNeXt Tiny) fused with an adaptive, lesion-aware weighting layer
-- EfficientNetB4 Attention U-Net segmentation reaching a Dice score of ~0.88
-- Diagnostic Reliability Index cross-validates Grad-CAM attention against the segmentation mask, gating predictions into Accepted / Caution / Specialist-Review tiers
-- Groq LLM radiology report generation and PDF export via FastAPI, backed by 4 pytest suites
-
-[GitHub](https://github.com/tharunsridhar/NeuroScan-AI) &middot; [Model on Hugging Face](https://huggingface.co/tharunsridhar/brain_tumor_net-ensemble)
 
 ---
 
@@ -145,7 +109,7 @@ Python backend developer and AI engineer building systems end-to-end.
 
 **Backend Development** &middot; Python, FastAPI, REST API Design, SQLAlchemy & Alembic, JWT Auth & RBAC, Async Programming, Pytest, Git & GitHub
 
-**RAG & Agentic AI** &middot; Generative AI, Prompt Engineering, Tool Calling, RAG, Advanced RAG, Embeddings, Vector Databases (ChromaDB), LangChain, LangGraph, AI Agents, MCP, RAGAS, PyTorch, TensorFlow, GradCAM (XAI), OpenCV, Scikit-learn
+**Agentic AI** &middot; Generative AI, Prompt Engineering, Tool Calling, RAG, LangChain, LangGraph, AI Agents, Model Context Protocol (MCP)
 
 *Full breakdown with the complete tag list is on the [live portfolio site](https://tharunsridhar.github.io/tharunsridhar/).*
 
