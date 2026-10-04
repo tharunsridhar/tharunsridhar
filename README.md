@@ -1,4 +1,4 @@
-# Hi, I'm Tharun Sridhar Natarajan
+# Hi, I'm Tharun Sridhar
 
 ## `Python Backend Dev` | `AI Engineer`
 

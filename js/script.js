@@ -1,5 +1,5 @@
 // ============================================================
-// Tharun Sridhar Natarajan, Portfolio interactions
+// Tharun Sridhar, Portfolio interactions
 // ============================================================
 
 document.getElementById('year').textContent = new Date().getFullYear();
