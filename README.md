@@ -99,9 +99,9 @@ Python backend developer and AI engineer building systems end-to-end.
 
 ## Open Source Contributions
 
+- **[django-guardian/django-guardian](https://github.com/django-guardian/django-guardian)** &ndash; Fixed AUTO_PREFETCH permission bug for direct-permission models ([#1030](https://github.com/django-guardian/django-guardian/pull/1030))
 - **[drkrillo/good-first-issues](https://github.com/drkrillo/good-first-issues)** &ndash; CI smoke test for the action itself ([#172](https://github.com/drkrillo/good-first-issues/pull/172))
-- **[Ayorinha/ayorai-vision-intelligence](https://github.com/Ayorinha/ayorai-vision-intelligence)** &ndash; Restored corrupted CI workflow YAML ([#26](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/26))
-- **[yunaremaia/gfi](https://github.com/yunaremaia/gfi)** &ndash; LICENSE, Dockerfile & test coverage (81%&rarr;93%) ([#52](https://github.com/yunaremaia/gfi/pull/52))
+- **[Ayorinha/ayorai-vision-intelligence](https://github.com/Ayorinha/ayorai-vision-intelligence)** &ndash; Restored corrupted CI workflow YAML ([#26](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/26)) and MCP least-privilege regression tests ([#23](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/23))
 
 ---
 
@@ -117,7 +117,7 @@ Python backend developer and AI engineer building systems end-to-end.
 
 ## Certifications
 
-- AWS Solutions Architect Associate (SAA-C03) &ndash; Packt (Jul 2026)
+- AWS Solutions Architect Associate (SAA-C03) Specialization &ndash; Packt (Jul 2026)
 - IBM RAG and Agentic AI Professional Certificate &middot; IBM (Aug&ndash;Sep 2026)
 - Artificial Intelligence (Credit Course) &middot; SmartBridge &times; Google for Developers (May&ndash;Jun 2025)
 - AI Fluency: Framework & Foundations &middot; Anthropic

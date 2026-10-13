@@ -283,6 +283,14 @@ renderAccomplishments();
    ============================================================ */
 const OSS_CONTRIBUTIONS = [
   {
+    repo: 'django-guardian/django-guardian',
+    url: 'https://github.com/django-guardian/django-guardian',
+    desc: 'Per-object permissions for Django, widely used for fine-grained access control.',
+    prs: [
+      { title: 'Fixed AUTO_PREFETCH permission bug for direct-permission models', number: 1030, url: 'https://github.com/django-guardian/django-guardian/pull/1030' }
+    ]
+  },
+  {
     repo: 'drkrillo/good-first-issues',
     url: 'https://github.com/drkrillo/good-first-issues',
     desc: 'A GitHub Action + CLI that surfaces good-first-issue-labeled issues across repos to help new contributors find something to work on.',
@@ -295,15 +303,8 @@ const OSS_CONTRIBUTIONS = [
     url: 'https://github.com/Ayorinha/ayorai-vision-intelligence',
     desc: 'An AI agent security framework enforcing least-privilege MCP tool access and policy-based, tamper-evident execution tracing.',
     prs: [
-      { title: 'Restored corrupted CI workflow YAML', number: 26, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/26' }
-    ]
-  },
-  {
-    repo: 'yunaremaia/gfi',
-    url: 'https://github.com/yunaremaia/gfi',
-    desc: 'A good-first-issues discovery tool for finding beginner-friendly issues across GitHub repos.',
-    prs: [
-      { title: 'LICENSE, Dockerfile & test coverage (81%→93%)', number: 52, url: 'https://github.com/yunaremaia/gfi/pull/52' }
+      { title: 'Restored corrupted CI workflow YAML', number: 26, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/26' },
+      { title: 'MCP least-privilege regression tests', number: 23, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/23' }
     ]
   }
 ];
