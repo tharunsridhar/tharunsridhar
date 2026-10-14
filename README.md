@@ -157,11 +157,6 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 - AWS Solutions Architect Associate (SAA-C03) Specialization &ndash; Packt (Jul 2026)
 - IBM RAG and Agentic AI Professional Certificate &middot; IBM (Aug&ndash;Sep 2026)
 - Artificial Intelligence (Credit Course) &middot; SmartBridge &times; Google for Developers (Jul 2025)
-- AI Fluency: Framework & Foundations &middot; Anthropic
-- Introduction to Model Context Protocol &middot; Anthropic
-- Model Context Protocol: Advanced Topics &middot; Anthropic
-- Claude Code in Action &middot; Anthropic
-- Problem Solving, Java, Python, SQL (5-star) &middot; HackerRank
 
 ---
 
