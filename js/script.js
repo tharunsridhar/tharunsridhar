@@ -188,10 +188,9 @@ const PROJECTS = [
     role: 'Backend Dev',
     subtitle: 'Role-Based Inventory Management System',
     desc: [
-      'Load tested with Locust: without row-level locking, 40 concurrent users silently lost 16 units of stock with zero HTTP errors; select_for_update() closes the race to zero discrepancy',
-      'Admin / Manager / Employee RBAC with JWT access + DB-blacklisted refresh tokens, rate limited per scope; append-only stock ledger enforced twice (no write route registered, and Django Admin permissions hard-disabled)',
-      'Redis-cached reports with version-counter invalidation, cache hits collapse 9 queries down to 1 (proven via query-count assertions, not just timing)',
-      'Celery background jobs and Beat schedule for async invoices, low-stock alerts, and nightly ledger reconciliation; deployed on AWS behind an Application Load Balancer'
+      'Role-based inventory system (Admin / Manager / Employee) with JWT auth and an append-only stock ledger for a fully auditable history',
+      'Row-level locking fixed a race condition found in Locust load tests: 40 concurrent users lost 16 units of stock before, zero after',
+      'Redis-cached reports cut 9 queries to 1; Celery handles invoices, low-stock alerts, and nightly reconciliation; deployed on AWS'
     ],
     tags: ['Python Backend', 'Django', 'DRF', 'PostgreSQL', 'Redis', 'Celery', 'JWT'],
     links: [
@@ -206,10 +205,9 @@ const PROJECTS = [
     role: 'Backend Dev',
     subtitle: 'Local Services Booking Platform',
     desc: [
-      'Double-booking prevented in three layers: a server-side slot recheck, a per-provider PostgreSQL advisory lock, and an exclusion constraint that makes the database reject overlapping bookings',
-      'Race tests fire 8 simultaneous requests at one slot and assert exactly one 201 and seven 409s; deadlock victims are retried and Idempotency-Key headers make client retries safe',
-      'Customer / Provider / Admin roles with a booking state machine (compare-and-set status changes, full status history) and DST-safe availability stored as local minutes plus IANA timezone',
-      '62 Vitest + Supertest tests, OpenAPI docs, GitHub Actions CI, and a free-tier deploy on Render + Neon with capacity caps and rate limits'
+      'Local services booking platform with Customer / Provider / Admin roles and a booking state machine',
+      'Double-booking prevented at three layers, down to a PostgreSQL exclusion constraint; race tests fire 8 simultaneous requests and exactly one succeeds',
+      '62 automated tests, OpenAPI docs, and CI; live on Render + Neon'
     ],
     tags: ['Backend', 'Node.js', 'TypeScript', 'Express', 'PostgreSQL', 'Prisma', 'React'],
     links: [
@@ -224,10 +222,9 @@ const PROJECTS = [
     role: ['Team Member', 'Backend Dev'],
     subtitle: 'Photo & Video Sharing Backend',
     desc: [
-      'Async FastAPI backend with JWT auth via fastapi-users: register, login, email verification, forgot/reset-password',
-      'Media streamed to a temp file then pushed to the ImageKit CDN, with UUID-keyed async SQLAlchemy models',
-      'Ownership-based authorization returns 403 on delete attempts by non-owners',
-      'REST API and static frontend served from a single FastAPI process, with zero CORS overhead'
+      'Async FastAPI backend for photo and video sharing, with JWT auth covering register, login, email verification, and password reset',
+      'Media goes to the ImageKit CDN; only the owner of a post can delete it',
+      'API and frontend served from a single process, so no CORS setup is needed'
     ],
     tags: ['Python Backend', 'FastAPI', 'Async SQLAlchemy', 'JWT', 'ImageKit'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/photoshare-api', icon: 'github' }]
@@ -239,10 +236,9 @@ const PROJECTS = [
     role: 'Backend Dev',
     subtitle: 'Personal Finance Management API',
     desc: [
-      'Django REST Framework backend for multi-account tracking, categorized transactions, monthly budgets, and spending reports',
-      'JWT auth (djangorestframework-simplejwt) with per-user data ownership enforced end-to-end on every endpoint',
-      'Versioned API under /api/v1/, live-computed account balances and budget spent/remaining figures, no stale duplicated values',
-      'pytest + pytest-django coverage suite; interactive Swagger/ReDoc docs via drf-spectacular'
+      'Django REST Framework API for multi-account tracking, categorized transactions, monthly budgets, and spending reports',
+      'JWT auth with per-user data isolation on every endpoint; balances and budget figures computed live, never stored stale',
+      'Versioned API with Swagger/ReDoc docs and a pytest suite'
     ],
     tags: ['Python Backend', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'pytest'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/finvoro-finance', icon: 'github' }]
@@ -254,10 +250,9 @@ const PROJECTS = [
     role: 'AI Dev',
     subtitle: 'Model Context Protocol Server & Agent, Built from Scratch',
     desc: [
-      'Real FastMCP server exposing Tools, Resources, and a Prompt as its own separate process; the agent reaches every one of them only through an MCP ClientSession over stdio, never by importing a Python function directly',
-      'Live "what the client discovered" panel and a per-turn call trace show the actual list_tools / list_resources / list_prompts results and call_tool arguments, not simulated for the UI',
-      'Swapping in a real third-party MCP server (filesystem, GitHub, Slack) only means changing the StdioServerParameters, and nothing about the agent loop changes, proving the protocol boundary actually holds',
-      'Test suite spins up the real MCP server subprocess and drives it through the full protocol (discovery, tool calls, resource reads, prompt templates) with no API key or network needed'
+      'Real FastMCP server (Tools, Resources, Prompt) running as its own process; the agent reaches it only through an MCP client session over stdio',
+      'UI shows live discovery results and a per-turn call trace of actual protocol traffic, not a simulation',
+      'Swapping in any third-party MCP server needs no change to the agent loop; tests drive the real server with no API key'
     ],
     tags: ['AI Dev', 'MCP', 'FastMCP', 'Groq', 'FastAPI', 'Pytest'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/mcp-agent-toolkit', icon: 'github' }]
@@ -269,10 +264,9 @@ const PROJECTS = [
     role: ['Team Lead', 'AI Dev'],
     subtitle: 'LangGraph Tool-Calling Agent with Human-in-the-Loop Safety',
     desc: [
-      'LangGraph agent adds, lists, updates, completes, and deletes tasks, and pauses mid-run for human confirmation before any delete via interrupt() / Command(resume=...)',
-      'Conversation state persisted across requests with a SQLite checkpointer, so context survives a page refresh, not just an in-memory session',
-      'Test suite swaps in a scripted FakeModel to exercise the real graph, real tools, and real interrupt/resume flow with no API key or network call',
-      'FastAPI backend with a raw request/response inspector in the UI, showing exactly what the agent sent and received on each turn'
+      'LangGraph agent that manages tasks and pauses for human confirmation before any delete (interrupt / resume)',
+      'Conversation state persisted in a SQLite checkpointer, so context survives a page refresh',
+      'Tests run the real graph, tools, and interrupt flow with a scripted fake model, no API key; UI includes a raw request/response inspector'
     ],
     tags: ['AI Dev', 'LangGraph', 'FastAPI', 'SQLite', 'Groq', 'Pytest'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/langgraph-task-manager-agent', icon: 'github' }]
@@ -327,12 +321,6 @@ const HACKERRANK_BADGES = [
   { name: 'Python', stars: 5 },
   { name: 'SQL', stars: 5 }
 ];
-const HACKERRANK_CERTS = [
-  'SQL: Basic, Intermediate, Advanced',
-  'Problem Solving: Basic, Intermediate',
-  'Python (Basic)', 'R (Basic)',
-  'Rest API (Intermediate)', 'Software Engineer'
-];
 
 const LEETCODE_STATS = { totalSolved: '250+' };
 
@@ -352,9 +340,6 @@ function renderAccomplishments() {
       </div>
       <div class="badge-chips">
         ${HACKERRANK_BADGES.map(b => `<span class="badge-chip">${b.name} <span class="stars">${'&#9733;'.repeat(b.stars)}</span></span>`).join('')}
-      </div>
-      <div class="cert-mini-list">
-        ${HACKERRANK_CERTS.map(c => `<div class="cert-mini"><span class="cert-mini-name">${c}</span><span class="cert-mini-status">Verified</span></div>`).join('')}
       </div>
     </div>
     <div class="accomplish-card leetcode-card reveal">
@@ -452,9 +437,21 @@ const CERT_GROUPS = [
     title: 'IBM RAG and Agentic AI Professional Certificate',
     icon: CERT_ICON,
     collapsible: true,
-    issuer: 'IBM',
+    issuer: 'IBM · Coursera',
     dateRange: 'Aug 2026 – Sep 2026',
-    items: []
+    mainItem: { shortName: 'IBM RAG and Agentic AI Professional Certificate', date: 'Sep 2026', link: 'assets/certificates/ibm-rag-agentic-ai-professional-certificate.pdf' },
+    items: [
+      { name: 'Develop Generative AI Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'assets/certificates/ibm-1-develop-genai-apps.pdf' },
+      { name: 'Build RAG Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'assets/certificates/ibm-2-build-rag-apps.pdf' },
+      { name: 'Vector Databases for RAG: An Introduction', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'assets/certificates/ibm-3-vector-databases-rag.pdf' },
+      { name: 'Advanced RAG with Vector Databases and Retrievers', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'assets/certificates/ibm-4-advanced-rag.pdf' },
+      { name: 'Build Multimodal Generative AI Applications', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-5-multimodal-genai.pdf' },
+      { name: 'Fundamentals of Building AI Agents', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-6-ai-agents-fundamentals.pdf' },
+      { name: 'Agentic AI with LangChain and LangGraph', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-7-langchain-langgraph.pdf' },
+      { name: 'Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-8-langgraph-crewai-autogen-beeai.pdf' },
+      { name: 'Build AI Agents using MCP', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-10-ai-agents-mcp.pdf' },
+      { name: 'RAG and Agentic AI Capstone Project', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-11-capstone.pdf' }
+    ]
   },
   {
     title: 'AI Engineering',
@@ -463,9 +460,7 @@ const CERT_GROUPS = [
     issuer: 'SmartBridge × Google for Developers',
     dateRange: 'Jul 2025',
     items: [
-      { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'Jul 2025', link: 'assets/certificates/smartbridge-ai-credit-course.pdf' },
-      { name: 'Certificate of Merit (100/100)', issuer: 'SmartBridge × Google for Developers', date: 'Jul 2025', link: 'assets/certificates/smartbridge-ai-merit.pdf' },
-      { name: 'Project Completion: Dog Breed Identification using Transfer Learning', issuer: 'SmartBridge', date: 'Jul 2025', link: 'assets/certificates/smartbridge-ai-project-completion.pdf' }
+      { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'Jul 2025', link: 'assets/certificates/smartbridge-ai-credit-course.pdf' }
     ]
   },
   {
