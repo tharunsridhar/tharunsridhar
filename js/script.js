@@ -4,22 +4,6 @@
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ---------------- Theme toggle ---------------- */
-(function themeInit() {
-  const root = document.documentElement;
-  const toggle = document.getElementById('themeToggle');
-  const stored = localStorage.getItem('theme');
-  if (stored) root.setAttribute('data-theme', stored);
-
-  toggle.addEventListener('click', () => {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const current = root.getAttribute('data-theme') || (prefersDark ? 'dark' : 'light');
-    const next = current === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-  });
-})();
-
 /* ---------------- Cursor glow ---------------- */
 (function cursorGlow() {
   const glow = document.getElementById('cursorGlow');
@@ -655,4 +639,19 @@ function closeCertModal() {
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && certModal.classList.contains('open')) closeCertModal();
+});
+
+document.querySelectorAll('.resume-menu').forEach(menu => {
+  const btn = menu.querySelector('.resume-menu-btn');
+  const setOpen = open => {
+    menu.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  };
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    setOpen(!menu.classList.contains('open'));
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('click', e => { if (!menu.contains(e.target)) setOpen(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
 });
