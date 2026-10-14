@@ -7,7 +7,7 @@
 ![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white)
 ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
 
-Python backend developer and AI engineer building systems end-to-end.
+Full Stack Developer specializing in AI engineering. I build robust Python backends and scalable JavaScript applications, from REST APIs and database integration to RAG pipelines and LLM-powered automation.
 
 - REST API design, database integration, concurrency-safe backends, and role-based access control
 - Agentic AI / MCP / LangGraph, from protocol-level tool-calling to human-in-the-loop workflows
@@ -40,10 +40,9 @@ Python backend developer and AI engineer building systems end-to-end.
 ### Inventra &middot; Role-Based Inventory Management System
 `Django` `DRF` `PostgreSQL` `Redis` `Celery` `JWT`
 
-- Load tested with Locust: without row-level locking, 40 concurrent users silently lost 16 units of stock with zero HTTP errors; `select_for_update()` closes the race to zero discrepancy
-- Admin / Manager / Employee RBAC with JWT access and DB-blacklisted refresh tokens, rate limited per scope; append-only stock ledger enforced twice (no write route registered, and Django Admin permissions hard-disabled)
-- Redis-cached reports with version-counter invalidation, cache hits collapse 9 queries down to 1 (proven via query-count assertions, not just timing)
-- Celery background jobs and Beat schedule for async invoices, low-stock alerts, and nightly ledger reconciliation; deployed on AWS behind an Application Load Balancer
+- Role-based inventory system (Admin / Manager / Employee) with JWT auth and an append-only stock ledger for a fully auditable history
+- Row-level locking fixed a race condition found in Locust load tests: 40 concurrent users lost 16 units of stock before, zero after
+- Redis-cached reports cut 9 queries to 1; Celery handles invoices, low-stock alerts, and nightly reconciliation; deployed on AWS
 
 [GitHub](https://github.com/tharunsridhar/Inventra) &middot; [Live Demo](http://inventra-alb-164557112.ap-south-1.elb.amazonaws.com/app)
 
@@ -52,10 +51,9 @@ Python backend developer and AI engineer building systems end-to-end.
 ### Mr Fix My Home &middot; Local Services Booking Platform
 `Node.js` `TypeScript` `Express` `PostgreSQL` `Prisma` `React`
 
-- Double-booking prevented in three layers: a server-side slot recheck, a per-provider PostgreSQL advisory lock, and an exclusion constraint that makes the database reject overlapping bookings
-- Race tests fire 8 simultaneous requests at one slot and assert exactly one 201 and seven 409s; deadlock victims are retried and Idempotency-Key headers make client retries safe
-- Customer / Provider / Admin roles with a booking state machine (compare-and-set status changes, full status history) and DST-safe availability stored as local minutes plus IANA timezone
-- 62 Vitest + Supertest tests, OpenAPI docs, GitHub Actions CI, and a free-tier deploy on Render + Neon with capacity caps and rate limits
+- Local services booking platform with Customer / Provider / Admin roles and a booking state machine
+- Double-booking prevented at three layers, down to a PostgreSQL exclusion constraint; race tests fire 8 simultaneous requests and exactly one succeeds
+- 62 automated tests, OpenAPI docs, and CI; live on Render + Neon
 
 [GitHub](https://github.com/tharunsridhar/mr-fix-my-home) &middot; [Live Demo](https://mr-fix-my-home.onrender.com)
 
@@ -64,10 +62,9 @@ Python backend developer and AI engineer building systems end-to-end.
 ### PhotoShare API &middot; Photo & Video Sharing Backend
 `FastAPI` `Async SQLAlchemy` `JWT` `ImageKit`
 
-- Async FastAPI backend with JWT auth via fastapi-users: register, login, email verification, forgot/reset-password
-- Media streamed to a temp file then pushed to the ImageKit CDN, with UUID-keyed async SQLAlchemy models
-- Ownership-based authorization returns 403 on delete attempts by non-owners
-- REST API and static frontend served from a single FastAPI process, with zero CORS overhead
+- Async FastAPI backend for photo and video sharing, with JWT auth covering register, login, email verification, and password reset
+- Media goes to the ImageKit CDN; only the owner of a post can delete it
+- API and frontend served from a single process, so no CORS setup is needed
 
 [GitHub](https://github.com/tharunsridhar/photoshare-api)
 
@@ -76,10 +73,9 @@ Python backend developer and AI engineer building systems end-to-end.
 ### Finvoro &middot; Personal Finance Management API
 `Django` `DRF` `PostgreSQL` `JWT` `pytest`
 
-- Django REST Framework backend for multi-account tracking, categorized transactions, monthly budgets, and spending reports
-- JWT auth (djangorestframework-simplejwt) with per-user data ownership enforced end-to-end on every endpoint
-- Versioned API under `/api/v1/`, live-computed account balances and budget spent/remaining figures, no stale duplicated values
-- pytest + pytest-django coverage suite; interactive Swagger/ReDoc docs via drf-spectacular
+- Django REST Framework API for multi-account tracking, categorized transactions, monthly budgets, and spending reports
+- JWT auth with per-user data isolation on every endpoint; balances and budget figures computed live, never stored stale
+- Versioned API with Swagger/ReDoc docs and a pytest suite
 
 [GitHub](https://github.com/tharunsridhar/finvoro-finance)
 
@@ -88,10 +84,9 @@ Python backend developer and AI engineer building systems end-to-end.
 ### MCP Agent Toolkit &middot; Model Context Protocol Server & Agent, Built from Scratch
 `MCP` `FastMCP` `Groq` `FastAPI` `Pytest`
 
-- Real FastMCP server exposing Tools, Resources, and a Prompt as its own separate process; the agent reaches every one of them only through an MCP ClientSession over stdio, never by importing a Python function directly
-- Live "what the client discovered" panel and a per-turn call trace show the actual `list_tools` / `list_resources` / `list_prompts` results and `call_tool` arguments, not simulated for the UI
-- Swapping in a real third-party MCP server (filesystem, GitHub, Slack) only means changing the `StdioServerParameters`, and nothing about the agent loop changes, proving the protocol boundary actually holds
-- Test suite spins up the real MCP server subprocess and drives it through the full protocol (discovery, tool calls, resource reads, prompt templates) with no API key or network needed
+- Real FastMCP server (Tools, Resources, Prompt) running as its own process; the agent reaches it only through an MCP client session over stdio
+- UI shows live discovery results and a per-turn call trace of actual protocol traffic, not a simulation
+- Swapping in any third-party MCP server needs no change to the agent loop; tests drive the real server with no API key
 
 [GitHub](https://github.com/tharunsridhar/mcp-agent-toolkit)
 
@@ -100,10 +95,9 @@ Python backend developer and AI engineer building systems end-to-end.
 ### Task Manager Agent &middot; LangGraph Tool-Calling Agent with Human-in-the-Loop Safety
 `LangGraph` `FastAPI` `SQLite` `Groq` `Pytest`
 
-- LangGraph agent adds, lists, updates, completes, and deletes tasks, and pauses mid-run for human confirmation before any delete via `interrupt()` / `Command(resume=...)`
-- Conversation state persisted across requests with a SQLite checkpointer, so context survives a page refresh, not just an in-memory session
-- Test suite swaps in a scripted FakeModel to exercise the real graph, real tools, and real interrupt/resume flow with no API key or network call
-- FastAPI backend with a raw request/response inspector in the UI, showing exactly what the agent sent and received on each turn
+- LangGraph agent that manages tasks and pauses for human confirmation before any delete (interrupt / resume)
+- Conversation state persisted in a SQLite checkpointer, so context survives a page refresh
+- Tests run the real graph, tools, and interrupt flow with a scripted fake model, no API key; UI includes a raw request/response inspector
 
 [GitHub](https://github.com/tharunsridhar/langgraph-task-manager-agent)
 
@@ -119,11 +113,23 @@ Python backend developer and AI engineer building systems end-to-end.
 
 ## Skills
 
-**Backend Development** &middot; Python, FastAPI, REST API Design, SQLAlchemy & Alembic, JWT Auth & RBAC, Async Programming, Pytest, Git & GitHub
+**Languages** &middot; Python, TypeScript, JavaScript, Java, SQL
 
-**Agentic AI** &middot; Generative AI, Prompt Engineering, Tool Calling, RAG, LangChain, LangGraph, AI Agents, Model Context Protocol (MCP)
+**CS Fundamentals** &middot; Data Structures & Algorithms, OOP, DBMS, Operating Systems, Computer Networks
 
-*Full breakdown with the complete tag list is on the [live portfolio site](https://tharunsridhar.github.io/tharunsridhar/).*
+**Backend** &middot; Django, Django REST Framework, FastAPI, Node.js, Express, REST API Design, JWT Auth & RBAC, SQLAlchemy, Alembic, Celery, django-filter
+
+**Frontend** &middot; React, HTML, CSS
+
+**AI Engineering** &middot; LLM Integration (Gemini, Groq, OpenAI), Prompt Engineering, RAG (Hybrid Search, Reranking, ChromaDB), RAGAS, Agentic Tool-Calling, MCP, LangChain, LangGraph, Multi-Agent Frameworks (CrewAI, AutoGen, BeeAI)
+
+**Databases** &middot; PostgreSQL, MySQL, SQLite, Redis, FAISS
+
+**DevOps & Cloud** &middot; Docker, GitHub Actions (CI/CD), AWS (EC2, ALB, VPC, IAM), Railway, Git, Linux
+
+**Testing** &middot; pytest, pytest-django, Locust
+
+*Also on the [live portfolio site](https://tharunsridhar.github.io/tharunsridhar/).*
 
 ---
 
@@ -131,7 +137,7 @@ Python backend developer and AI engineer building systems end-to-end.
 
 - AWS Solutions Architect Associate (SAA-C03) Specialization &ndash; Packt (Jul 2026)
 - IBM RAG and Agentic AI Professional Certificate &middot; IBM (Aug&ndash;Sep 2026)
-- Artificial Intelligence (Credit Course) &middot; SmartBridge &times; Google for Developers (May&ndash;Jun 2025)
+- Artificial Intelligence (Credit Course) &middot; SmartBridge &times; Google for Developers (Jul 2025)
 - AI Fluency: Framework & Foundations &middot; Anthropic
 - Introduction to Model Context Protocol &middot; Anthropic
 - Model Context Protocol: Advanced Topics &middot; Anthropic
