@@ -61,35 +61,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
   }));
 })();
 
-/* ---------------- Typewriter ---------------- */
-(function typewriter() {
-  const el = document.getElementById('typewriter');
-  const words = ['backend systems.', 'AI agents.', 'LLM pipelines.', 'REST APIs.', 'things that ship.'];
-  let wordIndex = 0, charIndex = 0, deleting = false;
-
-  function tick() {
-    const word = words[wordIndex];
-    if (!deleting) {
-      charIndex++;
-      el.textContent = word.slice(0, charIndex);
-      if (charIndex === word.length) {
-        deleting = true;
-        setTimeout(tick, 1400);
-        return;
-      }
-    } else {
-      charIndex--;
-      el.textContent = word.slice(0, charIndex);
-      if (charIndex === 0) {
-        deleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-      }
-    }
-    setTimeout(tick, deleting ? 45 : 85);
-  }
-  tick();
-})();
-
 /* ---------------- Reveal on scroll ---------------- */
 (function reveal() {
   function refresh() {
@@ -111,9 +82,108 @@ document.getElementById('year').textContent = new Date().getFullYear();
 /* ============================================================
    Project data: curated flagship builds only
    ============================================================ */
+let diagramCount = 0;
+function archDiagram({ label, boxes, arrows, notes = [] }) {
+  const id = `arr${++diagramCount}`;
+  const box = b => {
+    const cx = b.x + b.w / 2, cy = b.y + b.h / 2, n = b.lines.length;
+    const ys = n === 1 ? [cy + 4] : n === 2 ? [cy - 3, cy + 12] : [cy - 10, cy + 5, cy + 19];
+    return `<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" rx="${b.h > 60 ? 12 : 10}"${b.hl ? ' style="stroke:var(--accent)"' : ''}/>` +
+      b.lines.map((t, i) => `<text x="${cx}" y="${ys[i]}"${i === 0 ? ' style="font-weight:600"' : ' style="fill:var(--text-muted)"'}>${t}</text>`).join('');
+  };
+  // each box is drawn inside one group so the fill/stroke styling applies, text is restyled per line
+  const rects = boxes.map(b => `<g style="fill:var(--surface-2);stroke:var(--border);stroke-width:1.5">${box(b).match(/<rect[^>]*\/>/)[0]}</g>`).join('');
+  const texts = boxes.map(b => box(b).replace(/<rect[^>]*\/>/, '')).join('');
+  const paths = arrows.map(p => {
+    const d = typeof p === 'string' ? p : p.d;
+    const both = typeof p !== 'string' && p.both;
+    return `<path d="${d}" marker-end="url(#${id})"${both ? ` marker-start="url(#${id})"` : ''}/>`;
+  }).join('');
+  const nt = notes.map(n => `<text x="${n.x}" y="${n.y}" style="fill:var(--text-faint);font-size:10px">${n.t}</text>`).join('');
+  return `
+<svg viewBox="0 0 520 220" role="img" aria-label="${label}">
+  <defs><marker id="${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" style="fill:var(--accent)"/></marker></defs>
+  ${rects}
+  <g style="stroke:var(--accent);stroke-width:1.6;fill:none">${paths}</g>
+  <g style="fill:var(--text);font-family:var(--font-mono);font-size:11px;text-anchor:middle">${texts}${nt}</g>
+</svg>`;
+}
+
+const INVENTRA_DIAGRAM = archDiagram({
+  label: 'Inventra architecture: client to AWS load balancer to Django and DRF, backed by PostgreSQL and Redis, with a Celery worker and Beat schedule consuming jobs from Redis',
+  boxes: [
+    { x: 8, y: 90, w: 72, h: 40, lines: ['Client'] },
+    { x: 100, y: 90, w: 76, h: 40, lines: ['AWS ALB'] },
+    { x: 196, y: 75, w: 116, h: 70, lines: ['Django + DRF', 'JWT · RBAC'], hl: true },
+    { x: 352, y: 14, w: 110, h: 44, lines: ['PostgreSQL', 'stock ledger'] },
+    { x: 352, y: 88, w: 110, h: 44, lines: ['Redis', 'cache + broker'] },
+    { x: 352, y: 162, w: 110, h: 44, lines: ['Celery worker', '+ Beat schedule'] }
+  ],
+  arrows: ['M80 110H98', 'M176 110H194', 'M312 100H332V36H350', 'M312 110H350', 'M407 132V160', 'M462 184H492V36H464']
+});
+
+const FINVORO_DIAGRAM = archDiagram({
+  label: 'Finvoro architecture: client to a versioned Django REST Framework API with JWT, backed by PostgreSQL, with generated Swagger and ReDoc docs',
+  boxes: [
+    { x: 8, y: 90, w: 82, h: 40, lines: ['Client'] },
+    { x: 130, y: 70, w: 150, h: 80, lines: ['Django REST', 'JWT · /api/v1/', 'per-user ownership'], hl: true },
+    { x: 340, y: 24, w: 150, h: 44, lines: ['Swagger / ReDoc', 'drf-spectacular'] },
+    { x: 340, y: 152, w: 150, h: 44, lines: ['PostgreSQL', 'live balances'] }
+  ],
+  arrows: [{ d: 'M90 110H128', both: true }, 'M280 95H300V46H338', 'M280 125H300V174H338']
+});
+
+const MCP_DIAGRAM = archDiagram({
+  label: 'MCP Agent Toolkit architecture: a FastAPI agent loop backed by a Groq model talks over an MCP ClientSession on stdio to a separate FastMCP server process, which stores data in SQLite',
+  boxes: [
+    { x: 40, y: 12, w: 110, h: 44, lines: ['Groq LLM', 'tool calling'] },
+    { x: 8, y: 72, w: 174, h: 80, lines: ['FastAPI agent loop', 'MCP ClientSession', 'discovers tools live'], hl: true },
+    { x: 338, y: 72, w: 174, h: 80, lines: ['FastMCP server', 'Tools · Resources', 'Prompt · own process'] },
+    { x: 368, y: 172, w: 114, h: 40, lines: ['SQLite', 'toolkit.db'] }
+  ],
+  arrows: [{ d: 'M95 72V58', both: true }, { d: 'M182 112H336', both: true }, 'M425 152V170'],
+  notes: [{ x: 259, y: 104, t: 'stdio' }]
+});
+
+const TASK_AGENT_DIAGRAM = archDiagram({
+  label: 'Task Manager Agent architecture: client to FastAPI to a LangGraph agent that calls a Groq model and task tools backed by SQLite, pausing for human confirmation before deletes, with state saved by a SQLite checkpointer',
+  boxes: [
+    { x: 8, y: 90, w: 72, h: 40, lines: ['Client'] },
+    { x: 100, y: 90, w: 76, h: 40, lines: ['FastAPI'] },
+    { x: 196, y: 70, w: 126, h: 80, lines: ['LangGraph agent', 'interrupt() gate', 'on delete'], hl: true },
+    { x: 362, y: 14, w: 130, h: 44, lines: ['Groq LLM', 'tool calling'] },
+    { x: 362, y: 88, w: 130, h: 44, lines: ['5 task tools', 'tasks.db (sqlite3)'] },
+    { x: 362, y: 162, w: 130, h: 44, lines: ['SqliteSaver', 'checkpoints.db'] }
+  ],
+  arrows: ['M80 110H98', 'M176 110H194', { d: 'M322 92H342V36H360', both: true }, { d: 'M322 110H360', both: true }, 'M322 128H342V184H360']
+});
+
+const PHOTOSHARE_DIAGRAM = archDiagram({
+  label: 'PhotoShare API architecture: client to a single async FastAPI process with JWT auth and ownership checks, backed by a SQLAlchemy database and the ImageKit CDN for media',
+  boxes: [
+    { x: 8, y: 90, w: 82, h: 40, lines: ['Client'] },
+    { x: 130, y: 70, w: 150, h: 80, lines: ['FastAPI (async)', 'JWT · fastapi-users', 'owner-only delete'], hl: true },
+    { x: 340, y: 40, w: 150, h: 44, lines: ['ImageKit CDN', 'photos + video'] },
+    { x: 340, y: 136, w: 150, h: 44, lines: ['SQLAlchemy', 'UUID-keyed posts'] }
+  ],
+  arrows: [{ d: 'M90 110H128', both: true }, 'M280 95H300V62H338', 'M280 125H300V158H338']
+});
+
+const MRFIX_DIAGRAM = archDiagram({
+  label: 'Mr Fix My Home architecture: React client to an Express and TypeScript API with JWT cookies and per-provider advisory locks, backed by PostgreSQL where an exclusion constraint rejects overlapping bookings',
+  boxes: [
+    { x: 8, y: 90, w: 82, h: 40, lines: ['React app'] },
+    { x: 130, y: 70, w: 150, h: 80, lines: ['Express + TS', 'JWT · Zod', 'advisory lock'], hl: true },
+    { x: 340, y: 24, w: 150, h: 44, lines: ['OpenAPI docs', 'Swagger UI'] },
+    { x: 340, y: 130, w: 150, h: 66, lines: ['PostgreSQL', 'EXCLUDE gist', 'no overlaps'] }
+  ],
+  arrows: [{ d: 'M90 110H128', both: true }, 'M280 95H300V46H338', 'M280 125H300V163H338']
+});
+
 const PROJECTS = [
   {
     title: 'Inventra',
+    visual: INVENTRA_DIAGRAM,
     category: 'Backend',
     role: 'Backend Dev',
     subtitle: 'Role-Based Inventory Management System',
@@ -130,7 +200,26 @@ const PROJECTS = [
     ]
   },
   {
+    title: 'Mr Fix My Home',
+    visual: MRFIX_DIAGRAM,
+    category: 'Backend',
+    role: 'Backend Dev',
+    subtitle: 'Local Services Booking Platform',
+    desc: [
+      'Double-booking prevented in three layers: a server-side slot recheck, a per-provider PostgreSQL advisory lock, and an exclusion constraint that makes the database reject overlapping bookings',
+      'Race tests fire 8 simultaneous requests at one slot and assert exactly one 201 and seven 409s; deadlock victims are retried and Idempotency-Key headers make client retries safe',
+      'Customer / Provider / Admin roles with a booking state machine (compare-and-set status changes, full status history) and DST-safe availability stored as local minutes plus IANA timezone',
+      '62 Vitest + Supertest tests, OpenAPI docs, GitHub Actions CI, and a free-tier deploy on Render + Neon with capacity caps and rate limits'
+    ],
+    tags: ['Backend', 'Node.js', 'TypeScript', 'Express', 'PostgreSQL', 'Prisma', 'React'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/tharunsridhar/mr-fix-my-home', icon: 'github' },
+      { label: 'Live Demo', href: 'https://mr-fix-my-home.onrender.com', icon: 'external' }
+    ]
+  },
+  {
     title: 'PhotoShare API',
+    visual: PHOTOSHARE_DIAGRAM,
     category: 'Backend',
     role: ['Team Member', 'Backend Dev'],
     subtitle: 'Photo & Video Sharing Backend',
@@ -145,6 +234,7 @@ const PROJECTS = [
   },
   {
     title: 'Finvoro',
+    visual: FINVORO_DIAGRAM,
     category: 'Backend',
     role: 'Backend Dev',
     subtitle: 'Personal Finance Management API',
@@ -159,6 +249,7 @@ const PROJECTS = [
   },
   {
     title: 'MCP Agent Toolkit',
+    visual: MCP_DIAGRAM,
     category: 'AI Engineering',
     role: 'AI Dev',
     subtitle: 'Model Context Protocol Server & Agent, Built from Scratch',
@@ -173,6 +264,7 @@ const PROJECTS = [
   },
   {
     title: 'Task Manager Agent',
+    visual: TASK_AGENT_DIAGRAM,
     category: 'AI Engineering',
     role: ['Team Lead', 'AI Dev'],
     subtitle: 'LangGraph Tool-Calling Agent with Human-in-the-Loop Safety',
@@ -192,27 +284,25 @@ const ICONS = {
   external: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>'
 };
 
-const ROLE_FULL_NAME = { 'Backend Dev': 'Backend Engineer', 'AI Dev': 'AI Developer', 'Team Lead': 'Team Lead' };
+const ROLE_FULL_NAME = { 'Backend Dev': 'Backend Engineer', 'AI Dev': 'AI Developer', 'Team Lead': 'Team Lead', 'Team Member': 'Team Member' };
 
-function teamRoleLine(p) {
+function roleBadges(p) {
   if (!p.role) return '';
   const roles = Array.isArray(p.role) ? p.role : [p.role];
-  const isTeam = roles.includes('Team Lead') || roles.includes('Team Member');
-  const named = roles.filter(r => r !== 'Team Member').map(r => ROLE_FULL_NAME[r] || r);
-  return `${isTeam ? 'Team' : 'Solo'} Project &mdash; ${named.join(', ')}`;
+  return `<div class="project-roles">${roles.map(r => `<span class="role-badge">${ROLE_FULL_NAME[r] || r}</span>`).join('')}</div>`;
 }
 
-function renderProjects() {
-  const grid = document.getElementById('projectsGrid');
-  grid.innerHTML = PROJECTS.map((p, i) => `
+function projectCard(p, i) {
+  return `
     <article class="project-card" style="animation-delay:${i * 0.08}s">
       <div class="project-top">
         <div>
           <h3 class="project-title">${p.title}</h3>
-          ${teamRoleLine(p) ? `<p class="project-role-line">${teamRoleLine(p)}</p>` : ''}
+          ${roleBadges(p)}
         </div>
       </div>
-      <p class="project-desc" style="font-weight:600;color:var(--text-muted);margin-bottom:0.6rem;">${p.subtitle}</p>
+      ${p.visual ? `<div class="project-visual">${p.visual}</div>` : ''}
+      <p class="project-desc" style="font-weight:600;color:var(--text-muted);margin-bottom:0.6rem;flex-grow:0;">${p.subtitle}</p>
       <div class="project-desc">
         <ul>${p.desc.map(d => `<li>${d}</li>`).join('')}</ul>
       </div>
@@ -220,7 +310,11 @@ function renderProjects() {
       <div class="project-links">
         ${p.links.map(l => `<a href="${l.href}" target="_blank" rel="noopener">${ICONS[l.icon]}${l.label}</a>`).join('')}
       </div>
-    </article>`).join('');
+    </article>`;
+}
+
+function renderProjects() {
+  document.getElementById('projectsGrid').innerHTML = PROJECTS.map(projectCard).join('');
 }
 renderProjects();
 

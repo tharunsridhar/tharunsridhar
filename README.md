@@ -49,6 +49,18 @@ Python backend developer and AI engineer building systems end-to-end.
 
 ---
 
+### Mr Fix My Home &middot; Local Services Booking Platform
+`Node.js` `TypeScript` `Express` `PostgreSQL` `Prisma` `React`
+
+- Double-booking prevented in three layers: a server-side slot recheck, a per-provider PostgreSQL advisory lock, and an exclusion constraint that makes the database reject overlapping bookings
+- Race tests fire 8 simultaneous requests at one slot and assert exactly one 201 and seven 409s; deadlock victims are retried and Idempotency-Key headers make client retries safe
+- Customer / Provider / Admin roles with a booking state machine (compare-and-set status changes, full status history) and DST-safe availability stored as local minutes plus IANA timezone
+- 62 Vitest + Supertest tests, OpenAPI docs, GitHub Actions CI, and a free-tier deploy on Render + Neon with capacity caps and rate limits
+
+[GitHub](https://github.com/tharunsridhar/mr-fix-my-home) &middot; [Live Demo](https://mr-fix-my-home.onrender.com)
+
+---
+
 ### PhotoShare API &middot; Photo & Video Sharing Backend
 `FastAPI` `Async SQLAlchemy` `JWT` `ImageKit`
 
