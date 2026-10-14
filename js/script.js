@@ -85,15 +85,15 @@ document.getElementById('year').textContent = new Date().getFullYear();
 let diagramCount = 0;
 function archDiagram({ label, boxes, arrows, notes = [] }) {
   const id = `arr${++diagramCount}`;
-  const box = b => {
-    const cx = b.x + b.w / 2, cy = b.y + b.h / 2, n = b.lines.length;
+  const box = (b, i) => {
+    const bi = i, cx = b.x + b.w / 2, cy = b.y + b.h / 2, n = b.lines.length;
     const ys = n === 1 ? [cy + 4] : n === 2 ? [cy - 3, cy + 12] : [cy - 10, cy + 5, cy + 19];
-    return `<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" rx="${b.h > 60 ? 12 : 10}"${b.hl ? ' style="stroke:var(--accent)"' : ''}/>` +
-      b.lines.map((t, i) => `<text x="${cx}" y="${ys[i]}"${i === 0 ? ' style="font-weight:600"' : ' style="fill:var(--text-muted)"'}>${t}</text>`).join('');
+    return `<rect data-b="${i}" x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" rx="${b.h > 60 ? 12 : 10}"${b.hl ? ' style="stroke:var(--accent)"' : ''}/>` +
+      b.lines.map((t, i) => `<text data-b="${bi}" x="${cx}" y="${ys[i]}"${i === 0 ? ' style="font-weight:600"' : ' style="fill:var(--text-muted)"'}>${t}</text>`).join('');
   };
   // each box is drawn inside one group so the fill/stroke styling applies, text is restyled per line
-  const rects = boxes.map(b => `<g style="fill:var(--surface-2);stroke:var(--border);stroke-width:1.5">${box(b).match(/<rect[^>]*\/>/)[0]}</g>`).join('');
-  const texts = boxes.map(b => box(b).replace(/<rect[^>]*\/>/, '')).join('');
+  const rects = boxes.map((b, i) => `<g style="fill:var(--surface-2);stroke:var(--border);stroke-width:1.5">${box(b, i).match(/<rect[^>]*\/>/)[0]}</g>`).join('');
+  const texts = boxes.map((b, i) => box(b, i).replace(/<rect[^>]*\/>/, '')).join('');
   const paths = arrows.map(p => {
     const d = typeof p === 'string' ? p : p.d;
     const both = typeof p !== 'string' && p.both;
@@ -309,6 +309,102 @@ function projectCard(p, i) {
 
 function renderProjects() {
   document.getElementById('projectsGrid').innerHTML = PROJECTS.map(projectCard).join('');
+  document.querySelectorAll('.project-visual svg').forEach(initDraggableDiagram);
+}
+
+/* Drag any box in an architecture diagram: it stays inside the frame, the arrows follow it
+   as straight ropes, and on release it springs back like rubber. */
+function initDraggableDiagram(svg) {
+  const NS = 'http://www.w3.org/2000/svg';
+  const W = 520, H = 220, PAD = 4;
+  const rects = [...svg.querySelectorAll('rect[data-b]')];
+  const boxes = rects.map(r => {
+    const i = r.dataset.b;
+    return {
+      x: +r.getAttribute('x'), y: +r.getAttribute('y'), w: +r.getAttribute('width'), h: +r.getAttribute('height'),
+      els: [r, ...svg.querySelectorAll(`text[data-b="${i}"]`)], dx: 0, dy: 0, vx: 0, vy: 0
+    };
+  });
+  const near = (px, py) => {
+    let best = -1, bd = 1e9;
+    boxes.forEach((b, i) => {
+      const ex = Math.max(b.x - px, 0, px - (b.x + b.w)), ey = Math.max(b.y - py, 0, py - (b.y + b.h));
+      const d = Math.hypot(ex, ey);
+      if (d < bd) { bd = d; best = i; }
+    });
+    return best;
+  };
+  const endpoints = d => {
+    const pts = []; let x = 0, y = 0;
+    for (const m of d.matchAll(/([MHVL])\s*(-?[\d.]+)(?:[\s,]+(-?[\d.]+))?/g)) {
+      if (m[1] === 'H') x = +m[2]; else if (m[1] === 'V') y = +m[2]; else { x = +m[2]; y = +m[3]; }
+      pts.push([x, y]);
+    }
+    return [pts[0], pts[pts.length - 1]];
+  };
+  const links = [...svg.querySelectorAll('g > path')].filter(p => p.hasAttribute('marker-end')).map(p => {
+    const d = p.getAttribute('d'), [a, b] = endpoints(d);
+    return { p, d, a: near(a[0], a[1]), b: near(b[0], b[1]) };
+  });
+  const clip = (b, tx, ty) => {
+    const cx = b.x + b.dx + b.w / 2, cy = b.y + b.dy + b.h / 2, vx = tx - cx, vy = ty - cy;
+    const t = Math.min(vx ? (b.w / 2) / Math.abs(vx) : 1e9, vy ? (b.h / 2) / Math.abs(vy) : 1e9);
+    return [cx + vx * t, cy + vy * t];
+  };
+  const draw = () => {
+    boxes.forEach(b => b.els.forEach(e => e.setAttribute('transform', `translate(${b.dx.toFixed(2)} ${b.dy.toFixed(2)})`)));
+    links.forEach(l => {
+      const A = boxes[l.a], B = boxes[l.b];
+      if (Math.abs(A.dx) + Math.abs(A.dy) + Math.abs(B.dx) + Math.abs(B.dy) < 0.4) { l.p.setAttribute('d', l.d); return; }
+      const ac = [A.x + A.dx + A.w / 2, A.y + A.dy + A.h / 2], bc = [B.x + B.dx + B.w / 2, B.y + B.dy + B.h / 2];
+      const s = clip(A, bc[0], bc[1]), e = clip(B, ac[0], ac[1]);
+      l.p.setAttribute('d', `M${s[0].toFixed(1)} ${s[1].toFixed(1)}L${e[0].toFixed(1)} ${e[1].toFixed(1)}`);
+    });
+  };
+  const toSvg = ev => {
+    const pt = svg.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY;
+    return pt.matrixTransform(svg.getScreenCTM().inverse());
+  };
+  let active = null, grab = null, raf = 0;
+  const spring = () => {
+    let moving = false;
+    boxes.forEach(b => {
+      if (b === active) return;
+      b.vx = (b.vx - b.dx * 0.16) * 0.8; b.vy = (b.vy - b.dy * 0.16) * 0.8;
+      b.dx += b.vx; b.dy += b.vy;
+      if (Math.abs(b.dx) + Math.abs(b.dy) + Math.abs(b.vx) + Math.abs(b.vy) < 0.05) { b.dx = b.dy = b.vx = b.vy = 0; } else moving = true;
+    });
+    draw();
+    raf = moving || active ? requestAnimationFrame(spring) : 0;
+  };
+  rects.forEach((r, i) => {
+    boxes[i].els.forEach(el => {
+      el.setAttribute('data-drag', '');
+      el.addEventListener('pointerdown', ev => {
+        active = boxes[i]; const p = toSvg(ev);
+        grab = [p.x - active.dx, p.y - active.dy];
+        active.vx = active.vy = 0;
+        el.setPointerCapture(ev.pointerId);
+        svg.classList.add('dragging');
+        if (!raf) raf = requestAnimationFrame(spring);
+        ev.preventDefault();
+      });
+      el.addEventListener('pointermove', ev => {
+        if (active !== boxes[i]) return;
+        const p = toSvg(ev), b = active;
+        b.dx = Math.min(Math.max(p.x - grab[0], PAD - b.x), W - PAD - b.w - b.x);
+        b.dy = Math.min(Math.max(p.y - grab[1], PAD - b.y), H - PAD - b.h - b.y);
+        draw();
+      });
+      const release = () => {
+        if (active !== boxes[i]) return;
+        active = null; svg.classList.remove('dragging');
+        if (!raf) raf = requestAnimationFrame(spring);
+      };
+      el.addEventListener('pointerup', release);
+      el.addEventListener('pointercancel', release);
+    });
+  });
 }
 renderProjects();
 

@@ -134,6 +134,9 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+/* Desktop renders at the 90% scale that looks right, so 100% browser zoom matches it */
+@media (min-width: 1024px) { html { zoom: 0.9; } }
+
 body {
   margin: 0;
   background: var(--bg);
@@ -626,6 +629,8 @@ svg { width: 1.1em; height: 1.1em; }
   margin-bottom: 1.1rem;
 }
 .project-visual svg { width: 100%; height: auto; display: block; }
+.project-visual svg [data-drag] { cursor: grab; touch-action: none; user-select: none; }
+.project-visual svg.dragging [data-drag] { cursor: grabbing; }
 .project-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin: 0 0 0.3rem; }
 .project-roles { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.7rem; }
 .role-badge { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; padding: 0.22rem 0.6rem; border-radius: 999px; color: var(--accent); border: 1px solid var(--accent); background: transparent; }
