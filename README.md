@@ -1,15 +1,21 @@
 # Hi, I'm Tharun Sridhar
 
-## `Python Backend Dev` | `AI Engineer`
+## `Full Stack Dev` | `AI Engineer`
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
 ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
 
 Full Stack Developer specializing in AI engineering. I build robust Python backends and scalable JavaScript applications, from REST APIs and database integration to RAG pipelines and LLM-powered automation.
 
+- Full stack: JavaScript / TypeScript / React / Node.js on the web side, Python (Django, FastAPI) on the backend
 - REST API design, database integration, concurrency-safe backends, and role-based access control
+- RAG pipelines and retrieval strategies: chunking, hybrid search, reranking, and failure diagnosis
 - Agentic AI / MCP / LangGraph, from protocol-level tool-calling to human-in-the-loop workflows
 - Test-driven: every flagship project below ships with a real test suite, not a demo script
 
@@ -103,6 +109,17 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 
 ---
 
+## More Projects
+
+- **[RAG Explorer](https://github.com/tharunsridhar/doc-chat-rag-explorer)** &ndash; A RAG debugger: chunking lab, 2D embedding map, side-by-side config comparison, retrieval-vs-generation failure diagnosis, and dense / MMR / BM25 / hybrid strategies. `FastAPI` `Chroma` `sentence-transformers` `Groq`
+- **[Restaurant Recommendation System](https://github.com/tharunsridhar/restaurant-recommendation-system)** &ndash; Multimodal (text + CLIP image) vector search with a multi-agent LangGraph workflow for trend, cuisine, and nutrition-aware recommendations. `FastAPI` `LangGraph` `ChromaDB` `CLIP`
+- **[Retriever Showdown](https://github.com/tharunsridhar/retriever-showdown)** &ndash; The same question through five retrieval strategies (baseline, MMR, multi-query, BM25, reciprocal rank fusion) side by side. `FastAPI` `LangChain`
+- **[Vector Retrieval Lab](https://github.com/tharunsridhar/vector-retrieval-lab)** &ndash; ChromaDB fundamentals: HNSW index tuning, metadata and full-text filtered search, and RAG retrieval. `FastAPI` `ChromaDB` `Groq`
+- **[Agent Building Blocks](https://github.com/tharunsridhar/agent-building-blocks)** &ndash; Seven panels covering tool creation, manual tool calling, LCEL, agent memory, a SQL agent, and a data-visualization agent. `FastAPI` `LangChain` `LangGraph`
+- **[Agent Framework Showdown](https://github.com/tharunsridhar/agent-framework-showdown)** &ndash; One researcher-and-writer task built in CrewAI, AutoGen, and BeeAI. `CrewAI` `AutoGen` `BeeAI`
+
+---
+
 ## Open Source Contributions
 
 - **[django-guardian/django-guardian](https://github.com/django-guardian/django-guardian)** &ndash; Fixed AUTO_PREFETCH permission bug for direct-permission models ([#1030](https://github.com/django-guardian/django-guardian/pull/1030))
@@ -112,6 +129,8 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 ---
 
 ## Skills
+
+**Full Stack** &middot; JavaScript / TypeScript (React, Node.js, Express) on the web side, Python (Django, FastAPI) on the backend
 
 **Languages** &middot; Python, TypeScript, JavaScript, Java, SQL
 
