@@ -701,6 +701,7 @@ svg { width: 1.1em; height: 1.1em; }
 .cert-mini-status { color: var(--accent); font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; }
 
 .leetcode-card { display: flex; flex-direction: column; height: 100%; }
+.leetcode-card .btn { justify-content: center; text-align: center; }
 .leetcode-stats {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; flex-grow: 1; gap: 0.4rem; padding: 1.6rem 0; margin-bottom: 1.4rem;
@@ -711,6 +712,8 @@ svg { width: 1.1em; height: 1.1em; }
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
+.leetcode-solved-num.hr-cert-title { font-size: 0.85rem; line-height: 1.3; }
+.hr-cert-panel { justify-content: flex-start; text-align: left; flex-direction: row; flex-wrap: wrap; gap: 0.4rem 1.1rem; padding: 0 1.1rem; min-height: 2.207rem; flex-grow: 0; margin-bottom: 1rem; }
 .leetcode-solved-label { font-size: 0.95rem; font-weight: 600; color: var(--text); }
 
 /* ---------- Certifications ---------- */

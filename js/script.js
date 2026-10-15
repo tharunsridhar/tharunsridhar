@@ -154,7 +154,7 @@ const PHOTOSHARE_DIAGRAM = archDiagram({
 });
 
 const MRFIX_DIAGRAM = archDiagram({
-  label: 'Mr Fix My Home architecture: React client to an Express and TypeScript API with JWT cookies and per-provider advisory locks, backed by PostgreSQL where an exclusion constraint rejects overlapping bookings',
+  label: 'FixItBro architecture: React client to an Express and TypeScript API with JWT cookies and per-provider advisory locks, backed by PostgreSQL where an exclusion constraint rejects overlapping bookings',
   boxes: [
     { x: 8, y: 90, w: 82, h: 40, lines: ['React app'] },
     { x: 130, y: 70, w: 150, h: 80, lines: ['Express + TS', 'JWT · Zod', 'advisory lock'], hl: true },
@@ -183,7 +183,7 @@ const PROJECTS = [
     ]
   },
   {
-    title: 'Mr Fix My Home',
+    title: 'FixItBro',
     visual: MRFIX_DIAGRAM,
     category: 'Backend',
     role: 'Backend Dev',
@@ -191,12 +191,12 @@ const PROJECTS = [
     desc: [
       'Local services booking platform with Customer / Provider / Admin roles and a booking state machine',
       'Double-booking prevented at three layers, down to a PostgreSQL exclusion constraint; race tests fire 8 simultaneous requests and exactly one succeeds',
-      '62 automated tests, OpenAPI docs, and CI; live on Render + Neon'
+      '62 automated tests, OpenAPI docs, and CI; live on Render'
     ],
     tags: ['Backend', 'Node.js', 'TypeScript', 'Express', 'PostgreSQL', 'Prisma', 'React'],
     links: [
-      { label: 'GitHub', href: 'https://github.com/tharunsridhar/mr-fix-my-home', icon: 'github' },
-      { label: 'Live Demo', href: 'https://mr-fix-my-home.onrender.com', icon: 'external' }
+      { label: 'GitHub', href: 'https://github.com/tharunsridhar/fixitbro', icon: 'github' },
+      { label: 'Live Demo', href: 'https://fixitbro.onrender.com', icon: 'external' }
     ]
   },
   {
@@ -413,19 +413,20 @@ function renderLeetcodeStats(stats) {
 function renderAccomplishments() {
   const grid = document.getElementById('accomplishGrid');
   grid.innerHTML = `
-    <div class="accomplish-card reveal">
+    <div class="accomplish-card leetcode-card reveal">
       <div class="accomplish-head">
-        <h3><span class="accomplish-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C7.802 0 4.487.472 2.784 2.784.472 4.487 0 7.802 0 12c0 4.198.472 7.513 2.784 9.216C4.487 23.528 7.802 24 12 24c4.198 0 7.513-.472 9.216-2.784C23.528 19.513 24 16.198 24 12c0-4.198-.472-7.513-2.784-9.216C19.513.472 16.198 0 12 0ZM8.61 4.771c.12 0 .243.03.351.09.394.201.55.674.365 1.062-.008.014-.85 1.663-.85 5.929v.288h7.076v-.288c0-4.29-.834-5.907-.842-5.921a.783.783 0 0 1 .343-1.05.83.83 0 0 1 1.09.34c.045.075.995 1.898.995 6.63v9.398a.81.81 0 0 1-.815.802.81.81 0 0 1-.815-.802v-4.037H8.476v4.037a.81.81 0 0 1-.815.802.81.81 0 0 1-.815-.802v-9.398c0-4.732.95-6.555.995-6.629a.81.81 0 0 1 .77-.432Z"/></svg></span>HackerRank: Verified Skills</h3>
-        <a class="accomplish-link" href="https://www.hackerrank.com/profile/tharunsridhar" target="_blank" rel="noopener">View profile &rarr;</a>
+        <h3><span class="accomplish-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C7.802 0 4.487.472 2.784 2.784.472 4.487 0 7.802 0 12c0 4.198.472 7.513 2.784 9.216C4.487 23.528 7.802 24 12 24c4.198 0 7.513-.472 9.216-2.784C23.528 19.513 24 16.198 24 12c0-4.198-.472-7.513-2.784-9.216C19.513.472 16.198 0 12 0ZM8.61 4.771c.12 0 .243.03.351.09.394.201.55.674.365 1.062-.008.014-.85 1.663-.85 5.929v.288h7.076v-.288c0-4.29-.834-5.907-.842-5.921a.783.783 0 0 1 .343-1.05.83.83 0 0 1 1.09.34c.045.075.995 1.898.995 6.63v9.398a.81.81 0 0 1-.815.802.81.81 0 0 1-.815-.802v-4.037H8.476v4.037a.81.81 0 0 1-.815.802.81.81 0 0 1-.815-.802v-9.398c0-4.732.95-6.555.995-6.629a.81.81 0 0 1 .77-.432Z"/></svg></span>HackerRank</h3>
       </div>
       <div class="badge-chips">
         ${HACKERRANK_BADGES.map(b => `<span class="badge-chip">${b.name} <span class="stars">${'&#9733;'.repeat(b.stars)}</span></span>`).join('')}
       </div>
+      <div class="leetcode-stats hr-cert-panel">
+        <div class="leetcode-solved-num hr-cert-title">Certified Software Engineer</div>      </div>
+      <a class="btn btn-ghost btn-sm" href="https://www.hackerrank.com/profile/tharunsridhar" target="_blank" rel="noopener">Profile</a>
     </div>
     <div class="accomplish-card leetcode-card reveal">
       <div class="accomplish-head">
         <h3><span class="accomplish-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.539.54-1.414.003-1.955-.54-.542-1.413-.542-1.955-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207.48-.593.387-1.462-.207-1.941l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0Zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382Z"/></svg></span>LeetCode</h3>
-        <a class="accomplish-link" href="https://leetcode.com/u/Tharunsridhar/" target="_blank" rel="noopener">View profile &rarr;</a>
       </div>
       <div class="leetcode-stats">
         ${renderLeetcodeStats(LEETCODE_STATS)}
