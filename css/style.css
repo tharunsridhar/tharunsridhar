@@ -315,14 +315,6 @@ svg { width: 1.1em; height: 1.1em; }
   overflow: hidden;
 }
 .hero-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-.grid-overlay {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(color-mix(in srgb, var(--text) 4%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--text) 4%, transparent) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
-}
 .glow {
   position: absolute;
   border-radius: 50%;
