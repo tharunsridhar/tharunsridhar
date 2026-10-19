@@ -520,18 +520,18 @@ const CERT_GROUPS = [
     collapsible: true,
     issuer: 'IBM · Coursera',
     dateRange: 'Aug 2026 – Sep 2026',
-    mainItem: { shortName: 'IBM RAG and Agentic AI Professional Certificate', date: 'Sep 2026', link: 'assets/certificates/ibm-rag-agentic-ai-professional-certificate.pdf' },
+    mainItem: { shortName: 'IBM RAG and Agentic AI Professional Certificate', date: 'Sep 2026', link: 'assets/certificates/ibm-rag-agentic-ai/ibm-rag-agentic-ai-professional-certificate.pdf' },
     items: [
-      { name: 'Develop Generative AI Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'assets/certificates/ibm-1-develop-genai-apps.pdf' },
-      { name: 'Build RAG Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'assets/certificates/ibm-2-build-rag-apps.pdf' },
-      { name: 'Vector Databases for RAG: An Introduction', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'assets/certificates/ibm-3-vector-databases-rag.pdf' },
-      { name: 'Advanced RAG with Vector Databases and Retrievers', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'assets/certificates/ibm-4-advanced-rag.pdf' },
-      { name: 'Build Multimodal Generative AI Applications', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-5-multimodal-genai.pdf' },
-      { name: 'Fundamentals of Building AI Agents', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-6-ai-agents-fundamentals.pdf' },
-      { name: 'Agentic AI with LangChain and LangGraph', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-7-langchain-langgraph.pdf' },
-      { name: 'Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-8-langgraph-crewai-autogen-beeai.pdf' },
-      { name: 'Build AI Agents using MCP', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-10-ai-agents-mcp.pdf' },
-      { name: 'RAG and Agentic AI Capstone Project', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-11-capstone.pdf' }
+      { name: 'Develop Generative AI Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'assets/certificates/ibm-rag-agentic-ai/ibm-1-develop-genai-apps.pdf' },
+      { name: 'Build RAG Applications: Get Started', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'assets/certificates/ibm-rag-agentic-ai/ibm-2-build-rag-apps.pdf' },
+      { name: 'Vector Databases for RAG: An Introduction', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'assets/certificates/ibm-rag-agentic-ai/ibm-3-vector-databases-rag.pdf' },
+      { name: 'Advanced RAG with Vector Databases and Retrievers', issuer: 'IBM · Coursera', date: 'Aug 2026', link: 'assets/certificates/ibm-rag-agentic-ai/ibm-4-advanced-rag.pdf' },
+      { name: 'Build Multimodal Generative AI Applications', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-rag-agentic-ai/ibm-5-multimodal-genai.pdf' },
+      { name: 'Fundamentals of Building AI Agents', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-rag-agentic-ai/ibm-6-ai-agents-fundamentals.pdf' },
+      { name: 'Agentic AI with LangChain and LangGraph', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-rag-agentic-ai/ibm-7-langchain-langgraph.pdf' },
+      { name: 'Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-rag-agentic-ai/ibm-8-langgraph-crewai-autogen-beeai.pdf' },
+      { name: 'Build AI Agents using MCP', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-rag-agentic-ai/ibm-10-ai-agents-mcp.pdf' },
+      { name: 'RAG and Agentic AI Capstone Project', issuer: 'IBM · Coursera', date: 'Sep 2026', link: 'assets/certificates/ibm-rag-agentic-ai/ibm-11-capstone.pdf' }
     ]
   },
   {
@@ -541,7 +541,7 @@ const CERT_GROUPS = [
     issuer: 'SmartBridge × Google for Developers',
     dateRange: 'Jul 2025',
     items: [
-      { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'Jul 2025', link: 'assets/certificates/smartbridge-ai-credit-course.pdf' }
+      { name: 'Artificial Intelligence (Credit Course)', issuer: 'SmartBridge × Google for Developers', date: 'Jul 2025', link: 'assets/certificates/ai-engineering/smartbridge-ai-credit-course.pdf' }
     ]
   },
   {
@@ -550,7 +550,7 @@ const CERT_GROUPS = [
     collapsible: true,
     issuer: 'Anthropic',
     items: [
-      { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', date: '2026', status: 'completed', link: 'assets/certificates/anthropic-ai-fluency.pdf' },
+      { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', date: '2026', status: 'completed', link: 'assets/certificates/anthropic/anthropic-ai-fluency.pdf' },
       { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: 'Feb 2026', status: 'completed', link: 'https://verify.skilljar.com/c/8v2nanvk5wsh' },
       { name: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic', date: 'Feb 2026', status: 'completed', link: 'https://verify.skilljar.com/c/4xy6huookznu' },
       { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Feb 2026', status: 'completed', link: 'https://verify.skilljar.com/c/4ae9pz865x6p' },
