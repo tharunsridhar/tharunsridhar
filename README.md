@@ -34,10 +34,10 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 
 ## Worked On
 
+- Full-stack web apps: React + TypeScript frontends on Node/Express and Django/FastAPI APIs, deployed live
 - REST APIs with FastAPI/Django, JWT auth, and relational data modeling
-- Concurrency-safe backends: row-level locking, cache invalidation, idempotent writes
+- Concurrency-safe booking and inventory flows: row-level locking, exclusion constraints, idempotent writes
 - Agentic AI systems: MCP servers/clients, LangGraph tool-calling agents, human-in-the-loop workflows
-- Backend systems with clean structure, auditable data, and role-based access
 
 ---
 
@@ -54,14 +54,14 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 
 ---
 
-### Mr Fix My Home &middot; Local Services Booking Platform
+### FixItBro &middot; Local Services Booking Platform
 `Node.js` `TypeScript` `Express` `PostgreSQL` `Prisma` `React`
 
 - Local services booking platform with Customer / Provider / Admin roles and a booking state machine
 - Double-booking prevented at three layers, down to a PostgreSQL exclusion constraint; race tests fire 8 simultaneous requests and exactly one succeeds
-- 62 automated tests, OpenAPI docs, and CI; live on Render + Neon
+- 62 automated tests, OpenAPI docs, and CI; live on Render
 
-[GitHub](https://github.com/tharunsridhar/mr-fix-my-home) &middot; [Live Demo](https://mr-fix-my-home.onrender.com)
+[GitHub](https://github.com/tharunsridhar/fixitbro) &middot; [Live Demo](https://fixitbro.onrender.com)
 
 ---
 
@@ -138,7 +138,7 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 
 **Backend** &middot; Django, Django REST Framework, FastAPI, Node.js, Express, REST API Design, JWT Auth & RBAC, SQLAlchemy, Alembic, Celery, django-filter
 
-**Frontend** &middot; React, HTML, CSS
+**Frontend** &middot; React, TypeScript, HTML, CSS
 
 **AI Engineering** &middot; LLM Integration (Gemini, Groq, OpenAI), Prompt Engineering, RAG (Hybrid Search, Reranking, ChromaDB), RAGAS, Agentic Tool-Calling, MCP, LangChain, LangGraph, Multi-Agent Frameworks (CrewAI, AutoGen, BeeAI)
 
