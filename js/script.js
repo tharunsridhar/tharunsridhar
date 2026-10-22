@@ -567,11 +567,10 @@ function renderCertGroupItem(item) {
     : '';
   const inner = `
       <span class="cert-group-item-name">${item.name}</span>
-      ${statusTag}
-      ${item.date ? `<span class="cert-group-item-date">${item.date}</span>` : ''}`;
-  return item.link
-    ? `<a class="cert-group-item" href="${item.link}" target="_blank" rel="noopener">${inner}</a>`
-    : `<div class="cert-group-item cert-group-item-static">${inner}</div>`;
+      ${statusTag}`;
+  if (!item.link) return `<div class="cert-group-item cert-group-item-static">${inner}</div>`;
+  const action = /\.pdf$/i.test(item.link) ? 'View PDF' : 'Verify';
+  return `<a class="cert-group-item" href="${item.link}" target="_blank" rel="noopener">${inner}<span class="cert-group-item-btn">${action} &#8599;</span></a>`;
 }
 
 function groupMetaParts(g) {
@@ -618,10 +617,19 @@ function openCertModal(i) {
         <div>
           <h3 class="cert-modal-title">${g.title}</h3>
           <p class="cert-group-count">
-            ${g.mainItem ? `<a class="cert-modal-mainlink" href="${g.mainItem.link}" target="_blank" rel="noopener">${g.mainItem.shortName} &#8599;</a> &middot; ` : ''}${groupMetaParts(g)}
+            ${groupMetaParts(g)}
           </p>
         </div>
       </div>
+      ${g.mainItem ? `
+      <a class="cert-modal-cta" href="${g.mainItem.link}" target="_blank" rel="noopener">
+        <span class="cert-modal-cta-text">
+          <span class="cert-modal-cta-label">${/\.pdf$/i.test(g.mainItem.link) ? 'Full certificate' : 'Verified credential'}</span>
+          <span class="cert-modal-cta-name">${g.mainItem.shortName}</span>
+        </span>
+        <span class="cert-modal-cta-btn">${/\.pdf$/i.test(g.mainItem.link) ? 'View certificate' : 'Verify'} &#8599;</span>
+      </a>
+      <p class="cert-modal-sub">Individual courses</p>` : ''}
       <div class="cert-group-list">
         ${g.items.map(renderCertGroupItem).join('')}
       </div>

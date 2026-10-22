@@ -874,6 +874,44 @@ svg { width: 1.1em; height: 1.1em; }
 .cert-modal-close:hover { border-color: var(--accent); color: var(--accent); }
 .cert-modal-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem; padding-right: 2rem; }
 .cert-modal-title { font-family: var(--font-display); font-size: 1.15rem; margin: 0 0 0.2rem; }
+.cert-modal-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.4rem;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.cert-modal-cta:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.cert-modal-cta-text { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.cert-modal-cta-label { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.cert-modal-cta-name { font-weight: 600; font-size: 0.85rem; }
+.cert-modal-cta-btn,
+.cert-group-item-btn {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.cert-modal-cta-btn { background: var(--accent); color: var(--bg, #0b0f1a); border-color: var(--accent); }
+.cert-group-item:hover .cert-group-item-btn { background: var(--accent); color: var(--bg, #0b0f1a); }
+.cert-modal-sub { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-faint); margin: 0 0 0.6rem; }
+.cert-group-item-name { flex: 1; min-width: 0; }
+@media (max-width: 520px) {
+  .cert-modal-cta { flex-direction: column; align-items: stretch; text-align: left; }
+  .cert-modal-cta-btn { text-align: center; }
+  .cert-group-item { flex-wrap: wrap; }
+}
 
 /* ---------- Contact ---------- */
 .contact-section { text-align: center; }
