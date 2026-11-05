@@ -129,6 +129,17 @@ const MCP_DIAGRAM = archDiagram({
   notes: [{ x: 259, y: 104, t: 'stdio' }]
 });
 
+const TRAILMARK_DIAGRAM = archDiagram({
+  label: 'Trailmark architecture: authorised sources (repo export, documents, chat, tasks) feed a FastAPI pipeline where an LLM must quote its sources and a second call checks each claim, then a lead reviews and approves, and the incoming member sees a redacted, permission-filtered handover stored in PostgreSQL',
+  boxes: [
+    { x: 8, y: 70, w: 104, h: 60, lines: ['Sources', 'repo · docs', 'chat · tasks'] },
+    { x: 140, y: 60, w: 160, h: 80, lines: ['FastAPI pipeline', 'quote check', 'claim verifier'], hl: true },
+    { x: 340, y: 24, w: 150, h: 44, lines: ['Lead review', 'approve + version'] },
+    { x: 340, y: 130, w: 150, h: 66, lines: ['PostgreSQL', 'role access', 'redacted view'] }
+  ],
+  arrows: ['M112 100H138', 'M300 88H320V46H338', 'M300 112H320V163H338']
+});
+
 const TASK_AGENT_DIAGRAM = archDiagram({
   label: 'Task Manager Agent architecture: client to FastAPI to a LangGraph agent that calls a Groq model and task tools backed by SQLite, pausing for human confirmation before deletes, with state saved by a SQLite checkpointer',
   boxes: [
@@ -226,6 +237,23 @@ const PROJECTS = [
     ],
     tags: ['Python Backend', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'pytest'],
     links: [{ label: 'GitHub', href: 'https://github.com/tharunsridhar/finvoro-finance', icon: 'github' }]
+  },
+  {
+    title: 'Trailmark',
+    visual: TRAILMARK_DIAGRAM,
+    category: 'AI Engineering',
+    role: ['Team Member', 'AI Dev', 'Backend Dev'],
+    subtitle: 'Evidence-Linked Knowledge Handover (WCC Forge 48 Hackathon)',
+    desc: [
+      'When someone leaves a project, it reads authorised sources, finds gaps, asks the leaver targeted questions, and gives the incoming member a lead-approved handover where every statement links to its source',
+      'The LLM must quote sources word for word or the claim is discarded; a separate verifier call decides what counts as verified, and missing or conflicting facts are shown, never filled in',
+      'Role-based access enforced in the backend: summaries inherit their sources’ restrictions and emails, phone numbers and secrets are redacted; 197 backend tests pass on SQLite and PostgreSQL, and the app is live on Vercel'
+    ],
+    tags: ['AI Dev', 'FastAPI', 'LLM Pipeline', 'PostgreSQL', 'Next.js', 'Docker', 'Pytest'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/try2mastercode/Trailmark', icon: 'github' },
+      { label: 'Live Demo', href: 'https://trailmark-seven.vercel.app/', icon: 'external' }
+    ]
   },
   {
     title: 'MCP Agent Toolkit',

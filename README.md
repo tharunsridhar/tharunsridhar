@@ -87,6 +87,17 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 
 ---
 
+### Trailmark &middot; Evidence-Linked Knowledge Handover (WCC Forge 48 Hackathon)
+`FastAPI` `LLM Pipeline` `PostgreSQL` `Next.js` `Docker` `Pytest`
+
+- When someone leaves a project, it reads authorised sources, finds gaps, asks the leaver targeted questions, and gives the incoming member a lead-approved handover where every statement links to its source
+- The LLM must quote sources word for word or the claim is discarded; a separate verifier call decides what counts as verified, and missing or conflicting facts are shown, never filled in
+- Role-based access enforced in the backend: summaries inherit their sources' restrictions and emails, phone numbers and secrets are redacted; 197 backend tests pass on SQLite and PostgreSQL, and the app is live on Vercel
+
+[GitHub](https://github.com/try2mastercode/Trailmark) &middot; [Live Demo](https://trailmark-seven.vercel.app/)
+
+---
+
 ### MCP Agent Toolkit &middot; Model Context Protocol Server & Agent, Built from Scratch
 `MCP` `FastMCP` `Groq` `FastAPI` `Pytest`
 
