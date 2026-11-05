@@ -123,8 +123,8 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 ## Open Source Contributions
 
 - **[django-guardian/django-guardian](https://github.com/django-guardian/django-guardian)** &ndash; Fixed AUTO_PREFETCH permission bug for direct-permission models ([#1030](https://github.com/django-guardian/django-guardian/pull/1030))
-- **[drkrillo/good-first-issues](https://github.com/drkrillo/good-first-issues)** &ndash; CI smoke test for the action itself ([#172](https://github.com/drkrillo/good-first-issues/pull/172))
-- **[Ayorinha/ayorai-vision-intelligence](https://github.com/Ayorinha/ayorai-vision-intelligence)** &ndash; Restored corrupted CI workflow YAML ([#26](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/26)) and MCP least-privilege regression tests ([#23](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/23))
+- **[drkrillo/good-first-issues](https://github.com/drkrillo/good-first-issues)** &ndash; CI smoke test for the action itself ([#172](https://github.com/drkrillo/good-first-issues/pull/172)), case-insensitive label drop ([#170](https://github.com/drkrillo/good-first-issues/pull/170)) and readable label rendering ([#167](https://github.com/drkrillo/good-first-issues/pull/167))
+- **[Ayorinha/ayorai-vision-intelligence](https://github.com/Ayorinha/ayorai-vision-intelligence)** &ndash; Restored corrupted CI workflow YAML ([#26](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/26)), execution tracing example ([#24](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/24)) and MCP least-privilege regression tests ([#23](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/23))
 
 ---
 

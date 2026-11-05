@@ -455,7 +455,9 @@ const OSS_CONTRIBUTIONS = [
     url: 'https://github.com/drkrillo/good-first-issues',
     desc: 'A GitHub Action + CLI that surfaces good-first-issue-labeled issues across repos to help new contributors find something to work on.',
     prs: [
-      { title: 'CI smoke test for the action itself', number: 172, url: 'https://github.com/drkrillo/good-first-issues/pull/172' }
+      { title: 'CI smoke test for the action itself', number: 172, url: 'https://github.com/drkrillo/good-first-issues/pull/172' },
+      { title: 'Dropped good-first-issue label case-insensitively', number: 170, url: 'https://github.com/drkrillo/good-first-issues/pull/170' },
+      { title: 'Rendered labels as readable text instead of a Python list repr', number: 167, url: 'https://github.com/drkrillo/good-first-issues/pull/167' }
     ]
   },
   {
@@ -464,6 +466,7 @@ const OSS_CONTRIBUTIONS = [
     desc: 'An AI agent security framework enforcing least-privilege MCP tool access and policy-based, tamper-evident execution tracing.',
     prs: [
       { title: 'Restored corrupted CI workflow YAML', number: 26, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/26' },
+      { title: 'Added execution tracing example', number: 24, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/24' },
       { title: 'MCP least-privilege regression tests', number: 23, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/23' }
     ]
   }
