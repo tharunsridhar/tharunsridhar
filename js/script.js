@@ -251,7 +251,7 @@ const PROJECTS = [
     ],
     tags: ['AI Dev', 'FastAPI', 'LLM Pipeline', 'PostgreSQL', 'Next.js', 'Docker', 'Pytest'],
     links: [
-      { label: 'GitHub', href: 'https://github.com/try2mastercode/Trailmark', icon: 'github' },
+      { label: 'GitHub', href: 'https://github.com/tharunsridhar/Trailmark', icon: 'github' },
       { label: 'Live Demo', href: 'https://trailmark-seven.vercel.app/', icon: 'external' }
     ]
   },
@@ -320,7 +320,10 @@ function projectCard(p, i) {
 }
 
 function renderProjects() {
-  document.getElementById('projectsGrid').innerHTML = PROJECTS.map(projectCard).join('');
+  const order = ['Trailmark', 'Inventra', 'FixItBro'];
+  const rank = t => { const i = order.indexOf(t); return i < 0 ? order.length : i; };
+  const sorted = [...PROJECTS].sort((a, b) => rank(a.title) - rank(b.title));
+  document.getElementById('projectsGrid').innerHTML = sorted.map(projectCard).join('');
   document.querySelectorAll('.project-visual svg').forEach(initDraggableDiagram);
 }
 
@@ -497,6 +500,42 @@ const OSS_CONTRIBUTIONS = [
       { title: 'Added execution tracing example', number: 24, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/24' },
       { title: 'MCP least-privilege regression tests', number: 23, url: 'https://github.com/Ayorinha/ayorai-vision-intelligence/pull/23' }
     ]
+  },
+  {
+    repo: 'NexyPy/nexy',
+    url: 'https://github.com/NexyPy/nexy',
+    desc: 'Next.js in Python: file-based routes, layouts and islands, with FastAPI and Vite in one process.',
+    prs: [
+      { title: 'Added opt-in /health/live and /health/ready endpoints', number: 351, url: 'https://github.com/NexyPy/nexy/pull/351' }
+    ]
+  },
+  {
+    repo: 'amd/gaia',
+    url: 'https://github.com/amd/gaia',
+    desc: 'AMD\'s open-source framework for building AI agents that run on your own PC.',
+    prs: [
+      { title: 'Installed the ui extra in the CI guide workflows', number: 6933, url: 'https://github.com/amd/gaia/pull/6933' },
+      { title: 'Refused to index a RAG document whose bytes cannot be read for the cache key', number: 6978, url: 'https://github.com/amd/gaia/pull/6978' },
+      { title: 'Dropped dead PR and contributor links from the v0.25.2 release notes', number: 7001, url: 'https://github.com/amd/gaia/pull/7001' }
+    ]
+  },
+  {
+    repo: 'AnjalLLL/voxwire',
+    url: 'https://github.com/AnjalLLL/voxwire',
+    desc: 'Self-hostable real-time voice AI calls over WebRTC and phone, with Gemini Live / OpenAI Realtime and tool calling.',
+    prs: [
+      { title: 'Replaced deprecated on_event startup hook with a lifespan handler', number: 19, url: 'https://github.com/AnjalLLL/voxwire/pull/19' },
+      { title: 'Added voxwire calls and voxwire usage CLI commands', number: 20, url: 'https://github.com/AnjalLLL/voxwire/pull/20', status: 'review' }
+    ]
+  },
+  {
+    repo: 'maziyarpanahi/openmed',
+    url: 'https://github.com/maziyarpanahi/openmed',
+    desc: 'Open-source toolkit for medical and clinical text, with an MCP server for AI agents.',
+    prs: [
+      { title: 'Restored placeholders split across streamed tool-call arguments', number: 5501, url: 'https://github.com/maziyarpanahi/openmed/pull/5501', status: 'review' },
+      { title: 'Added --list-tools to openmed-mcp', number: 5500, url: 'https://github.com/maziyarpanahi/openmed/pull/5500', status: 'review' }
+    ]
   }
 ];
 
@@ -512,13 +551,74 @@ function renderOssCard(c) {
         ${c.prs.map(p => `
           <a class="cert-mini" href="${p.url}" target="_blank" rel="noopener">
             <span class="cert-mini-name">${p.title} <span style="color:var(--text-faint);font-weight:400;">#${p.number}</span></span>
-            <span class="cert-mini-status">Merged</span>
+            <span class="cert-mini-status${p.status === 'review' ? ' review' : ''}">${p.status === 'review' ? 'In review' : 'Merged'}</span>
           </a>`).join('')}
       </div>
     </div>`;
 }
 
+function renderOssStats() {
+  const all = OSS_CONTRIBUTIONS.flatMap(c => c.prs.map(p => ({ ...p, repo: c.repo })));
+  const merged = all.filter(p => p.status !== 'review');
+  const review = all.filter(p => p.status === 'review');
+  const repoCount = list => new Set(list.map(p => p.repo)).size;
+  const dot = p => `<a class="pr-dot${p.status === 'review' ? ' review' : ''}" href="${p.url}" target="_blank" rel="noopener"
+       title="${p.repo} #${p.number}: ${p.title}"></a>`;
+  const dots = [...merged, ...review].map(dot).join('');
+  const TYPE_OF = {
+    'django-guardian/django-guardian#1030': 'fix',
+    'drkrillo/good-first-issues#167': 'fix', 'drkrillo/good-first-issues#170': 'fix', 'drkrillo/good-first-issues#172': 'ci',
+    'Ayorinha/ayorai-vision-intelligence#23': 'tests', 'Ayorinha/ayorai-vision-intelligence#24': 'docs', 'Ayorinha/ayorai-vision-intelligence#26': 'ci',
+    'amd/gaia#6933': 'docs', 'amd/gaia#7001': 'docs', 'amd/gaia#6978': 'fix',
+    'AnjalLLL/voxwire#19': 'refactor', 'NexyPy/nexy#351': 'feature'
+  };
+  const TYPE_LABEL = { fix: 'Bug fixes', feature: 'Features', docs: 'Docs', ci: 'CI', tests: 'Tests', refactor: 'Refactor' };
+  const typeCounts = Object.keys(TYPE_LABEL).map(t => ({ t, n: merged.filter(p => TYPE_OF[p.repo + '#' + p.number] === t).length })).filter(x => x.n);
+  let acc = 0;
+  const donutStops = typeCounts.map(x => { const a0 = acc / merged.length * 360; acc += x.n; return `var(--t-${x.t}) ${a0}deg ${acc / merged.length * 360}deg`; }).join(', ');
+  document.getElementById('ossStats').innerHTML = `
+    <div class="oss-hero oss-box reveal">
+      <div class="oss-hero-top">
+        <div class="type-donut" style="background:conic-gradient(${donutStops})" role="img" aria-label="${merged.length} merged pull requests by type of work">
+          <div class="type-donut-c"><span class="oss-hero-num" data-count="${merged.length}">${merged.length}</span><small>merged</small></div>
+        </div>
+        <div class="type-legend">
+          <span class="oss-hero-label">Merged upstream, by type</span>
+          ${typeCounts.map(t => `<span class="type-item"><i style="background:var(--t-${t.t})"></i>${TYPE_LABEL[t.t]} <b>${t.n}</b></span>`).join('')}
+        </div>
+      </div>
+    </div>
+    <div class="oss-hero oss-box oss-box-dots reveal">
+      <div class="dots-legend">
+        <span><i class="pr-dot"></i><b>${merged.length}</b> Merged</span>
+        <span><i class="pr-dot review"></i><b class="rv">${review.length}</b> In review</span>
+      </div>
+      <div class="pr-dots" aria-label="Every pull request, merged and in review">${dots}</div>
+    </div>`;
+  const star = '&#9733;';
+  document.getElementById('heroProof').innerHTML = [
+    [merged.length, 'merged PRs'], ['5' + star, 'HackerRank'], ['250+', 'LeetCode']
+  ].map(([n, l]) => `<a class="proof-item" href="#open-source"><strong>${n}</strong><span>${l}</span></a>`).join('');
+  const run = el => {
+    const end = +el.dataset.count; const t0 = performance.now();
+    setTimeout(() => { el.textContent = end; }, 1300);
+    const tick = now => {
+      const k = Math.min((now - t0) / 1100, 1);
+      el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const nums = document.querySelectorAll('#ossStats [data-count]');
+  if (!('IntersectionObserver' in window)) { nums.forEach(n => n.textContent = n.dataset.count); return; }
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+  }), { threshold: 0.6 });
+  nums.forEach(n => io.observe(n));
+}
+
 function renderOssContributions() {
+  renderOssStats();
   const grid = document.getElementById('ossGrid');
   grid.innerHTML = OSS_CONTRIBUTIONS.map(renderOssCard).join('');
   window.dispatchEvent(new Event('content-injected'));
@@ -695,3 +795,111 @@ document.querySelectorAll('.resume-menu').forEach(menu => {
   document.addEventListener('click', e => { if (!menu.contains(e.target)) setOpen(false); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
 });
+
+
+/* Open source: repo cards stay hidden until "View details" is clicked */
+(function () {
+  const btn = document.getElementById('ossToggle'), grid = document.getElementById('ossGrid');
+  if (!btn || !grid) return;
+  btn.addEventListener('click', () => {
+    const open = grid.hidden;
+    grid.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    btn.firstChild.textContent = open ? 'Hide details ' : 'View details ';
+    btn.querySelector('span').innerHTML = open ? '&#9652;' : '&#9662;';
+    if (open) window.dispatchEvent(new Event('content-injected'));
+  });
+})();
+
+/* AI tools card: pull a tile anywhere; on release it springs back to its slot */
+(function aiToolsDrag() {
+  const card = document.querySelector('.ai-tools');
+  if (!card) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+  card.querySelectorAll('.ai-tool').forEach(tile => {
+    // ghost slot marks the home position while the tile is away
+    const slot = document.createElement('span');
+    slot.className = 'ai-slot';
+    slot.setAttribute('aria-hidden', 'true');
+    card.append(slot);
+
+    let raf = 0, dragging = false, pid = null;
+    let x = 0, y = 0, vx = 0, vy = 0;            // displacement from the slot, and velocity (px per frame)
+    let px = 0, py = 0, startX = 0, startY = 0;  // pointer start and displacement at grab
+    let slot0 = null, lastT = 0, lastX = 0, lastY = 0;
+
+    const render = () => {
+      const w = tile.offsetWidth, h = tile.offsetHeight, ox = tile.offsetLeft, oy = tile.offsetTop;
+      slot.style.left = ox + 'px'; slot.style.top = oy + 'px';
+      slot.style.width = w + 'px'; slot.style.height = h + 'px';
+      const dist = Math.hypot(x, y);
+      const rot = clamp(vx * 1.1, -22, 22);
+      tile.style.transform = 'translate(' + x + 'px,' + y + 'px) rotate(' + rot + 'deg) scale(' + (dragging ? 1.08 : 1) + ')';
+      slot.style.opacity = dist > 4 ? 1 : 0;
+    };
+
+    const finish = () => {
+      x = y = vx = vy = 0;
+      tile.style.transform = '';
+      tile.classList.remove('is-moving');
+      slot.style.opacity = 0;
+    };
+
+    const spring = () => {
+      if (reduce.matches) { finish(); return; }
+      const K = 0.12, D = 0.8;
+      let t0 = performance.now();
+      const step = now => {
+        const dt = Math.min(2.5, (now - t0) / 16.667);
+        t0 = now;
+        vx -= K * x * dt; vy -= K * y * dt;
+        const damp = Math.pow(D, dt);
+        vx *= damp; vy *= damp;
+        x += vx * dt; y += vy * dt;
+        render();
+        if (Math.abs(x) + Math.abs(y) + Math.abs(vx) + Math.abs(vy) < 0.25) { finish(); return; }
+        raf = requestAnimationFrame(step);
+      };
+      raf = requestAnimationFrame(step);
+    };
+
+    tile.addEventListener('pointerdown', e => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      cancelAnimationFrame(raf);
+      dragging = true; pid = e.pointerId;
+      try { tile.setPointerCapture(pid); } catch (err) { /* pointer already gone */ }
+      render();
+      slot0 = slot.getBoundingClientRect();
+      px = e.clientX; py = e.clientY; startX = x; startY = y;
+      lastT = performance.now(); lastX = x; lastY = y; vx = vy = 0;
+      tile.classList.add('is-moving', 'is-dragging');
+      card.classList.add('dragged');
+    });
+
+    tile.addEventListener('pointermove', e => {
+      if (!dragging || e.pointerId !== pid) return;
+      // measure against the slot's live position so page scroll / sticky movement is accounted for
+      const s = slot.getBoundingClientRect();
+      x = startX + (e.clientX - px) - (s.left - slot0.left);
+      y = startY + (e.clientY - py) - (s.top - slot0.top);
+      const now = performance.now(), dt = Math.max(1, now - lastT);
+      vx = clamp(vx * 0.6 + ((x - lastX) / dt * 16.667) * 0.4, -60, 60);
+      vy = clamp(vy * 0.6 + ((y - lastY) / dt * 16.667) * 0.4, -60, 60);
+      lastT = now; lastX = x; lastY = y;
+      render();
+    });
+
+    const release = e => {
+      if (!dragging || (e && e.pointerId !== pid)) return;
+      dragging = false;
+      try { tile.releasePointerCapture(pid); } catch (err) { /* already released */ }
+      tile.classList.remove('is-dragging');
+      spring();
+    };
+    tile.addEventListener('pointerup', release);
+    tile.addEventListener('pointercancel', release);
+    tile.addEventListener('lostpointercapture', release);
+  });
+})();

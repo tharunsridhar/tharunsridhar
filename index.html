@@ -4,23 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tharun Sridhar · Full Stack Dev, AI Engineer</title>
-<meta name="description" content="Portfolio of Tharun Sridhar, Full Stack Developer and AI Engineer. React and TypeScript frontends, FastAPI and Node backends, and LLM-powered pipelines.">
+<meta name="description" content="Portfolio of Tharun Sridhar, AI Engineer and Full Stack Developer. React and TypeScript frontends, FastAPI and Node backends, and LLM-powered pipelines.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="canonical" href="https://tharunsridhar.github.io/tharunsridhar/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tharun Sridhar">
 <meta property="og:title" content="Tharun Sridhar · Full Stack Dev, AI Engineer">
-<meta property="og:description" content="Portfolio of Tharun Sridhar, Full Stack Developer and AI Engineer. React and TypeScript frontends, FastAPI and Node backends, and LLM-powered pipelines.">
+<meta property="og:description" content="Portfolio of Tharun Sridhar, AI Engineer and Full Stack Developer. React and TypeScript frontends, FastAPI and Node backends, and LLM-powered pipelines.">
 <meta property="og:url" content="https://tharunsridhar.github.io/tharunsridhar/">
 <meta property="og:image" content="https://tharunsridhar.github.io/tharunsridhar/assets/profile.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tharun Sridhar · Full Stack Dev, AI Engineer">
-<meta name="twitter:description" content="Portfolio of Tharun Sridhar, Full Stack Developer and AI Engineer. React and TypeScript frontends, FastAPI and Node backends, and LLM-powered pipelines.">
+<meta name="twitter:description" content="Portfolio of Tharun Sridhar, AI Engineer and Full Stack Developer. React and TypeScript frontends, FastAPI and Node backends, and LLM-powered pipelines.">
 <meta name="twitter:image" content="https://tharunsridhar.github.io/tharunsridhar/assets/profile.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script>try{var q=new URLSearchParams(location.search).get('palette');if(q)localStorage.setItem('palette',q);var p=localStorage.getItem('palette');if(p==='2'||p==='3'||p==='4')document.documentElement.setAttribute('data-palette',p);}catch(e){}</script>
-<link rel="stylesheet" href="css/style.css?v=19">
+<script>try{localStorage.removeItem('palette');var p=new URLSearchParams(location.search).get('palette');if(p==='2'||p==='3'||p==='4'||p==='5'||p==='6')document.documentElement.setAttribute('data-palette',p);}catch(e){}</script>
+<link rel="stylesheet" href="css/style.css?v=26">
 </head>
 <body>
 
@@ -67,14 +67,15 @@
         <p class="eyebrow">Hi, I&rsquo;m</p>
         <h1 class="hero-name">Tharun Sridhar<span class="accent">.</span></h1>
         <p class="hero-desc">
-          Full Stack Developer specializing in AI engineering. I build robust Python backends and
-          scalable JavaScript applications, from REST APIs and database integration to RAG pipelines
-          and LLM-powered automation. B.Tech Computer Science, VIT &rsquo;26.
+          Full stack developer building LLM-backed products, from REST APIs and databases to RAG pipelines
+          and agents. 12 pull requests merged into open-source repos, including AMD&rsquo;s gaia.
+          B.Tech CSE, VIT &rsquo;26.
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">View Projects</a>
           <a href="#contact" class="btn btn-ghost">Get in Touch</a>
         </div>
+        <div class="hero-proof" id="heroProof"></div>
         <div class="hero-social">
           <a href="mailto:tharunsridhar@gmail.com" aria-label="Email" title="Email">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6c0-1.1-.9-2-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6Zm-2 0-8 5-8-5"/></svg>
@@ -98,13 +99,11 @@
           <img src="assets/profile.png" alt="Tharun Sridhar" width="420" height="420" loading="eager">
         </div>
         <div class="badge-row">
-          <span class="badge-float badge-1">Full Stack Dev</span>
-          <span class="badge-float badge-2">AI Engineer</span>
-          <span class="badge-float badge-3">Python Backend</span>
+          <span class="badge-float badge-1 badge-live"><i class="live-dot"></i>Open to full-time roles &middot; 2026</span>
+          <span class="badge-float badge-2">Bengaluru, India</span>
         </div>
       </div>
     </div>
-    <a href="#about" class="scroll-cue" aria-label="Scroll down"><span></span></a>
   </section>
 
   <!-- ===== ABOUT ===== -->
@@ -115,29 +114,32 @@
       <div class="about-grid">
         <div class="about-text reveal">
           <p>
-            I&rsquo;m a <strong>Full Stack Developer</strong> with an interest in <strong>AI Engineering</strong>,
-            and a Computer Science graduate of <strong>Vellore Institute of Technology</strong> (B.Tech &rsquo;26).
-            I build complete web applications and REST APIs, and explore RAG pipelines and agentic AI systems.
+            I&rsquo;m a <strong>AI Engineer and Full Stack Developer</strong> (B.Tech CSE, <strong>VIT &rsquo;26</strong>) who builds
+            LLM-backed products end to end: <strong>React, TypeScript, Node.js/Express</strong> or <strong>Django and FastAPI</strong>
+            backends on <strong>PostgreSQL and Redis</strong>, plus <strong>RAG pipelines, tool-calling agents and MCP integrations</strong>
+            with LangGraph and ChromaDB.
           </p>
           <p>
-            On the web side, I build with <strong>React, TypeScript, Node.js/Express, and PostgreSQL</strong>, plus
-            Python backends in <strong>Django and FastAPI</strong>. My projects include a live local-services booking
-            platform with concurrency-safe slot booking, and an inventory management API deployed on AWS.
+            My projects are deployed and tested, not demos. <strong>FixItBro</strong> is a live booking platform that prevents double-booking
+            at three layers, backed by 62 automated tests. <strong>Inventra</strong> is an inventory API on AWS where
+            <strong>row-level locking</strong> fixed a race condition found in Locust load tests (16 lost units down to zero) and
+            <strong>Redis caching</strong> cut 9 queries to 1. <strong>Trailmark</strong>, my hackathon project, links every AI answer back to its source.
           </p>
           <p>
-            On the AI side, I build <strong>RAG pipelines, tool-calling agents, and MCP integrations</strong> with
-            LangGraph and ChromaDB. I like building systems that are practical, reliable, and deployable, from the
-            database to the UI.
+            I work as a <strong>collaborative teammate</strong> and open-source contributor: 12 PRs merged across 6 repos, including AMD&rsquo;s gaia.
+            <strong>Clear communication</strong>, careful <strong>code review</strong> and good <strong>documentation</strong> are part of every PR.
+            I take <strong>ownership</strong> of features from design to deployment, keep <strong>debugging</strong> until I find the root cause,
+            and build <strong>evaluation</strong> habits into AI work from the start, measuring quality with test sets instead of guessing.
           </p>
           <div class="about-facts">
             <div class="fact"><span class="fact-label">Education</span><span class="fact-value">B.Tech in Computer Science<br>Specialization in Information Security<br>VIT, Vellore &middot; 2022&ndash;2026 &middot; CGPA 8.0</span></div>
-            <div class="fact"><span class="fact-label">Extracurricular Activities</span><span class="fact-value">VIT TAM Club &amp; AI/ML Club, Member (2024&ndash;2025)<br>VIT Cycling Club, Core Member (2025&ndash;2026)</span></div>
+            <div class="fact"><span class="fact-label">Communication &amp; Collaboration</span><span class="fact-value">Team lead on 2 projects<br>12 PRs merged into other teams&rsquo; repos</span></div>
+            <div class="fact"><span class="fact-label">Extracurricular Activities</span><span class="fact-value">VIT TAM Club &amp; AI/ML Club<br><span class="fact-sub">Member, 2024&ndash;2025</span><br>VIT Cycling Club<br><span class="fact-sub">Core Member, 2025&ndash;2026</span></span></div>
             <div class="fact"><span class="fact-label">Based in</span><span class="fact-value">Bengaluru, India</span></div>
-            <div class="fact"><span class="fact-label">Status</span><span class="fact-value">Open to SDE &amp; AI Dev roles</span></div>
           </div>
         </div>
-        <div class="about-terminal reveal" aria-hidden="true">
-          <div class="terminal-window">
+        <div class="about-terminal reveal">
+          <div class="terminal-window" aria-hidden="true">
             <div class="terminal-bar">
               <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
               <span class="terminal-title">tharun@portfolio</span>
@@ -148,7 +150,7 @@
               <p><span class="prompt">$</span> cat status.txt</p>
               <p class="out">&gt; B.Tech CSE, VIT &rsquo;26 &middot; CGPA 8.0/10</p>
               <p class="out">&gt; Based in Bengaluru, India</p>
-              <p class="out">&gt; Open to SDE &amp; AI Dev roles</p>
+              <p class="out">&gt; Open to full-time roles &middot; 2026</p>
               <p><span class="prompt">$</span> ls -1 tracks/</p>
               <p class="out">full-stack-dev/</p>
               <p class="out">ai-engineering/</p>
@@ -157,6 +159,27 @@
               <p class="out accent">5&#9733; HackerRank &middot; 250+ LeetCode solved</p>
               <p><span class="prompt">$</span> <span class="cursor-blink">&#9608;</span></p>
             </div>
+          </div>
+          <div class="ai-tools">
+            <p class="ai-tools-label"><span class="live-dot" aria-hidden="true"></span>AI tools I work with<span class="ai-tools-hint">try dragging them</span></p>
+            <ul class="ai-tools-list">
+              <li class="ai-tool" style="--brand:#d97757;--d:0s">
+                <svg class="ai-tool-icon mascot" viewBox="0 0 16 10" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><g fill="#da7756"><rect x="2" y="0" width="12" height="8"/><rect x="0" y="4" width="2" height="2"/><rect x="14" y="4" width="2" height="2"/><rect x="3" y="8" width="1" height="2"/><rect x="5" y="8" width="1" height="2"/><rect x="10" y="8" width="1" height="2"/><rect x="12" y="8" width="1" height="2"/></g><rect class="mascot-eye" x="4" y="2" width="1" height="2"/><rect class="mascot-eye" x="11" y="2" width="1" height="2"/></svg>
+                <span class="ai-tool-name">Claude Code</span>
+              </li>
+              <li class="ai-tool" style="--brand:#8b7bff;--d:0.6s">
+                <svg class="ai-tool-icon copilot" viewBox="-1 -1 26 26" aria-hidden="true" focusable="false"><path fill="#fff" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" d="M23.922 16.997C23.061 18.492 18.063 22.02 12 22.02 5.937 22.02.939 18.492.078 16.997A.641.641 0 0 1 0 16.741v-2.869a.883.883 0 0 1 .053-.22c.372-.935 1.347-2.292 2.605-2.656.167-.429.414-1.055.644-1.517a10.098 10.098 0 0 1-.052-1.086c0-1.331.282-2.499 1.132-3.368.397-.406.89-.717 1.474-.952C7.255 2.937 9.248 1.98 11.978 1.98c2.731 0 4.767.957 6.166 2.093.584.235 1.077.546 1.474.952.85.869 1.132 2.037 1.132 3.368 0 .368-.014.733-.052 1.086.23.462.477 1.088.644 1.517 1.258.364 2.233 1.721 2.605 2.656a.841.841 0 0 1 .053.22v2.869a.641.641 0 0 1-.078.256Z"/><path fill="#000" d="M23.922 16.997C23.061 18.492 18.063 22.02 12 22.02 5.937 22.02.939 18.492.078 16.997A.641.641 0 0 1 0 16.741v-2.869a.883.883 0 0 1 .053-.22c.372-.935 1.347-2.292 2.605-2.656.167-.429.414-1.055.644-1.517a10.098 10.098 0 0 1-.052-1.086c0-1.331.282-2.499 1.132-3.368.397-.406.89-.717 1.474-.952C7.255 2.937 9.248 1.98 11.978 1.98c2.731 0 4.767.957 6.166 2.093.584.235 1.077.546 1.474.952.85.869 1.132 2.037 1.132 3.368 0 .368-.014.733-.052 1.086.23.462.477 1.088.644 1.517 1.258.364 2.233 1.721 2.605 2.656a.841.841 0 0 1 .053.22v2.869a.641.641 0 0 1-.078.256Zm-11.75-5.992h-.344a4.359 4.359 0 0 1-.355.508c-.77.947-1.918 1.492-3.508 1.492-1.725 0-2.989-.359-3.782-1.259a2.137 2.137 0 0 1-.085-.104L4 11.746v6.585c1.435.779 4.514 2.179 8 2.179 3.486 0 6.565-1.4 8-2.179v-6.585l-.098-.104s-.033.045-.085.104c-.793.9-2.057 1.259-3.782 1.259-1.59 0-2.738-.545-3.508-1.492a4.359 4.359 0 0 1-.355-.508Zm2.328 3.25c.549 0 1 .451 1 1v2c0 .549-.451 1-1 1-.549 0-1-.451-1-1v-2c0-.549.451-1 1-1Zm-5 0c.549 0 1 .451 1 1v2c0 .549-.451 1-1 1-.549 0-1-.451-1-1v-2c0-.549.451-1 1-1Zm3.313-6.185c.136 1.057.403 1.913.878 2.497.442.544 1.134.938 2.344.938 1.573 0 2.292-.337 2.657-.751.384-.435.558-1.15.558-2.361 0-1.14-.243-1.847-.705-2.319-.477-.488-1.319-.862-2.824-1.025-1.487-.161-2.192.138-2.533.529-.269.307-.437.808-.438 1.578v.021c0 .265.021.562.063.893Zm-1.626 0c.042-.331.063-.628.063-.894v-.02c-.001-.77-.169-1.271-.438-1.578-.341-.391-1.046-.69-2.533-.529-1.505.163-2.347.537-2.824 1.025-.462.472-.705 1.179-.705 2.319 0 1.211.175 1.926.558 2.361.365.414 1.084.751 2.657.751 1.21 0 1.902-.394 2.344-.938.475-.584.742-1.44.878-2.497Z"/></svg>
+                <span class="ai-tool-name">GitHub Copilot</span>
+              </li>
+              <li class="ai-tool" style="--brand:#38bdf8;--d:1.2s">
+                <svg class="ai-tool-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg>
+                <span class="ai-tool-name">Cursor</span>
+              </li>
+              <li class="ai-tool" style="--brand:#ea4b71;--d:1.8s">
+                <svg class="ai-tool-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.4737 5.6842c-1.1772 0-2.1663.8051-2.4468 1.8947h-2.8955c-1.235 0-2.289.893-2.492 2.111l-.1038.623a1.263 1.263 0 0 1-1.246 1.0555H11.289c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947s-2.1663.8051-2.4467 1.8947H4.973c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947C1.1311 9.4737 0 10.6047 0 12s1.131 2.5263 2.5263 2.5263c1.1772 0 2.1663-.8051 2.4468-1.8947h1.4223c.2804 1.0896 1.2696 1.8947 2.4467 1.8947 1.1772 0 2.1663-.8051 2.4468-1.8947h1.0008a1.263 1.263 0 0 1 1.2459 1.0555l.1038.623c.203 1.218 1.257 2.111 2.492 2.111h.3692c.2804 1.0895 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263c-1.1772 0-2.1664.805-2.4468 1.8947h-.3692a1.263 1.263 0 0 1-1.246-1.0555l-.1037-.623A2.52 2.52 0 0 0 13.9607 12a2.52 2.52 0 0 0 .821-1.4794l.1038-.623a1.263 1.263 0 0 1 1.2459-1.0555h2.8955c.2805 1.0896 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263m0 1.2632a1.263 1.263 0 0 1 1.2631 1.2631 1.263 1.263 0 0 1-1.2631 1.2632 1.263 1.263 0 0 1-1.2632-1.2632 1.263 1.263 0 0 1 1.2632-1.2631M2.5263 10.7368A1.263 1.263 0 0 1 3.7895 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 1.2632 12a1.263 1.263 0 0 1 1.2631-1.2632m6.3158 0A1.263 1.263 0 0 1 10.1053 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 7.579 12a1.263 1.263 0 0 1 1.2632-1.2632m10.1053 3.7895a1.263 1.263 0 0 1 1.2631 1.2632 1.263 1.263 0 0 1-1.2631 1.2631 1.263 1.263 0 0 1-1.2632-1.2631 1.263 1.263 0 0 1 1.2632-1.2632"/></svg>
+                <span class="ai-tool-name">n8n</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -169,15 +192,15 @@
       <p class="section-kicker reveal">02 &middot; Skills</p>
       <h2 class="section-title reveal">Technology I know</h2>
       <div class="skill-card skill-card-full reveal">
-        <div class="skill-lines">
-          <p class="skill-line"><span class="skill-line-label">Languages</span><span class="skill-line-value">Python, TypeScript, JavaScript, Java, SQL</span></p>
-          <p class="skill-line"><span class="skill-line-label">CS Fundamentals</span><span class="skill-line-value">Data Structures &amp; Algorithms, OOP, DBMS, Operating Systems, Computer Networks</span></p>
-          <p class="skill-line"><span class="skill-line-label">Backend</span><span class="skill-line-value">Django, Django REST Framework, FastAPI, Node.js, Express, REST API Design, JWT Auth &amp; RBAC, SQLAlchemy, Alembic, Celery, django-filter</span></p>
-          <p class="skill-line"><span class="skill-line-label">Frontend</span><span class="skill-line-value">React, TypeScript, HTML, CSS</span></p>
-          <p class="skill-line"><span class="skill-line-label">AI Engineering</span><span class="skill-line-value">LLM Integration (Gemini, Groq, OpenAI), Prompt Engineering, RAG (Hybrid Search, Reranking, ChromaDB), RAGAS, Agentic Tool-Calling, MCP, LangChain, LangGraph, Multi-Agent Frameworks (CrewAI, AutoGen, BeeAI)</span></p>
-          <p class="skill-line"><span class="skill-line-label">Databases</span><span class="skill-line-value">PostgreSQL, MySQL, SQLite, Redis, FAISS</span></p>
-          <p class="skill-line"><span class="skill-line-label">DevOps &amp; Cloud</span><span class="skill-line-value">Docker, GitHub Actions (CI/CD), AWS (EC2, ALB, VPC, IAM), Railway, Git, Linux</span></p>
-          <p class="skill-line"><span class="skill-line-label">Testing</span><span class="skill-line-value">pytest, pytest-django, Locust</span></p>
+                <div class="skill-rows">
+          <div class="skill-row"><span class="skill-row-label">Languages</span><div class="chips"><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">SQL</span><span class="chip">Java</span></div></div>
+          <div class="skill-row"><span class="skill-row-label">Backend</span><div class="chips"><span class="chip">FastAPI</span><span class="chip">Django &amp; DRF</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">REST APIs &amp; Third-party Integrations</span><span class="chip">Auth (JWT, RBAC, OAuth 2.0)</span><span class="chip">Async Programming</span><span class="chip">Concurrency Control (Row-Level Locking, Idempotent APIs)</span><span class="chip">Unit &amp; Integration Testing (Pytest, pytest-django, Vitest)</span><span class="chip">Load Testing (Locust)</span></div></div>
+          <div class="skill-row"><span class="skill-row-label">Databases</span><div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Redis</span><span class="chip">SQLite</span><span class="chip">ORMs (SQLAlchemy, Prisma)</span><span class="chip">Database Design &amp; Migrations</span></div></div>
+          <div class="skill-row"><span class="skill-row-label">Cloud &amp; DevOps</span><div class="chips"><span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Agile/Scrum</span></div></div>
+          <div class="skill-row"><span class="skill-row-label">AI Engineering</span><div class="chips"><span class="chip">Generative AI</span><span class="chip">LLM APIs</span><span class="chip">Prompt Engineering</span><span class="chip">Agentic Tool-Calling (Human-in-the-Loop)</span><span class="chip">RAG (Hybrid Search, Reranking)</span><span class="chip">Embeddings &amp; Vector Databases (ChromaDB, Pinecone)</span><span class="chip">Chunking &amp; Citations</span><span class="chip">Structured Outputs</span><span class="chip">MCP</span><span class="chip">LangChain</span><span class="chip">LlamaIndex</span><span class="chip">LangGraph</span><span class="chip">Multi-Agent Frameworks (CrewAI, AutoGen, BeeAI)</span><span class="chip">LLM Evaluation</span><span class="chip">Guardrails</span></div></div>
+          <div class="skill-row"><span class="skill-row-label">Machine Learning</span><div class="chips"><span class="chip">Machine Learning (scikit-learn)</span><span class="chip">Deep Learning (PyTorch, TensorFlow)</span><span class="chip">Hugging Face Model Work</span><span class="chip">LLM Fine-Tuning</span><span class="chip">Transfer Learning</span><span class="chip">NLP</span><span class="chip">Computer Vision</span></div></div>
+          <div class="skill-row"><span class="skill-row-label">AI Tools</span><div class="chips"><span class="chip">Claude Code</span><span class="chip">GitHub Copilot</span><span class="chip">Cursor</span><span class="chip">n8n (Workflow Automation)</span></div></div>
+          <div class="skill-row"><span class="skill-row-label">Frontend</span><div class="chips"><span class="chip">React</span><span class="chip">Angular</span><span class="chip">Next.js</span><span class="chip">HTML</span><span class="chip">CSS</span></div></div>
         </div>
       </div>
     </div>
@@ -200,8 +223,10 @@
     <div class="container">
       <p class="section-kicker reveal">04 &middot; Open Source Contributions</p>
       <h2 class="section-title reveal">Merged into main</h2>
-      <p class="section-sub reveal">Pull requests I&rsquo;ve had merged into other people&rsquo;s repos, working against real codebases and maintainers.</p>
-      <div class="accomplish-grid" id="ossGrid">
+      <p class="section-sub reveal">Pull requests accepted into other people&rsquo;s repos, plus the ones currently in review, working against real codebases and maintainers.</p>
+      <div class="oss-stats" id="ossStats"></div>
+      <button type="button" class="oss-toggle" id="ossToggle" aria-expanded="false" aria-controls="ossGrid">View details <span aria-hidden="true">&#9662;</span></button>
+      <div class="accomplish-grid" id="ossGrid" hidden>
         <!-- Open source contribution cards injected by js/script.js -->
       </div>
     </div>
@@ -300,6 +325,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=16"></script>
+<script src="js/script.js?v=18"></script>
 </body>
 </html>

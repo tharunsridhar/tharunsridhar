@@ -94,7 +94,7 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 - The LLM must quote sources word for word or the claim is discarded; a separate verifier call decides what counts as verified, and missing or conflicting facts are shown, never filled in
 - Role-based access enforced in the backend: summaries inherit their sources' restrictions and emails, phone numbers and secrets are redacted; 197 backend tests pass on SQLite and PostgreSQL, and the app is live on Vercel
 
-[GitHub](https://github.com/try2mastercode/Trailmark) &middot; [Live Demo](https://trailmark-seven.vercel.app/)
+[GitHub](https://github.com/tharunsridhar/Trailmark) &middot; [Live Demo](https://trailmark-seven.vercel.app/)
 
 ---
 
@@ -136,28 +136,27 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 - **[django-guardian/django-guardian](https://github.com/django-guardian/django-guardian)** &ndash; Fixed AUTO_PREFETCH permission bug for direct-permission models ([#1030](https://github.com/django-guardian/django-guardian/pull/1030))
 - **[drkrillo/good-first-issues](https://github.com/drkrillo/good-first-issues)** &ndash; CI smoke test for the action itself ([#172](https://github.com/drkrillo/good-first-issues/pull/172)), case-insensitive label drop ([#170](https://github.com/drkrillo/good-first-issues/pull/170)) and readable label rendering ([#167](https://github.com/drkrillo/good-first-issues/pull/167))
 - **[Ayorinha/ayorai-vision-intelligence](https://github.com/Ayorinha/ayorai-vision-intelligence)** &ndash; Restored corrupted CI workflow YAML ([#26](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/26)), execution tracing example ([#24](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/24)) and MCP least-privilege regression tests ([#23](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/23))
+- **[NexyPy/nexy](https://github.com/NexyPy/nexy)** &ndash; Added opt-in `/health/live` and `/health/ready` endpoints ([#351](https://github.com/NexyPy/nexy/pull/351))
+- **[amd/gaia](https://github.com/amd/gaia)** &ndash; Installed the `ui` extra in the CI guide workflows ([#6933](https://github.com/amd/gaia/pull/6933)), refused to index unreadable RAG documents ([#6978](https://github.com/amd/gaia/pull/6978)) and dropped dead links from the v0.25.2 release notes ([#7001](https://github.com/amd/gaia/pull/7001))
+- **[AnjalLLL/voxwire](https://github.com/AnjalLLL/voxwire)** &ndash; Replaced the deprecated `on_event` startup hook with a lifespan handler ([#19](https://github.com/AnjalLLL/voxwire/pull/19))
 
 ---
 
 ## Skills
 
-**Full Stack** &middot; JavaScript / TypeScript (React, Node.js, Express) on the web side, Python (Django, FastAPI) on the backend
+**Languages** &middot; Python, JavaScript, TypeScript
 
-**Languages** &middot; Python, TypeScript, JavaScript, Java, SQL
+**Backend** &middot; FastAPI, Django, Node.js, Express, REST APIs & Third-party Integrations, Auth (JWT, OAuth 2.0), Async Programming, Unit & Integration Testing (Pytest, Vitest)
+**Databases** &middot; MySQL, PostgreSQL, Redis, Database Design & Migrations
 
-**CS Fundamentals** &middot; Data Structures & Algorithms, OOP, DBMS, Operating Systems, Computer Networks
+**Cloud & DevOps** &middot; AWS, Docker, CI/CD
 
-**Backend** &middot; Django, Django REST Framework, FastAPI, Node.js, Express, REST API Design, JWT Auth & RBAC, SQLAlchemy, Alembic, Celery, django-filter
+**AI Engineering** &middot; LLM APIs, Prompt Engineering, Agentic Tool-Calling (Human-in-the-Loop), RAG (Hybrid Search, Reranking), Embeddings & Vector Databases (ChromaDB), Chunking & Citations, Structured Outputs, MCP, LangChain, LangGraph, Multi-Agent Frameworks (CrewAI, AutoGen), LLM Evaluation, Guardrails
+**Machine Learning** &middot; Machine Learning (scikit-learn), Deep Learning (TensorFlow), Transfer Learning, Computer Vision
 
-**Frontend** &middot; React, TypeScript, HTML, CSS
+**AI Tools** &middot; Claude Code, GitHub Copilot, n8n (Workflow Automation)
 
-**AI Engineering** &middot; LLM Integration (Gemini, Groq, OpenAI), Prompt Engineering, RAG (Hybrid Search, Reranking, ChromaDB), RAGAS, Agentic Tool-Calling, MCP, LangChain, LangGraph, Multi-Agent Frameworks (CrewAI, AutoGen, BeeAI)
-
-**Databases** &middot; PostgreSQL, MySQL, SQLite, Redis, FAISS
-
-**DevOps & Cloud** &middot; Docker, GitHub Actions (CI/CD), AWS (EC2, ALB, VPC, IAM), Railway, Git, Linux
-
-**Testing** &middot; pytest, pytest-django, Locust
+**Frontend** &middot; React, Next.js, HTML, CSS
 
 *Also on the [live portfolio site](https://tharunsridhar.github.io/tharunsridhar/).*
 
