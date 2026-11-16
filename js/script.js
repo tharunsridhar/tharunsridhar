@@ -666,6 +666,16 @@ const CERT_GROUPS = [
     ]
   },
   {
+    title: 'IBM Full-Stack JavaScript Developer Professional Certificate',
+    icon: CERT_ICON,
+    collapsible: true,
+    issuer: 'IBM · Coursera',
+    dateRange: 'In progress · Nov 2026',
+    items: [
+      { name: 'Introduction to Containers with Docker, Kubernetes & OpenShift', issuer: 'IBM · Coursera', date: 'Nov 2026', link: 'https://coursera.org/verify/M749VSA5P06S' }
+    ]
+  },
+  {
     title: 'AI Engineering',
     icon: CERT_ICON,
     collapsible: true,

@@ -166,6 +166,7 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 
 - AWS Solutions Architect Associate (SAA-C03) Specialization &ndash; Packt (Jul 2026)
 - IBM RAG and Agentic AI Professional Certificate &middot; IBM (Aug&ndash;Sep 2026)
+- IBM Full-Stack JavaScript Developer Professional Certificate (in progress) &middot; IBM &middot; Introduction to Containers with Docker, Kubernetes &amp; OpenShift completed Nov 2026
 - Artificial Intelligence (Credit Course) &middot; SmartBridge &times; Google for Developers (Jul 2025)
 
 ---
