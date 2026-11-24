@@ -184,13 +184,13 @@ const PROJECTS = [
     subtitle: 'Role-Based Inventory Management System',
     desc: [
       'Role-based inventory system (Admin / Manager / Employee) with JWT auth and an append-only stock ledger for a fully auditable history',
-      'Row-level locking fixed a race condition found in Locust load tests: 40 concurrent users lost 16 units of stock before, zero after',
-      'Redis-cached reports cut 9 queries to 1; Celery handles invoices, low-stock alerts, and nightly reconciliation; deployed on AWS'
+      'Row-level locking fixed a race condition found in Locust load tests: at 40 concurrent users, 138 to 195 stock updates per 20-second run were silently lost without it, zero with it',
+      'Redis-cached reports cut 9 queries to 1; Celery handles invoices, low-stock alerts, and nightly reconciliation; runs with one docker compose up'
     ],
     tags: ['Python Backend', 'Django', 'DRF', 'PostgreSQL', 'Redis', 'Celery', 'JWT'],
     links: [
       { label: 'GitHub', href: 'https://github.com/tharunsridhar/Inventra', icon: 'github' },
-      { label: 'Live Demo', href: 'http://inventra-alb-164557112.ap-south-1.elb.amazonaws.com/app', icon: 'external' }
+      { label: 'Demo Video', href: 'https://github.com/user-attachments/assets/b662dbb1-729b-4d87-910e-d0a41ebe60e7', icon: 'external' }
     ]
   },
   {
@@ -201,13 +201,13 @@ const PROJECTS = [
     subtitle: 'Local Services Booking Platform',
     desc: [
       'Local services booking platform with Customer / Provider / Admin roles and a booking state machine',
-      'Double-booking prevented at three layers, down to a PostgreSQL exclusion constraint; race tests fire 8 simultaneous requests and exactly one succeeds',
-      '62 automated tests, OpenAPI docs, and CI; live on Render'
+      'Double-booking prevented at three layers, down to a PostgreSQL exclusion constraint; load tests of 20, 50 and 100 simultaneous requests for one slot always produce exactly one booking',
+      '100 automated tests, OpenAPI docs, and CI with lint and typecheck'
     ],
     tags: ['Backend', 'Node.js', 'TypeScript', 'Express', 'PostgreSQL', 'Prisma', 'React'],
     links: [
       { label: 'GitHub', href: 'https://github.com/tharunsridhar/fixitbro', icon: 'github' },
-      { label: 'Live Demo', href: 'https://fixitbro.onrender.com', icon: 'external' }
+      { label: 'Demo Video', href: 'https://github.com/user-attachments/assets/fbc410c8-279d-4cde-8fc5-e45c4dee3a84', icon: 'external' }
     ]
   },
   {
@@ -478,7 +478,54 @@ const OSS_CONTRIBUTIONS = [
     url: 'https://github.com/django-guardian/django-guardian',
     desc: 'Per-object permissions for Django, widely used for fine-grained access control.',
     prs: [
-      { title: 'Fixed AUTO_PREFETCH permission bug for direct-permission models', number: 1030, url: 'https://github.com/django-guardian/django-guardian/pull/1030' }
+      { title: 'Fixed AUTO_PREFETCH permission bug for direct-permission models', number: 1030, url: 'https://github.com/django-guardian/django-guardian/pull/1030' },
+      { title: 'Fix GuardedInlineAdminMixin permission checks for the parent object', number: 1076, url: 'https://github.com/django-guardian/django-guardian/pull/1076', status: 'review' }
+    ]
+  },
+  {
+    repo: 'flisk-sh/flisk',
+    url: 'https://github.com/flisk-sh/flisk',
+    desc: 'A local runtime your AI coding agent can start, check and fix, with an MCP server that exposes health, logs and controls.',
+    prs: [
+      { title: 'Kept a service\'s output and stopped its whole process tree on Windows', number: 4754, url: 'https://github.com/flisk-sh/flisk/pull/4754' },
+      { title: 'LangGraph template with interrupt/resume, a Postgres checkpointer and an idempotent side effect', number: 4752, url: 'https://github.com/flisk-sh/flisk/pull/4752' },
+      { title: 'Qdrant MCP memory recipe, OpenAPI-to-MCP gateway entry and a policy example', number: 4751, url: 'https://github.com/flisk-sh/flisk/pull/4751' },
+      { title: 'MCP status and logs tools take unhealthy, and status takes stack', number: 4748, url: 'https://github.com/flisk-sh/flisk/pull/4748' }
+    ]
+  },
+  {
+    repo: 'Cygnux-Labs/Tracekit',
+    url: 'https://github.com/Cygnux-Labs/Tracekit',
+    desc: 'Records what AI agents do, gates each tool call before it runs, and keeps a signed, offline-verifiable trace.',
+    prs: [
+      { title: 'Persisted answered approval ids so a restart does not re-suggest', number: 1046, url: 'https://github.com/Cygnux-Labs/Tracekit/pull/1046' }
+    ]
+  },
+  {
+    repo: 'antiv/mate',
+    url: 'https://github.com/antiv/mate',
+    desc: 'Multi-agent orchestration engine built on Google ADK, with database-driven agent config, MCP and RBAC.',
+    prs: [
+      { title: 'LangGraph support for input_schema, output_schema and include_contents', number: 385, url: 'https://github.com/antiv/mate/pull/385' }
+    ]
+  },
+  {
+    repo: 'chunkhound/chunkhound',
+    url: 'https://github.com/chunkhound/chunkhound',
+    desc: 'Code-context search and MCP tooling for understanding an entire codebase.',
+    prs: [
+      { title: 'Made last_n_commits mean N commits, not N first-parents', number: 530, url: 'https://github.com/chunkhound/chunkhound/pull/530' },
+      { title: 'Documented that last_n_commits ranges can include extra merged-branch commits', number: 558, url: 'https://github.com/chunkhound/chunkhound/pull/558' },
+      { title: 'Added query_prefix and document_template for OpenAI-compatible embedding models', number: 559, url: 'https://github.com/chunkhound/chunkhound/pull/559', status: 'review' }
+    ]
+  },
+  {
+    repo: 'semantica-agi/semantica',
+    url: 'https://github.com/semantica-agi/semantica',
+    desc: 'Graph-native infrastructure for context and accountable AI systems, with an MCP server.',
+    prs: [
+      { title: 'Made abductive_reasoning accept strings and rules and return JSON', number: 2265, url: 'https://github.com/semantica-agi/semantica/pull/2265', status: 'review' },
+      { title: 'Made semantica://ontology/schema return the graph\'s schema', number: 2264, url: 'https://github.com/semantica-agi/semantica/pull/2264', status: 'review' }
     ]
   },
   {
@@ -514,6 +561,7 @@ const OSS_CONTRIBUTIONS = [
     url: 'https://github.com/amd/gaia',
     desc: 'AMD\'s open-source framework for building AI agents that run on your own PC.',
     prs: [
+      { title: 'Used a hub-only fixture skill in the skills lifecycle eval scenarios', number: 8541, url: 'https://github.com/amd/gaia/pull/8541' },
       { title: 'Installed the ui extra in the CI guide workflows', number: 6933, url: 'https://github.com/amd/gaia/pull/6933' },
       { title: 'Refused to index a RAG document whose bytes cannot be read for the cache key', number: 6978, url: 'https://github.com/amd/gaia/pull/6978' },
       { title: 'Dropped dead PR and contributor links from the v0.25.2 release notes', number: 7001, url: 'https://github.com/amd/gaia/pull/7001' }
@@ -525,7 +573,10 @@ const OSS_CONTRIBUTIONS = [
     desc: 'Self-hostable real-time voice AI calls over WebRTC and phone, with Gemini Live / OpenAI Realtime and tool calling.',
     prs: [
       { title: 'Replaced deprecated on_event startup hook with a lifespan handler', number: 19, url: 'https://github.com/AnjalLLL/voxwire/pull/19' },
-      { title: 'Added voxwire calls and voxwire usage CLI commands', number: 20, url: 'https://github.com/AnjalLLL/voxwire/pull/20', status: 'review' }
+      { title: 'Added voxwire calls and voxwire usage CLI commands', number: 20, url: 'https://github.com/AnjalLLL/voxwire/pull/20', status: 'review' },
+      { title: 'Skip the SFU EndSession call when the SFU never came up', number: 21, url: 'https://github.com/AnjalLLL/voxwire/pull/21', status: 'review' },
+      { title: 'Send a Twilio clear event when the caller interrupts the AI', number: 22, url: 'https://github.com/AnjalLLL/voxwire/pull/22', status: 'review' },
+      { title: 'Add status and channel filters to the dashboard calls table', number: 23, url: 'https://github.com/AnjalLLL/voxwire/pull/23', status: 'review' }
     ]
   },
   {
@@ -570,7 +621,11 @@ function renderOssStats() {
     'drkrillo/good-first-issues#167': 'fix', 'drkrillo/good-first-issues#170': 'fix', 'drkrillo/good-first-issues#172': 'ci',
     'Ayorinha/ayorai-vision-intelligence#23': 'tests', 'Ayorinha/ayorai-vision-intelligence#24': 'docs', 'Ayorinha/ayorai-vision-intelligence#26': 'ci',
     'amd/gaia#6933': 'docs', 'amd/gaia#7001': 'docs', 'amd/gaia#6978': 'fix',
-    'AnjalLLL/voxwire#19': 'refactor', 'NexyPy/nexy#351': 'feature'
+    'AnjalLLL/voxwire#19': 'refactor', 'NexyPy/nexy#351': 'feature',
+    'amd/gaia#8541': 'tests',
+    'flisk-sh/flisk#4754': 'fix', 'flisk-sh/flisk#4752': 'feature', 'flisk-sh/flisk#4751': 'feature', 'flisk-sh/flisk#4748': 'feature',
+    'Cygnux-Labs/Tracekit#1046': 'fix', 'antiv/mate#385': 'feature',
+    'chunkhound/chunkhound#530': 'fix', 'chunkhound/chunkhound#558': 'docs'
   };
   const TYPE_LABEL = { fix: 'Bug fixes', feature: 'Features', docs: 'Docs', ci: 'CI', tests: 'Tests', refactor: 'Refactor' };
   const typeCounts = Object.keys(TYPE_LABEL).map(t => ({ t, n: merged.filter(p => TYPE_OF[p.repo + '#' + p.number] === t).length })).filter(x => x.n);

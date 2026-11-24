@@ -47,10 +47,10 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 `Django` `DRF` `PostgreSQL` `Redis` `Celery` `JWT`
 
 - Role-based inventory system (Admin / Manager / Employee) with JWT auth and an append-only stock ledger for a fully auditable history
-- Row-level locking fixed a race condition found in Locust load tests: 40 concurrent users lost 16 units of stock before, zero after
-- Redis-cached reports cut 9 queries to 1; Celery handles invoices, low-stock alerts, and nightly reconciliation; deployed on AWS
+- Row-level locking fixed a race condition found in Locust load tests: at 40 concurrent users, 138 to 195 stock updates per 20-second run were silently lost without it, zero with it
+- Redis-cached reports cut 9 queries to 1; Celery handles invoices, low-stock alerts, and nightly reconciliation; runs with one docker compose up
 
-[GitHub](https://github.com/tharunsridhar/Inventra) &middot; [Live Demo](http://inventra-alb-164557112.ap-south-1.elb.amazonaws.com/app)
+[GitHub](https://github.com/tharunsridhar/Inventra) &middot; [Demo Video](https://github.com/user-attachments/assets/b662dbb1-729b-4d87-910e-d0a41ebe60e7)
 
 ---
 
@@ -58,10 +58,10 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 `Node.js` `TypeScript` `Express` `PostgreSQL` `Prisma` `React`
 
 - Local services booking platform with Customer / Provider / Admin roles and a booking state machine
-- Double-booking prevented at three layers, down to a PostgreSQL exclusion constraint; race tests fire 8 simultaneous requests and exactly one succeeds
-- 62 automated tests, OpenAPI docs, and CI; live on Render
+- Double-booking prevented at three layers, down to a PostgreSQL exclusion constraint; load tests of 20, 50 and 100 simultaneous requests for one slot always produce exactly one booking
+- 100 automated tests, OpenAPI docs, and CI with lint and typecheck
 
-[GitHub](https://github.com/tharunsridhar/fixitbro) &middot; [Live Demo](https://fixitbro.onrender.com)
+[GitHub](https://github.com/tharunsridhar/fixitbro) &middot; [Demo Video](https://github.com/user-attachments/assets/fbc410c8-279d-4cde-8fc5-e45c4dee3a84)
 
 ---
 
@@ -137,7 +137,11 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 - **[drkrillo/good-first-issues](https://github.com/drkrillo/good-first-issues)** &ndash; CI smoke test for the action itself ([#172](https://github.com/drkrillo/good-first-issues/pull/172)), case-insensitive label drop ([#170](https://github.com/drkrillo/good-first-issues/pull/170)) and readable label rendering ([#167](https://github.com/drkrillo/good-first-issues/pull/167))
 - **[Ayorinha/ayorai-vision-intelligence](https://github.com/Ayorinha/ayorai-vision-intelligence)** &ndash; Restored corrupted CI workflow YAML ([#26](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/26)), execution tracing example ([#24](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/24)) and MCP least-privilege regression tests ([#23](https://github.com/Ayorinha/ayorai-vision-intelligence/pull/23))
 - **[NexyPy/nexy](https://github.com/NexyPy/nexy)** &ndash; Added opt-in `/health/live` and `/health/ready` endpoints ([#351](https://github.com/NexyPy/nexy/pull/351))
-- **[amd/gaia](https://github.com/amd/gaia)** &ndash; Installed the `ui` extra in the CI guide workflows ([#6933](https://github.com/amd/gaia/pull/6933)), refused to index unreadable RAG documents ([#6978](https://github.com/amd/gaia/pull/6978)) and dropped dead links from the v0.25.2 release notes ([#7001](https://github.com/amd/gaia/pull/7001))
+- **[flisk-sh/flisk](https://github.com/flisk-sh/flisk)** &ndash; Windows process-tree shutdown fix ([#4754](https://github.com/flisk-sh/flisk/pull/4754)), LangGraph interrupt/resume template ([#4752](https://github.com/flisk-sh/flisk/pull/4752)), Qdrant MCP memory recipe ([#4751](https://github.com/flisk-sh/flisk/pull/4751)) and MCP status/logs filters ([#4748](https://github.com/flisk-sh/flisk/pull/4748))
+- **[Cygnux-Labs/Tracekit](https://github.com/Cygnux-Labs/Tracekit)** &ndash; Persisted answered approval ids so a restart does not re-suggest ([#1046](https://github.com/Cygnux-Labs/Tracekit/pull/1046))
+- **[antiv/mate](https://github.com/antiv/mate)** &ndash; LangGraph support for input_schema, output_schema and include_contents ([#385](https://github.com/antiv/mate/pull/385))
+- **[chunkhound/chunkhound](https://github.com/chunkhound/chunkhound)** &ndash; Fixed `last_n_commits` to mean N commits ([#530](https://github.com/chunkhound/chunkhound/pull/530)) and documented the merged-branch edge case ([#558](https://github.com/chunkhound/chunkhound/pull/558))
+- **[amd/gaia](https://github.com/amd/gaia)** &ndash; Used a hub-only fixture skill in the skills lifecycle eval scenarios ([#8541](https://github.com/amd/gaia/pull/8541)), installed the `ui` extra in the CI guide workflows ([#6933](https://github.com/amd/gaia/pull/6933)), refused to index unreadable RAG documents ([#6978](https://github.com/amd/gaia/pull/6978)) and dropped dead links from the v0.25.2 release notes ([#7001](https://github.com/amd/gaia/pull/7001))
 - **[AnjalLLL/voxwire](https://github.com/AnjalLLL/voxwire)** &ndash; Replaced the deprecated `on_event` startup hook with a lifespan handler ([#19](https://github.com/AnjalLLL/voxwire/pull/19))
 
 ---
@@ -154,7 +158,7 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 **AI Engineering** &middot; LLM APIs, Prompt Engineering, Agentic Tool-Calling (Human-in-the-Loop), RAG (Hybrid Search, Reranking), Embeddings & Vector Databases (ChromaDB), Chunking & Citations, Structured Outputs, MCP, LangChain, LangGraph, Multi-Agent Frameworks (CrewAI, AutoGen), LLM Evaluation, Guardrails
 **Machine Learning** &middot; Machine Learning (scikit-learn), Deep Learning (TensorFlow), Transfer Learning, Computer Vision
 
-**AI Tools** &middot; Claude Code, GitHub Copilot, n8n (Workflow Automation)
+**AI Tools** &middot; Claude Code, GitHub Copilot
 
 **Frontend** &middot; React, Next.js, HTML, CSS
 
