@@ -433,7 +433,7 @@ const HACKERRANK_BADGES = [
   { name: 'SQL', stars: 5 }
 ];
 
-const LEETCODE_STATS = { totalSolved: '250+' };
+const LEETCODE_STATS = { totalSolved: '300+' };
 
 function renderLeetcodeStats(stats) {
   return `
@@ -652,7 +652,7 @@ function renderOssStats() {
     </div>`;
   const star = '&#9733;';
   document.getElementById('heroProof').innerHTML = [
-    [merged.length, 'merged PRs'], ['5' + star, 'HackerRank'], ['250+', 'LeetCode']
+    [merged.length, 'merged PRs'], ['5' + star, 'HackerRank'], ['300+', 'LeetCode']
   ].map(([n, l]) => `<a class="proof-item" href="#open-source"><strong>${n}</strong><span>${l}</span></a>`).join('');
   const run = el => {
     const end = +el.dataset.count; const t0 = performance.now();
