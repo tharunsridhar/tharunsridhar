@@ -243,7 +243,7 @@ const PROJECTS = [
     visual: TRAILMARK_DIAGRAM,
     category: 'AI Engineering',
     role: ['Team Member', 'AI Dev', 'Backend Dev'],
-    subtitle: 'Evidence-Linked Knowledge Handover (WCC Forge 48 Hackathon)',
+    subtitle: 'Evidence-Linked Knowledge Handover',
     desc: [
       'When someone leaves a project, it reads authorised sources, finds gaps, asks the leaver targeted questions, and gives the incoming member a lead-approved handover where every statement links to its source',
       'The LLM must quote sources word for word or the claim is discarded; a separate verifier call decides what counts as verified, and missing or conflicting facts are shown, never filled in',

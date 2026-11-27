@@ -27,14 +27,13 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 
 - Bengaluru, India
 - I like building things that actually run: APIs, agentic pipelines, and concurrency-safe backends, not just notebooks
-- Comfortable going from model training and evaluation through to deployment and wiring the result into a real backend
 - Curious about secure system design: how systems fail in production, and how authorization and architecture choices prevent that
 
 ---
 
 ## Worked On
 
-- Full-stack web apps: React + TypeScript frontends on Node/Express and Django/FastAPI APIs, deployed live
+- Full-stack web apps: React + TypeScript frontends on Node/Express and Django/FastAPI APIs
 - REST APIs with FastAPI/Django, JWT auth, and relational data modeling
 - Concurrency-safe booking and inventory flows: row-level locking, exclusion constraints, idempotent writes
 - Agentic AI systems: MCP servers/clients, LangGraph tool-calling agents, human-in-the-loop workflows
@@ -87,7 +86,7 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 
 ---
 
-### Trailmark &middot; Evidence-Linked Knowledge Handover (WCC Forge 48 Hackathon)
+### Trailmark &middot; Evidence-Linked Knowledge Handover
 `FastAPI` `LLM Pipeline` `PostgreSQL` `Next.js` `Docker` `Pytest`
 
 - When someone leaves a project, it reads authorised sources, finds gaps, asks the leaver targeted questions, and gives the incoming member a lead-approved handover where every statement links to its source
@@ -150,7 +149,7 @@ Full Stack Developer specializing in AI engineering. I build robust Python backe
 
 **Languages** &middot; Python, JavaScript, TypeScript
 
-**Backend** &middot; FastAPI, Django, Node.js, Express, REST APIs & Third-party Integrations, Auth (JWT, OAuth 2.0), Async Programming, Unit & Integration Testing (Pytest, Vitest)
+**Backend** &middot; FastAPI, Django, Node.js, Express, REST APIs & Third-party Integrations, Auth (JWT, OAuth2 Password Flow), Async Programming, Unit & Integration Testing (Pytest, Vitest)
 **Databases** &middot; MySQL, PostgreSQL, Redis, Database Design & Migrations
 
 **Cloud & DevOps** &middot; AWS, Docker, CI/CD
