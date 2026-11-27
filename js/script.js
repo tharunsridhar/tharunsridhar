@@ -478,19 +478,7 @@ const OSS_CONTRIBUTIONS = [
     url: 'https://github.com/django-guardian/django-guardian',
     desc: 'Per-object permissions for Django, widely used for fine-grained access control.',
     prs: [
-      { title: 'Fixed AUTO_PREFETCH permission bug for direct-permission models', number: 1030, url: 'https://github.com/django-guardian/django-guardian/pull/1030' },
-      { title: 'Fix GuardedInlineAdminMixin permission checks for the parent object', number: 1076, url: 'https://github.com/django-guardian/django-guardian/pull/1076', status: 'review' }
-    ]
-  },
-  {
-    repo: 'flisk-sh/flisk',
-    url: 'https://github.com/flisk-sh/flisk',
-    desc: 'A local runtime your AI coding agent can start, check and fix, with an MCP server that exposes health, logs and controls.',
-    prs: [
-      { title: 'Kept a service\'s output and stopped its whole process tree on Windows', number: 4754, url: 'https://github.com/flisk-sh/flisk/pull/4754' },
-      { title: 'LangGraph template with interrupt/resume, a Postgres checkpointer and an idempotent side effect', number: 4752, url: 'https://github.com/flisk-sh/flisk/pull/4752' },
-      { title: 'Qdrant MCP memory recipe, OpenAPI-to-MCP gateway entry and a policy example', number: 4751, url: 'https://github.com/flisk-sh/flisk/pull/4751' },
-      { title: 'MCP status and logs tools take unhealthy, and status takes stack', number: 4748, url: 'https://github.com/flisk-sh/flisk/pull/4748' }
+      { title: 'Fixed AUTO_PREFETCH permission bug for direct-permission models', number: 1030, url: 'https://github.com/django-guardian/django-guardian/pull/1030' }
     ]
   },
   {
@@ -515,8 +503,7 @@ const OSS_CONTRIBUTIONS = [
     desc: 'Code-context search and MCP tooling for understanding an entire codebase.',
     prs: [
       { title: 'Made last_n_commits mean N commits, not N first-parents', number: 530, url: 'https://github.com/chunkhound/chunkhound/pull/530' },
-      { title: 'Documented that last_n_commits ranges can include extra merged-branch commits', number: 558, url: 'https://github.com/chunkhound/chunkhound/pull/558' },
-      { title: 'Added query_prefix and document_template for OpenAI-compatible embedding models', number: 559, url: 'https://github.com/chunkhound/chunkhound/pull/559', status: 'review' }
+      { title: 'Documented that last_n_commits ranges can include extra merged-branch commits', number: 558, url: 'https://github.com/chunkhound/chunkhound/pull/558' }
     ]
   },
   {
@@ -524,8 +511,7 @@ const OSS_CONTRIBUTIONS = [
     url: 'https://github.com/semantica-agi/semantica',
     desc: 'Graph-native infrastructure for context and accountable AI systems, with an MCP server.',
     prs: [
-      { title: 'Made abductive_reasoning accept strings and rules and return JSON', number: 2265, url: 'https://github.com/semantica-agi/semantica/pull/2265', status: 'review' },
-      { title: 'Made semantica://ontology/schema return the graph\'s schema', number: 2264, url: 'https://github.com/semantica-agi/semantica/pull/2264', status: 'review' }
+      { title: 'Made abductive_reasoning accept strings and rules and return JSON', number: 2265, url: 'https://github.com/semantica-agi/semantica/pull/2265' }
     ]
   },
   {
@@ -572,22 +558,10 @@ const OSS_CONTRIBUTIONS = [
     url: 'https://github.com/AnjalLLL/voxwire',
     desc: 'Self-hostable real-time voice AI calls over WebRTC and phone, with Gemini Live / OpenAI Realtime and tool calling.',
     prs: [
-      { title: 'Replaced deprecated on_event startup hook with a lifespan handler', number: 19, url: 'https://github.com/AnjalLLL/voxwire/pull/19' },
-      { title: 'Added voxwire calls and voxwire usage CLI commands', number: 20, url: 'https://github.com/AnjalLLL/voxwire/pull/20', status: 'review' },
-      { title: 'Skip the SFU EndSession call when the SFU never came up', number: 21, url: 'https://github.com/AnjalLLL/voxwire/pull/21', status: 'review' },
-      { title: 'Send a Twilio clear event when the caller interrupts the AI', number: 22, url: 'https://github.com/AnjalLLL/voxwire/pull/22', status: 'review' },
-      { title: 'Add status and channel filters to the dashboard calls table', number: 23, url: 'https://github.com/AnjalLLL/voxwire/pull/23', status: 'review' }
+      { title: 'Replaced deprecated on_event startup hook with a lifespan handler', number: 19, url: 'https://github.com/AnjalLLL/voxwire/pull/19' }
     ]
   },
-  {
-    repo: 'maziyarpanahi/openmed',
-    url: 'https://github.com/maziyarpanahi/openmed',
-    desc: 'Open-source toolkit for medical and clinical text, with an MCP server for AI agents.',
-    prs: [
-      { title: 'Restored placeholders split across streamed tool-call arguments', number: 5501, url: 'https://github.com/maziyarpanahi/openmed/pull/5501', status: 'review' },
-      { title: 'Added --list-tools to openmed-mcp', number: 5500, url: 'https://github.com/maziyarpanahi/openmed/pull/5500', status: 'review' }
-    ]
-  }
+
 ];
 
 function renderOssCard(c) {
@@ -623,9 +597,9 @@ function renderOssStats() {
     'amd/gaia#6933': 'docs', 'amd/gaia#7001': 'docs', 'amd/gaia#6978': 'fix',
     'AnjalLLL/voxwire#19': 'refactor', 'NexyPy/nexy#351': 'feature',
     'amd/gaia#8541': 'tests',
-    'flisk-sh/flisk#4754': 'fix', 'flisk-sh/flisk#4752': 'feature', 'flisk-sh/flisk#4751': 'feature', 'flisk-sh/flisk#4748': 'feature',
     'Cygnux-Labs/Tracekit#1046': 'fix', 'antiv/mate#385': 'feature',
-    'chunkhound/chunkhound#530': 'fix', 'chunkhound/chunkhound#558': 'docs'
+    'chunkhound/chunkhound#530': 'fix', 'chunkhound/chunkhound#558': 'docs',
+    'semantica-agi/semantica#2265': 'fix'
   };
   const TYPE_LABEL = { fix: 'Bug fixes', feature: 'Features', docs: 'Docs', ci: 'CI', tests: 'Tests', refactor: 'Refactor' };
   const typeCounts = Object.keys(TYPE_LABEL).map(t => ({ t, n: merged.filter(p => TYPE_OF[p.repo + '#' + p.number] === t).length })).filter(x => x.n);
@@ -646,9 +620,9 @@ function renderOssStats() {
     <div class="oss-hero oss-box oss-box-dots reveal">
       <div class="dots-legend">
         <span><i class="pr-dot"></i><b>${merged.length}</b> Merged</span>
-        <span><i class="pr-dot review"></i><b class="rv">${review.length}</b> In review</span>
+        ${review.length ? `<span><i class="pr-dot review"></i><b class="rv">${review.length}</b> In review</span>` : ''}
       </div>
-      <div class="pr-dots" aria-label="Every pull request, merged and in review">${dots}</div>
+      <div class="pr-dots" aria-label="Every merged pull request">${dots}</div>
     </div>`;
   const star = '&#9733;';
   document.getElementById('heroProof').innerHTML = [
